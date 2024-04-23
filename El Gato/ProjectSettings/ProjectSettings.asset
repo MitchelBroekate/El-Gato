@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: 4d4425da743a5734cb0390027813a857
+  productGUID: dc641a9fd9003a14a9e911c599e66f78
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: El Gato
+  productName: El gato
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -837,14 +837,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: El Gato
+  metroPackageName: El gato
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: El Gato
+  metroApplicationDescription: El gato
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -859,6 +859,7 @@ PlayerSettings:
   metroSplashScreenBackgroundColor: {r: 0.12941177, g: 0.17254902, b: 0.21568628,
     a: 1}
   metroSplashScreenUseBackgroundColor: 0
+  syncCapabilities: 0
   platformCapabilities: {}
   metroTargetDeviceFamilies: {}
   metroFTAName: 
@@ -913,10 +914,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: e6b6a9dc-046f-4772-ad02-bce785ee00be
+  cloudProjectId: 01f2ce44-fd77-4679-b1e5-bd6e9c097ca0
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: El Gato
+  projectName: El gato
   organizationId: expiredcode
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
