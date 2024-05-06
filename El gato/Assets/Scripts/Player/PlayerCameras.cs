@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Rendering.LookDev;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerCameras : MonoBehaviour
 {
@@ -16,13 +12,24 @@ public class PlayerCameras : MonoBehaviour
         {
             towerCam.SetActive(true);
             droneCam.SetActive(false);
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+
             buildCam = false;
+
+            Debug.Log("Switch");
         }
         else
         {
             droneCam.SetActive(true);
             towerCam.SetActive(false);
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
             buildCam = true;
+            Debug.Log("Switch");
         }
     }
 }
