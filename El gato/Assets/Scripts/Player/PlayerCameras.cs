@@ -3,9 +3,9 @@ using UnityEngine;
 public class PlayerCameras : MonoBehaviour
 {
     [SerializeField]
-    public GameObject droneCam, towerCam;
+    GameObject droneCam, towerCam;
 
-    bool buildCam = false;
+    public bool buildCam = false;
     public void SwitchCams()
     {
         if (buildCam == true)
