@@ -1,12 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GridPlacement : MonoBehaviour
 {
     PlayerCameras playerCameras;
     RaycastHit hit;
+    Ray ray;
+    Vector3 hitPos;
+    public Camera cam;
+
+    public GameObject cube;
 
     void Start()
     {
@@ -16,16 +19,25 @@ public class GridPlacement : MonoBehaviour
     private void Update()
     {
         GridBuilding();
+        ray = cam.ScreenPointToRay(Input.mousePosition);
     }
 
     void GridBuilding()
     {
         if (playerCameras.buildCam)
         {
-            if (Physics.Raycast(Input.mousePosition, Vector3.forward, out hit, 1000))
+            if (Physics.Raycast(ray, out hit, 1000))
             {
-
+                hitPos = hit.point;
             }
+        }
+    }
+
+    public void OnFire(InputAction.CallbackContext context)
+    {
+        if (playerCameras.buildCam)
+        {
+            Instantiate(cube, hitPos, Quaternion.identity);
         }
     }
 }

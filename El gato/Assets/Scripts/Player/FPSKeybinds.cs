@@ -62,9 +62,9 @@ public class FPSKeybinds : MonoBehaviour
         rb.velocity = transform.TransformDirection(playerV);
     }
 
-    void OnMove(InputValue value)
+    void OnMove()
     {
-        moveInput = value.Get<Vector2>();
+        
     }
     #endregion
 }
