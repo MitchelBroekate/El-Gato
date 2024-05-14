@@ -7,7 +7,7 @@ public class FPSKeybinds : MonoBehaviour
 {
     #region looking variables
     [SerializeField]
-    Transform cam;
+    Transform cam, body;
 
     [SerializeField]
     float mouseSens;
@@ -21,7 +21,11 @@ public class FPSKeybinds : MonoBehaviour
 
     Vector2 moveInput;
 
+    [SerializeField]
     Rigidbody rb;
+
+    [SerializeField]
+    PlayerCameras playerCameras;
     #endregion
 
     private void Start()
@@ -32,8 +36,7 @@ public class FPSKeybinds : MonoBehaviour
         mouseSens = 550f;
         #endregion
 
-        #region rigidbody and walkspeed
-        rb = GetComponent<Rigidbody>();
+        #region default walkspeed
         walkSpeed = 7f;
         #endregion
     }
@@ -48,7 +51,7 @@ public class FPSKeybinds : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
         cam.localRotation = Quaternion.Euler(xRotation,0 ,0);
-        transform.Rotate(Vector3.up * mouseX);
+        body.Rotate(Vector3.up * mouseX);
         #endregion
 
         #region execute walk void
@@ -60,12 +63,12 @@ public class FPSKeybinds : MonoBehaviour
     void Walk()
     {
         Vector3 playerV = new Vector3(moveInput.x * walkSpeed, rb.velocity.y, moveInput.y * walkSpeed);
-        rb.velocity = transform.TransformDirection(playerV);
+        rb.velocity = body.TransformDirection(playerV);
     }
 
     void OnMove(InputValue value)
     {
-        moveInput = value.Get<Vector2>();
+            moveInput = value.Get<Vector2>();
     }
     #endregion
 }

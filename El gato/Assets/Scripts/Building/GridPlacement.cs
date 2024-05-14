@@ -36,11 +36,11 @@ public class GridPlacement : MonoBehaviour
 
     public void OnFire(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && hit.collider != null)
         {
             if (playerCameras.buildCam)
             {
-                if (hit.transform.gameObject.tag == "ground" && hit.collider != null)
+                if (hit.transform.gameObject.tag == "ground")
                 {
                     Instantiate(cube, hitPos, Quaternion.identity);
                 }
