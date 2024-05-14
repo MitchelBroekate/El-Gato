@@ -4,11 +4,12 @@ using UnityEngine.InputSystem;
 public class GridPlacement : MonoBehaviour
 {
     PlayerCameras playerCameras;
+
     RaycastHit hit;
     Ray ray;
     Vector3 hitPos;
-    public Camera cam;
 
+    public Camera cam;
     public GameObject cube;
 
     void Start()
@@ -35,9 +36,15 @@ public class GridPlacement : MonoBehaviour
 
     public void OnFire(InputAction.CallbackContext context)
     {
-        if (playerCameras.buildCam)
+        if (context.performed)
         {
-            Instantiate(cube, hitPos, Quaternion.identity);
+            if (playerCameras.buildCam)
+            {
+                if (hit.transform.gameObject.tag == "ground" && hit.collider != null)
+                {
+                    Instantiate(cube, hitPos, Quaternion.identity);
+                }
+            }
         }
     }
 }

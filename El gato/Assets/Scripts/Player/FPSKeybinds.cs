@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.Rendering.DebugUI;
 
 
 public class FPSKeybinds : MonoBehaviour
@@ -62,9 +63,9 @@ public class FPSKeybinds : MonoBehaviour
         rb.velocity = transform.TransformDirection(playerV);
     }
 
-    void OnMove()
+    void OnMove(InputValue value)
     {
-        
+        moveInput = value.Get<Vector2>();
     }
     #endregion
 }
