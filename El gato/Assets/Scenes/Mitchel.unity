@@ -1281,6 +1281,7 @@ GameObject:
   - component: {fileID: 863769816}
   - component: {fileID: 863769820}
   - component: {fileID: 863769821}
+  - component: {fileID: 863769822}
   m_Layer: 0
   m_Name: TowerPlayer
   m_TagString: Untagged
@@ -1409,6 +1410,22 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 18383091}
+--- !u!114 &863769822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863769815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e4f04f1b574beb4c8791eebaafe02ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 18383088}
+  mouseSens: 550
+  walkSpeed: 7
+  rb: {fileID: 863769820}
 --- !u!1 &874092042
 GameObject:
   m_ObjectHideFlags: 0
@@ -1946,7 +1963,6 @@ GameObject:
   - component: {fileID: 1773980929}
   - component: {fileID: 1773980928}
   - component: {fileID: 1773980931}
-  - component: {fileID: 1773980932}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -2065,24 +2081,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 330585545}
   cube: {fileID: 7527224584001562987, guid: 64c22eff56be3dd41a27230d2abd412e, type: 3}
---- !u!114 &1773980932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1773980927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e4f04f1b574beb4c8791eebaafe02ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 18383088}
-  body: {fileID: 863769818}
-  mouseSens: 550
-  walkSpeed: 7
-  rb: {fileID: 863769820}
-  playerCameras: {fileID: 1773980928}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

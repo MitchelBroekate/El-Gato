@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.Rendering.DebugUI;
@@ -7,10 +8,12 @@ public class FPSKeybinds : MonoBehaviour
 {
     #region looking variables
     [SerializeField]
-    Transform cam, body;
+    Transform cam;
 
     [SerializeField]
     float mouseSens;
+
+    bool canMove = true;
 
     float xRotation = 0f;
     #endregion
@@ -19,13 +22,8 @@ public class FPSKeybinds : MonoBehaviour
     [SerializeField]
     float walkSpeed;
 
-    Vector2 moveInput;
-
     [SerializeField]
     Rigidbody rb;
-
-    [SerializeField]
-    PlayerCameras playerCameras;
     #endregion
 
     private void Start()
@@ -41,34 +39,44 @@ public class FPSKeybinds : MonoBehaviour
         #endregion
     }
 
-    private void Update()
+    private void UpdateScript()
     {
-        #region looking x and y axis
-        float mouseX = Input.GetAxis("Mouse X") * mouseSens * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSens * Time.deltaTime;
-        
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        if (canMove)
+        {
+            #region looking x and y axis
+            float mouseX = Input.GetAxis("Mouse X") * mouseSens * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSens * Time.deltaTime;
 
-        cam.localRotation = Quaternion.Euler(xRotation,0 ,0);
-        body.Rotate(Vector3.up * mouseX);
-        #endregion
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        #region execute walk void
-        Walk();
-        #endregion
+            cam.localRotation = Quaternion.Euler(xRotation, 0, 0);
+            transform.Rotate(Vector3.up * mouseX);
+            #endregion
+
+            #region execute walk void
+            #endregion
+        }
     }
 
     #region void walk for adding velocity when pressing wasd and onmove for getting the wasd input
-    void Walk()
-    {
-        Vector3 playerV = new Vector3(moveInput.x * walkSpeed, rb.velocity.y, moveInput.y * walkSpeed);
-        rb.velocity = body.TransformDirection(playerV);
-    }
 
+    public void EnableInput(bool enabled)
+    {
+        canMove = enabled;
+        if (!canMove)
+        {
+            rb.velocity = Vector3.zero;
+        }
+    }
     void OnMove(InputValue value)
     {
-            moveInput = value.Get<Vector2>();
+        Walk(value.Get<Vector2>());
+    }
+    void Walk(Vector2 input)
+    {
+        Vector3 playerV = new Vector3(input.x * walkSpeed, rb.velocity.y, input.y * walkSpeed);
+        rb.velocity = transform.TransformDirection(playerV);
     }
     #endregion
 }

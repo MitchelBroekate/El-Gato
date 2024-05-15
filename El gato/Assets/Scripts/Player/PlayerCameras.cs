@@ -9,32 +9,27 @@ public class PlayerCameras : MonoBehaviour
     public bool buildCam = false;
     #endregion
 
+    private void Update()
+    {
+        
+    }
+
+    //Function for switching between top and FPS camera
     public void SwitchCams()
     {
-        #region if statement and else for functionalitie when camera switch button is pressed
-        if (buildCam == true)
-        {
-            towerCam.SetActive(true);
-            droneCam.SetActive(false);
-
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-
-            buildCam = false;
-
-            Debug.Log("Switch");
+        towerCam.GetComponent<FPSKeybinds>().EnableInput(buildCam);
+            
+        if (buildCam == true) {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
         else
         {
-            droneCam.SetActive(true);
-            towerCam.SetActive(false);
-
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-
-            buildCam = true;
-            Debug.Log("Switch");
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
-        #endregion
+        buildCam = !buildCam;
+
+        Debug.Log("Switch");
     }
 }
