@@ -18,7 +18,8 @@ public class PlayerCameras : MonoBehaviour
     public void SwitchCams()
     {
         towerCam.GetComponent<FPSKeybinds>().EnableInput(buildCam);
-            
+            //droneCam.SetActive(buildCam);
+            //towerCam.SetActive(!buildCam);
         if (buildCam == true) {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
