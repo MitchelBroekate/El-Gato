@@ -12,9 +12,13 @@ public class BuildState : PlayerState
     [SerializeField]
     Camera camBuild;
 
-    public GameObject canvasShop;
+    [SerializeField]
+    GameObject canvasShop;
 
     public GameObject CurrentTowerToPlace;
+
+    [SerializeField]
+    BuildingShop BuildingShop;
 
     public override void DoUpdate()
     {
@@ -51,12 +55,37 @@ public class BuildState : PlayerState
     public void OnFire(InputAction.CallbackContext context)
     {
 
+        if (context.performed && hit.collider != null && CurrentTowerToPlace != null)
+        {
+            if (hit.transform.gameObject.tag == "ground")
+            {
+                Instantiate(CurrentTowerToPlace, hitPos, Quaternion.identity);
+
+                CurrentTowerToPlace = null;
+            }
+
+
+        }
+
         if (context.performed && hit.collider != null)
         {
-                if (hit.transform.gameObject.tag == "ground")
+            if (BuildingShop.SellModeSwitch)
+            {
+                if (hit.transform.gameObject.tag == "potato")
                 {
-                    Instantiate(CurrentTowerToPlace, hitPos, Quaternion.identity);
+                    Destroy(hit.transform.gameObject);
                 }
+
+                if (hit.transform.gameObject.tag == "egg")
+                {
+                    Destroy(hit.transform.gameObject);
+                }
+
+                if (hit.transform.gameObject.tag == "corn")
+                {
+                    Destroy(hit.transform.gameObject);
+                }
+            }
         }
     }
 }

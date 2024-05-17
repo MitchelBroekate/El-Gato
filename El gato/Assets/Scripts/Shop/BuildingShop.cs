@@ -8,6 +8,8 @@ public class BuildingShop : MonoBehaviour
 
     [SerializeField]
     GameObject potatoT, CornT, eggT;
+
+    public bool SellModeSwitch = false;
     #endregion
 
     /// <summary>
@@ -78,5 +80,12 @@ public class BuildingShop : MonoBehaviour
         TowerToShow = TowerIndicators.Tower3;
 
         TowerTypeIndicator();
+    }
+
+    public void TowerSellMode()
+    {
+        buildState.CurrentTowerToPlace = null;
+
+        SellModeSwitch = !SellModeSwitch;
     }
 }
