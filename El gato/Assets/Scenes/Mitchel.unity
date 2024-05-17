@@ -1364,7 +1364,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 330585546}
   camBuild: {fileID: 330585545}
-  cube: {fileID: 7527224584001562987, guid: 64c22eff56be3dd41a27230d2abd412e, type: 3}
+  canvasShop: {fileID: 1579166641}
+  CurrentTowerToPlace: {fileID: 0}
 --- !u!1 &444762606
 GameObject:
   m_ObjectHideFlags: 0
@@ -2971,6 +2972,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f0fa6fe20e741c40a24b2e3bd4f9343, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildState: {fileID: 410688206}
+  potatoT: {fileID: 7527224584001562987, guid: 64c22eff56be3dd41a27230d2abd412e, type: 3}
+  CornT: {fileID: 7527224584001562987, guid: 1987a3a6a3437fa409071ba37bc096aa, type: 3}
+  eggT: {fileID: 7527224584001562987, guid: b79daaf68db8e33439055a55307e9079, type: 3}
   TowerToShow: 0
 --- !u!1 &1865455749
 GameObject:

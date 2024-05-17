@@ -12,7 +12,9 @@ public class BuildState : PlayerState
     [SerializeField]
     Camera camBuild;
 
-    public GameObject cube;
+    public GameObject canvasShop;
+
+    public GameObject CurrentTowerToPlace;
 
     public override void DoUpdate()
     {
@@ -26,11 +28,15 @@ public class BuildState : PlayerState
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        canvasShop.SetActive(true);
     }
 
     public override void DisableState()
     {
         base.DisableState();
+
+        canvasShop.SetActive(false);
     }
 
 
@@ -44,13 +50,12 @@ public class BuildState : PlayerState
 
     public void OnFire(InputAction.CallbackContext context)
     {
-        Debug.Log("Why cant i instantiate");
 
         if (context.performed && hit.collider != null)
         {
                 if (hit.transform.gameObject.tag == "ground")
                 {
-                    Instantiate(cube, hitPos, Quaternion.identity);
+                    Instantiate(CurrentTowerToPlace, hitPos, Quaternion.identity);
                 }
         }
     }
