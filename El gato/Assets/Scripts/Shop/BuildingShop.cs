@@ -7,9 +7,18 @@ public class BuildingShop : MonoBehaviour
     BuildState buildState;
 
     [SerializeField]
-    GameObject potatoT, CornT, eggT;
+    GameObject potatoT, cornT, eggT;
 
     public bool SellModeSwitch = false;
+
+    public Transform towerHidePlace;
+
+    public GameObject towershowP, towershowC, towershowE;
+
+    public bool showP, showC, showE;
+
+    public GameObject showObject;
+
     #endregion
 
     /// <summary>
@@ -46,7 +55,7 @@ public class BuildingShop : MonoBehaviour
             case TowerIndicators.Tower3:
                 Debug.Log("Tower3");
 
-                buildState.CurrentTowerToPlace = CornT;
+                buildState.CurrentTowerToPlace = cornT;
 
                 break;
         }
@@ -57,7 +66,13 @@ public class BuildingShop : MonoBehaviour
     /// </summary>
     public void TowerButton1()
     {
+        if (showObject != null)
+        {
+            Destroy(showObject);
+        }
         TowerToShow = TowerIndicators.Tower1;
+        showP = true;
+        showObject = Instantiate(towershowP, buildState.hitPos, Quaternion.identity);
 
         TowerTypeIndicator();
     }
@@ -67,7 +82,13 @@ public class BuildingShop : MonoBehaviour
     /// </summary>
     public void TowerButton2()
     {
+        if (showObject != null)
+        {
+            Destroy(showObject);
+        }
         TowerToShow = TowerIndicators.Tower2;
+        showE = true;
+        showObject = Instantiate(towershowE, buildState.hitPos, Quaternion.identity);
 
         TowerTypeIndicator();
     }
@@ -77,7 +98,13 @@ public class BuildingShop : MonoBehaviour
     /// </summary>
     public void TowerButton3()
     {
+        if (showObject != null)
+        {
+            Destroy(showObject);
+        }
         TowerToShow = TowerIndicators.Tower3;
+        showC = true;
+        showObject = Instantiate(towershowC, buildState.hitPos, Quaternion.identity);
 
         TowerTypeIndicator();
     }

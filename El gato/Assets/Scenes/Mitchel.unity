@@ -495,6 +495,7 @@ GameObject:
   - component: {fileID: 67519019}
   - component: {fileID: 67519018}
   - component: {fileID: 67519017}
+  - component: {fileID: 67519021}
   m_Layer: 0
   m_Name: ground
   m_TagString: ground
@@ -589,6 +590,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!156049354 &67519021
+Grid:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67519016}
+  m_Enabled: 1
+  m_CellSize: {x: 1, y: 1, z: 1}
+  m_CellGap: {x: 0, y: 0, z: 0}
+  m_CellLayout: 0
+  m_CellSwizzle: 0
 --- !u!1 &81195484
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,6 +665,37 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &103680355
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 103680356}
+  m_Layer: 0
+  m_Name: TowerHide
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &103680356
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103680355}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -15.2040825, y: -18.623743, z: -8.160247}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1376,6 +1420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 330585546}
+  hitPos: {x: 0, y: 0, z: 0}
   camBuild: {fileID: 330585545}
   canvasShop: {fileID: 1579166641}
   CurrentTowerToPlace: {fileID: 0}
@@ -2546,9 +2591,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildState: {fileID: 410688206}
   potatoT: {fileID: 7527224584001562987, guid: 64c22eff56be3dd41a27230d2abd412e, type: 3}
-  CornT: {fileID: 7527224584001562987, guid: 1987a3a6a3437fa409071ba37bc096aa, type: 3}
+  cornT: {fileID: 7527224584001562987, guid: 1987a3a6a3437fa409071ba37bc096aa, type: 3}
   eggT: {fileID: 7527224584001562987, guid: b79daaf68db8e33439055a55307e9079, type: 3}
   SellModeSwitch: 0
+  towerHidePlace: {fileID: 103680356}
+  towershowP: {fileID: 7527224584001562987, guid: 545434d33ea504b42b632c55461450d1,
+    type: 3}
+  towershowC: {fileID: 7527224584001562987, guid: 974133e42d78889498b38dba6ec7a1cd,
+    type: 3}
+  towershowE: {fileID: 7527224584001562987, guid: 5d396c5d502082f4eb1415c3d64b4a46,
+    type: 3}
+  showP: 0
+  showC: 0
+  showE: 0
+  showObject: {fileID: 0}
   TowerToShow: 0
 --- !u!1 &1796208803
 GameObject:
@@ -2823,10 +2879,11 @@ SceneRoots:
   m_Roots:
   - {fileID: 81195487}
   - {fileID: 444762607}
+  - {fileID: 376605114}
   - {fileID: 1773980930}
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 67519020}
   - {fileID: 820462078}
   - {fileID: 1579166645}
-  - {fileID: 376605114}
+  - {fileID: 103680356}
