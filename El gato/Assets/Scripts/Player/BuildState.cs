@@ -96,7 +96,7 @@ public class BuildState : PlayerState
         }
         if (hit.collider != null && BuildingShop.showObject != null)
         {
-            if (hit.transform.gameObject.tag == "ground")
+            if (!BuildingShop.showObject.GetComponent<PlacementShow>().cantPlace)
             {
                 BuildingShop.showObject.GetComponent<Renderer>().material.color = checkgreen;
             }
