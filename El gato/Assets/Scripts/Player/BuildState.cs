@@ -27,7 +27,7 @@ public class BuildState : PlayerState
     [SerializeField]
     Grid grid;
     [SerializeField]
-    GameObject gridIndicator;
+    GameObject gridIndicator, gridPlane;
     #endregion
 
     private void Start()
@@ -48,6 +48,9 @@ public class BuildState : PlayerState
     {
         base.EnableState();
 
+        gridIndicator.SetActive(true);
+        gridPlane.SetActive(true);
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
@@ -57,6 +60,9 @@ public class BuildState : PlayerState
     public override void DisableState()
     {
         base.DisableState();
+
+        gridIndicator.SetActive(false);
+        gridPlane.SetActive(false);
 
         canvasShop.SetActive(false);
     }
