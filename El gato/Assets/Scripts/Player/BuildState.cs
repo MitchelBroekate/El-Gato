@@ -28,6 +28,8 @@ public class BuildState : PlayerState
     Grid grid;
     [SerializeField]
     GameObject gridIndicator, gridPlane;
+
+    Vector3Int gridposition;
     #endregion
 
     private void Start()
@@ -82,7 +84,7 @@ public class BuildState : PlayerState
     {
         if (BuildingShop.showP || BuildingShop.showC || BuildingShop.showE)
         {
-            BuildingShop.showObject.transform.position = hitPos;
+            BuildingShop.showObject.transform.position = grid.CellToWorld(gridposition);
         }
         else
         {
@@ -111,19 +113,16 @@ public class BuildState : PlayerState
 
         if (context.performed && hit.collider != null && CurrentTowerToPlace != null)
         {
-            if (hit.transform.gameObject.tag == "ground")
+            if (BuildingShop.showObject != null)
             {
-                if (BuildingShop.showObject != null)
-                {
-                    BuildingShop.showP = false;
-                    BuildingShop.showC = false;
-                    BuildingShop.showE = false;
-                }
-
-                Instantiate(CurrentTowerToPlace, hitPos, Quaternion.identity);
-
-                CurrentTowerToPlace = null;
+                BuildingShop.showP = false;
+                BuildingShop.showC = false;
+                BuildingShop.showE = false;
             }
+
+            Instantiate(CurrentTowerToPlace, grid.CellToWorld(gridposition), Quaternion.identity);
+
+            CurrentTowerToPlace = null;
         }
 
         if (context.performed && hit.collider != null)
@@ -150,7 +149,7 @@ public class BuildState : PlayerState
 
     void GridSelection()
     {
-        Vector3Int gridposition = grid.WorldToCell(hitPos);
+        gridposition = grid.WorldToCell(hitPos);
         gridIndicator.transform.position = grid.CellToWorld(gridposition);
     }
 }
