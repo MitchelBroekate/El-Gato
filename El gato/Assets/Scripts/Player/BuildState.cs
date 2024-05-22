@@ -23,6 +23,11 @@ public class BuildState : PlayerState
 
     Color checkgreen;
     Color checkRed;
+
+    [SerializeField]
+    Grid grid;
+    [SerializeField]
+    GameObject gridIndicator;
     #endregion
 
     private void Start()
@@ -36,6 +41,7 @@ public class BuildState : PlayerState
         GridBuilding();
         ray = camBuild.ScreenPointToRay(Input.mousePosition);
         ShowWhatToPlace();
+        GridSelection();
     }
 
     public override void EnableState()
@@ -134,5 +140,11 @@ public class BuildState : PlayerState
                 }
             }
         }
+    }
+
+    void GridSelection()
+    {
+        Vector3Int gridposition = grid.WorldToCell(hitPos);
+        gridIndicator.transform.position = grid.CellToWorld(gridposition);
     }
 }
