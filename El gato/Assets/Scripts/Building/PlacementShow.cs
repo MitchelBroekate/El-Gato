@@ -9,9 +9,11 @@ public class PlacementShow : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         cantPlace = true;
+        Debug.Log("Can't place");
     }
     private void OnCollisionExit(Collision collision)
     {
         cantPlace = false;
+        Debug.Log("Can place");
     }
 }
