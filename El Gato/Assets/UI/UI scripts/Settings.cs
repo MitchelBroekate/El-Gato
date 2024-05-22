@@ -22,8 +22,8 @@ public class Settings : MonoBehaviour
 
     public void Start()
     {
-       // musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 1f);
-        //sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume", 1f);
+        musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 1f);
+        sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume", 1f);
 
 
         resolutions = Screen.resolutions;
