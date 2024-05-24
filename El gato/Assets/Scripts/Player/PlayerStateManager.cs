@@ -1,11 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerStateManager : MonoBehaviour
 {
+    #region Variables
     public PlayerState[] playerStates;
     public int activeState;
+    #endregion
 
     //this start only hides and locks the cursor
     private void Start()

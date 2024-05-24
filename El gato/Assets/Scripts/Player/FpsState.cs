@@ -17,6 +17,7 @@ public class FpsState : PlayerState
     Rigidbody rb;
     #endregion
 
+    //Sets the movement for the camera, sets the clamp for the camera movement and updates the Walk function
     public override void DoUpdate()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSens * Time.deltaTime;
@@ -31,6 +32,7 @@ public class FpsState : PlayerState
         Walk();
     }
 
+    //sets the cursor mode for the fps state
     public override void EnableState()
     {
         base.EnableState();
@@ -39,6 +41,7 @@ public class FpsState : PlayerState
         Cursor.visible = false;
     }
 
+    //Stops the velocity for when you switch back to this state
     public override void DisableState()
     {
         base.DisableState();

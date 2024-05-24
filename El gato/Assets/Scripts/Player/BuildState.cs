@@ -32,12 +32,14 @@ public class BuildState : PlayerState
     Vector3Int gridposition;
     #endregion
 
+    //Start to set the colors for placeable check
     private void Start()
     {
         checkgreen = new Color(0, 1, 0, 0.6f);
         checkRed = new Color(1, 0, 0, 0.6f);
     }
 
+    //Updates the corresponding functions and sets the var ray to the mouse position
     public override void DoUpdate()
     {
         GridBuilding();
@@ -46,6 +48,7 @@ public class BuildState : PlayerState
         GridSelection();
     }
 
+    //Sets the building mode active with indicators, the grid and the cursor state
     public override void EnableState()
     {
         base.EnableState();
@@ -59,6 +62,7 @@ public class BuildState : PlayerState
         canvasShop.SetActive(true);
     }
 
+    //Sets the building mode inactive with indicators, the grid and the cursor state
     public override void DisableState()
     {
         base.DisableState();
@@ -69,7 +73,9 @@ public class BuildState : PlayerState
         canvasShop.SetActive(false);
     }
 
-
+    /// <summary>
+    /// Makes a raycast with a position for the placement of the towers
+    /// </summary>
     void GridBuilding()
     {
             if (Physics.Raycast(ray, out hit, 1000))
@@ -77,6 +83,7 @@ public class BuildState : PlayerState
                 hitPos = hit.point;
             }
     }
+
     /// <summary>
     /// Function that checks when to show the towers for the placement check
     /// </summary>
@@ -94,23 +101,27 @@ public class BuildState : PlayerState
             }
 
         }
-        //if (hit.collider != null && BuildingShop.showObject != null)
-        //{
-        //    if ()
-        //    {
-        //        BuildingShop.showObject.GetComponent<Renderer>().material.color = checkgreen;
-        //    }
-        //    else
-        //    {
-        //        BuildingShop.showObject.GetComponent<Renderer>().material.color = checkRed;
-        //    }
-        //}
+        if (hit.collider != null && BuildingShop.showObject != null)
+        {
+            if (!BuildingShop.showObject.GetComponent<PlacementSys>().cantplace)
+            {
+                BuildingShop.showObject.GetComponent<Renderer>().material.color = checkgreen;
+            }
+            else
+            {
+                BuildingShop.showObject.GetComponent<Renderer>().material.color = checkRed;
+            }
+        }
     }
 
+    /// <summary>
+    /// When the corresponding button is pressed this function will try to instantiate a tower or in sell mode, deletes the tower
+    /// </summary>
+    /// <param name="context"></param>
     public void OnFire(InputAction.CallbackContext context)
     {
 
-        if (context.performed && hit.collider != null && CurrentTowerToPlace != null)
+        if (context.performed && hit.collider != null && CurrentTowerToPlace != null && !BuildingShop.showObject.GetComponent<PlacementSys>().cantplace)
         {
             if (BuildingShop.showObject != null)
             {
@@ -146,6 +157,9 @@ public class BuildState : PlayerState
         }
     }
 
+    /// <summary>
+    /// Sets the tower indicator and the grid indicator to the correct grid for placement
+    /// </summary>
     void GridSelection()
     {
         gridposition = grid.WorldToCell(hitPos);

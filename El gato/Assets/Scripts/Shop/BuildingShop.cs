@@ -109,6 +109,9 @@ public class BuildingShop : MonoBehaviour
         TowerTypeIndicator();
     }
 
+    /// <summary>
+    /// Function for the sell button. Sets currunt towers to null and sell mode to active/inactive
+    /// </summary>
     public void TowerSellMode()
     {
         buildState.CurrentTowerToPlace = null;
