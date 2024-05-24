@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1086623620618705115}
   - component: {fileID: 2828037199581616676}
   - component: {fileID: 6353635463758474772}
-  - component: {fileID: 6726088848856912080}
   - component: {fileID: 5695634368693884529}
   m_Layer: 0
   m_Name: Corn show
@@ -85,19 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6726088848856912080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7527224584001562987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85ba825d20ecadb43926597c26936a8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cantPlace: 0
 --- !u!65 &5695634368693884529
 BoxCollider:
   m_ObjectHideFlags: 0

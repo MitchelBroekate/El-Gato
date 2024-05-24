@@ -94,18 +94,17 @@ public class BuildState : PlayerState
             }
 
         }
-        if (hit.collider != null && BuildingShop.showObject != null)
-        {
-            if (!BuildingShop.showObject.GetComponent<PlacementShow>().cantPlace)
-            {
-                BuildingShop.showObject.GetComponent<Renderer>().material.color = checkgreen;
-            }
-            else
-            {
-                BuildingShop.showObject.GetComponent<Renderer>().material.color = checkRed;
-            }
-        }
-
+        //if (hit.collider != null && BuildingShop.showObject != null)
+        //{
+        //    if ()
+        //    {
+        //        BuildingShop.showObject.GetComponent<Renderer>().material.color = checkgreen;
+        //    }
+        //    else
+        //    {
+        //        BuildingShop.showObject.GetComponent<Renderer>().material.color = checkRed;
+        //    }
+        //}
     }
 
     public void OnFire(InputAction.CallbackContext context)
