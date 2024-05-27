@@ -666,6 +666,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 177844358}
   m_CullTransparentMesh: 1
+--- !u!1 &199596389 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 35fa793905e30ed40a8190a4341d3af1,
+    type: 3}
+  m_PrefabInstance: {fileID: 973102491}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &199596393
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199596389}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 9.632079, y: 8.249973, z: 9.934238}
+  m_Center: {x: 0.078030586, y: 4.123378, z: -0.1578579}
+--- !u!64 &199596394
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199596389}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2393899376274470799, guid: 35fa793905e30ed40a8190a4341d3af1, type: 3}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,7 +1211,7 @@ Transform:
   m_GameObject: {fileID: 410688201}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 63.5, z: 0}
+  m_LocalPosition: {x: 0, y: 70.14, z: 2.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1190,6 +1239,7 @@ MonoBehaviour:
   grid: {fileID: 758180263}
   gridIndicator: {fileID: 939607109}
   gridPlane: {fileID: 364139493}
+  placementLocation: {x: 0, y: 0, z: 0}
 --- !u!1 &444762606
 GameObject:
   m_ObjectHideFlags: 0
@@ -1987,7 +2037,15 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 35fa793905e30ed40a8190a4341d3af1,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 199596394}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 35fa793905e30ed40a8190a4341d3af1,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 199596393}
   m_SourcePrefab: {fileID: 100100000, guid: 35fa793905e30ed40a8190a4341d3af1, type: 3}
 --- !u!1 &1579166641
 GameObject:

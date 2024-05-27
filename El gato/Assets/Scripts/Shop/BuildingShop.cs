@@ -66,13 +66,16 @@ public class BuildingShop : MonoBehaviour
     /// </summary>
     public void TowerButton1()
     {
+
+        SellModeSwitch = false;
+
         if (showObject != null)
         {
             Destroy(showObject);
         }
         TowerToShow = TowerIndicators.Tower1;
         showP = true;
-        showObject = Instantiate(towershowP, buildState.hitPos, Quaternion.identity);
+        showObject = Instantiate(towershowP, buildState.placementLocation, Quaternion.identity);
 
         TowerTypeIndicator();
     }
@@ -82,13 +85,15 @@ public class BuildingShop : MonoBehaviour
     /// </summary>
     public void TowerButton2()
     {
+        SellModeSwitch = false;
+
         if (showObject != null)
         {
             Destroy(showObject);
         }
         TowerToShow = TowerIndicators.Tower2;
         showE = true;
-        showObject = Instantiate(towershowE, buildState.hitPos, Quaternion.identity);
+        showObject = Instantiate(towershowE, buildState.placementLocation, Quaternion.identity);
 
         TowerTypeIndicator();
     }
@@ -98,13 +103,15 @@ public class BuildingShop : MonoBehaviour
     /// </summary>
     public void TowerButton3()
     {
+        SellModeSwitch = false;
+
         if (showObject != null)
         {
             Destroy(showObject);
         }
         TowerToShow = TowerIndicators.Tower3;
         showC = true;
-        showObject = Instantiate(towershowC, buildState.hitPos, Quaternion.identity);
+        showObject = Instantiate(towershowC, buildState.placementLocation, Quaternion.identity);
 
         TowerTypeIndicator();
     }

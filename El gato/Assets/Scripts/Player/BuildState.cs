@@ -30,6 +30,13 @@ public class BuildState : PlayerState
     GameObject gridIndicator, gridPlane;
 
     Vector3Int gridposition;
+    Vector3Int placementList;
+
+    public Vector3 placementLocation;
+
+
+
+    List<Vector3Int> towersInGrid = new List<Vector3Int>();
     #endregion
 
     //Start to set the colors for placeable check
@@ -91,7 +98,7 @@ public class BuildState : PlayerState
     {
         if (BuildingShop.showP || BuildingShop.showC || BuildingShop.showE)
         {
-            BuildingShop.showObject.transform.position = grid.CellToWorld(gridposition);
+            BuildingShop.showObject.transform.position = placementLocation;
         }
         else
         {
@@ -100,17 +107,6 @@ public class BuildState : PlayerState
                 Destroy(BuildingShop.showObject);
             }
 
-        }
-        if (hit.collider != null && BuildingShop.showObject != null)
-        {
-            if (!BuildingShop.showObject.GetComponent<PlacementSys>().cantplace)
-            {
-                BuildingShop.showObject.GetComponent<Renderer>().material.color = checkgreen;
-            }
-            else
-            {
-                BuildingShop.showObject.GetComponent<Renderer>().material.color = checkRed;
-            }
         }
     }
 
@@ -121,8 +117,9 @@ public class BuildState : PlayerState
     public void OnFire(InputAction.CallbackContext context)
     {
 
-        if (context.performed && hit.collider != null && CurrentTowerToPlace != null && !BuildingShop.showObject.GetComponent<PlacementSys>().cantplace)
+        if (context.performed && hit.collider != null && CurrentTowerToPlace != null && !towersInGrid.Contains(placementList))
         {
+
             if (BuildingShop.showObject != null)
             {
                 BuildingShop.showP = false;
@@ -130,9 +127,22 @@ public class BuildState : PlayerState
                 BuildingShop.showE = false;
             }
 
-            Instantiate(CurrentTowerToPlace, grid.CellToWorld(gridposition), Quaternion.identity);
+            Instantiate(CurrentTowerToPlace, placementLocation, Quaternion.identity);
 
             CurrentTowerToPlace = null;
+
+            towersInGrid.Add(placementList);
+        }
+
+        if(towersInGrid.Contains(placementList))
+        {
+            if (BuildingShop.showObject != null && CurrentTowerToPlace != null)
+            {
+                BuildingShop.showP = false;
+                BuildingShop.showC = false;
+                BuildingShop.showE = false;
+                CurrentTowerToPlace = null;
+            }
         }
 
         if (context.performed && hit.collider != null)
@@ -142,16 +152,22 @@ public class BuildState : PlayerState
                 if (hit.transform.gameObject.tag == "potato")
                 {
                     Destroy(hit.transform.gameObject);
+
+                    BuildingShop.SellModeSwitch = false;
                 }
 
                 if (hit.transform.gameObject.tag == "egg")
                 {
                     Destroy(hit.transform.gameObject);
+
+                    BuildingShop.SellModeSwitch = false;
                 }
 
                 if (hit.transform.gameObject.tag == "corn")
                 {
                     Destroy(hit.transform.gameObject);
+
+                    BuildingShop.SellModeSwitch = false;
                 }
             }
         }
@@ -164,5 +180,12 @@ public class BuildState : PlayerState
     {
         gridposition = grid.WorldToCell(hitPos);
         gridIndicator.transform.position = grid.CellToWorld(gridposition);
+
+        placementList = Vector3Int.FloorToInt(grid.CellToWorld(gridposition));
+
+        placementLocation = grid.CellToWorld(gridposition);
+
+        placementLocation.x += 2.5f;
+        placementLocation.z += 2.5f;
     }
 }
