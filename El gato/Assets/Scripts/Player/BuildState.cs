@@ -116,8 +116,8 @@ public class BuildState : PlayerState
     /// <param name="context"></param>
     public void OnFire(InputAction.CallbackContext context)
     {
-
-        if (context.performed && hit.collider != null && CurrentTowerToPlace != null && !towersInGrid.Contains(placementList))
+        //places the chosen tower on a chosen grid location if there isn't already a tower in that grid
+        if (context.performed && hit.collider != null && CurrentTowerToPlace != null && !towersInGrid.Contains(placementList) && !BuildingShop.sellModeSwitch)
         {
 
             if (BuildingShop.showObject != null)
@@ -134,6 +134,7 @@ public class BuildState : PlayerState
             towersInGrid.Add(placementList);
         }
 
+        //if the grid contains a tower it disables the current build mode
         if(towersInGrid.Contains(placementList))
         {
             if (BuildingShop.showObject != null && CurrentTowerToPlace != null)
@@ -145,29 +146,37 @@ public class BuildState : PlayerState
             }
         }
 
+        //Sells, destroys and makes the grid available for a new tower
         if (context.performed && hit.collider != null)
         {
-            if (BuildingShop.SellModeSwitch)
+            if (BuildingShop.sellModeSwitch)
             {
-                if (hit.transform.gameObject.tag == "potato")
+                if (towersInGrid.Contains(placementList))
                 {
-                    Destroy(hit.transform.gameObject);
+                    if (hit.transform.gameObject.tag == "potato")
+                    {
+                        towersInGrid.Remove(placementList);
+                        Destroy(hit.transform.gameObject);
+                    }
 
-                    BuildingShop.SellModeSwitch = false;
                 }
 
-                if (hit.transform.gameObject.tag == "egg")
+                if (towersInGrid.Contains(placementList))
                 {
-                    Destroy(hit.transform.gameObject);
-
-                    BuildingShop.SellModeSwitch = false;
+                    if (hit.transform.gameObject.tag == "egg")
+                    {
+                        towersInGrid.Remove(placementList);
+                        Destroy(hit.transform.gameObject);
+                    }
                 }
 
-                if (hit.transform.gameObject.tag == "corn")
+                if (towersInGrid.Contains(placementList))
                 {
-                    Destroy(hit.transform.gameObject);
-
-                    BuildingShop.SellModeSwitch = false;
+                    if (hit.transform.gameObject.tag == "corn")
+                    {
+                        towersInGrid.Remove(placementList);
+                        Destroy(hit.transform.gameObject);
+                    }
                 }
             }
         }
