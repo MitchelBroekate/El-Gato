@@ -6,45 +6,53 @@ using UnityEngine.InputSystem;
 public class BuildState : PlayerState
 {
     #region Variables
-    public RaycastHit hit;
-    Ray ray;
-    public Vector3 hitPos;
 
+    [Header("Raycast")]
+    public RaycastHit hit;
+    public Vector3 hitPos;
+    Ray ray;
+
+
+    [Header("Camera")]
     [SerializeField]
     Camera camBuild;
 
+    [Header("Canvas")]
     [SerializeField]
     GameObject canvasShop;
 
+    [Header("Tower To Place")]
     public GameObject CurrentTowerToPlace;
 
+    [Header("Build Scripts")]
     [SerializeField]
     BuildingShop BuildingShop;
 
-    Color checkgreen;
-    Color checkRed;
-
+    [Header("Grid")]
     [SerializeField]
     Grid grid;
+
     [SerializeField]
-    GameObject gridIndicator, gridPlane;
+    GameObject gridIndicator;
+
+    [SerializeField]
+    GameObject gridPlane;
+
 
     Vector3Int gridposition;
     Vector3Int placementList;
 
+    [Header("Placement Location")]
     public Vector3 placementLocation;
 
+    [Header("Tower Parent")]
+    [SerializeField]
+    GameObject towerParent;
 
+    GameObject tower;
 
     List<Vector3Int> towersInGrid = new List<Vector3Int>();
     #endregion
-
-    //Start to set the colors for placeable check
-    private void Start()
-    {
-        checkgreen = new Color(0, 1, 0, 0.6f);
-        checkRed = new Color(1, 0, 0, 0.6f);
-    }
 
     //Updates the corresponding functions and sets the var ray to the mouse position
     public override void DoUpdate()
@@ -127,7 +135,8 @@ public class BuildState : PlayerState
                 BuildingShop.showE = false;
             }
 
-            Instantiate(CurrentTowerToPlace, placementLocation, Quaternion.identity);
+            tower = Instantiate(CurrentTowerToPlace, placementLocation, Quaternion.identity);
+            tower.transform.parent = towerParent.transform;
 
             CurrentTowerToPlace = null;
 

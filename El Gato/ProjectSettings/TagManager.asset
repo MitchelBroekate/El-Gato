@@ -8,6 +8,7 @@ TagManager:
   - corn
   - egg
   - potato
+  - enemyship
   layers:
   - Default
   - TransparentFX

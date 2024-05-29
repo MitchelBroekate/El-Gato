@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerState : MonoBehaviour
 {
+    //Transform for activating the correct camera for th corresponding state 
     public Transform cam;
 
     /// <summary>
