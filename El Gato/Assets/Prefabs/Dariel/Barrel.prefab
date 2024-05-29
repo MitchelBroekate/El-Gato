@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6945030903492785142
+--- !u!1001 &3030569339706679213
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -11,17 +11,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e11752679db49dc46b80aef62f81ee44,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 142.86186
+      value: 142.82
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e11752679db49dc46b80aef62f81ee44,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.000002861023
+      value: -0.0000038146973
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e11752679db49dc46b80aef62f81ee44,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 432.67163
+      value: 432.3892
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e11752679db49dc46b80aef62f81ee44,
         type: 3}
@@ -80,21 +80,21 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e11752679db49dc46b80aef62f81ee44,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8279036086955526427}
+      addedObject: {fileID: 8461045838925938100}
   m_SourcePrefab: {fileID: 100100000, guid: e11752679db49dc46b80aef62f81ee44, type: 3}
---- !u!1 &7827499275717250727 stripped
+--- !u!1 &2796690374056551164 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e11752679db49dc46b80aef62f81ee44,
     type: 3}
-  m_PrefabInstance: {fileID: 6945030903492785142}
+  m_PrefabInstance: {fileID: 3030569339706679213}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &8279036086955526427
+--- !u!65 &8461045838925938100
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7827499275717250727}
+  m_GameObject: {fileID: 2796690374056551164}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
