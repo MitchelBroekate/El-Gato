@@ -52,6 +52,9 @@ public class BuildState : PlayerState
     GameObject tower;
 
     List<Vector3Int> towersInGrid = new List<Vector3Int>();
+
+    [SerializeField]
+    LayerMask ignoreLayer;
     #endregion
 
     //Updates the corresponding functions and sets the var ray to the mouse position
@@ -93,7 +96,7 @@ public class BuildState : PlayerState
     /// </summary>
     void GridBuilding()
     {
-            if (Physics.Raycast(ray, out hit, 1000))
+            if (Physics.Raycast(ray, out hit, 1000, ignoreLayer))
             {
                 hitPos = hit.point;
             }
@@ -114,7 +117,6 @@ public class BuildState : PlayerState
             {
                 Destroy(BuildingShop.showObject);
             }
-
         }
     }
 

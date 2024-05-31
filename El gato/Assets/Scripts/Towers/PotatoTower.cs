@@ -5,7 +5,9 @@ using UnityEngine;
 public class PotatoTower : TowerManager
 {
     #region Variables
+    [SerializeField]
     Transform rotateY;
+    [SerializeField]
     Transform rotateX;
 
     [SerializeField]
