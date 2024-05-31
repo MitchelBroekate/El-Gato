@@ -9,9 +9,10 @@ public class PotatoTower : TowerManager
     Transform rotateX;
 
     [SerializeField]
-    GameObject target;
+    List<Transform> allTargets = new();
+    [SerializeField]
+    Transform nearestTarget;
 
-    bool firstTarget = false;
     #endregion
 
     [System.Obsolete]
@@ -31,27 +32,46 @@ public class PotatoTower : TowerManager
         Targeting();
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trigger");
-        if (other.transform.gameObject.tag == "enemyship" && !firstTarget)
+        if (other.transform.gameObject.tag == "enemyship")
         {
-            target = other.transform.gameObject;
-            firstTarget = true;
+            if (!allTargets.Contains(other.transform))
+            {
+                allTargets.Add(other.transform);
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.transform.gameObject.tag == "enemyship")
+        {
+            if (allTargets.Contains(other.transform))
+            {
+                allTargets.Remove(other.transform);
+            }
         }
     }
 
     void Targeting()
     {
-        if (firstTarget)
-        {
-            rotateY.transform.LookAt(new Vector3(target.transform.position.x, rotateY.transform.position.y, target.transform.position.z));
-            rotateX.transform.LookAt(target.transform.position);
-        }
+        float distance;
+        float nearestDistance = float.MaxValue;
 
-        if (target = null)
+        for (int i = 0; i < allTargets.Count; i++)
         {
-            firstTarget = false;
+            distance = Vector3.Distance(transform.position, allTargets[i].position);
+            if(distance < nearestDistance)
+            {
+                nearestTarget = allTargets[i];
+                nearestDistance = distance; 
+            }
+        }
+        if (nearestTarget != null)
+        {
+            rotateY.transform.LookAt(new Vector3(nearestTarget.position.x, rotateY.transform.position.y, nearestTarget.position.z));
+            rotateX.transform.LookAt(nearestTarget.position);
         }
 
     }
