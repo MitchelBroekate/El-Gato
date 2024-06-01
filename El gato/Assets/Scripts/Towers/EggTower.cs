@@ -37,6 +37,8 @@ public class EggTower : TowerManager
         bulletSpeed = 3000;
 
         fireRate = 15;
+
+        GetComponent<SphereCollider>().radius = rangeScale;
     }
 
     private void Update()
