@@ -7,7 +7,7 @@ public class BuildState : PlayerState
 {
     #region Variables
 
-    [Header("Raycast")]
+    [Header("Raycast Variables")]
     public RaycastHit hit;
     public Vector3 hitPos;
     Ray ray;
@@ -24,11 +24,11 @@ public class BuildState : PlayerState
     [Header("Tower To Place")]
     public GameObject CurrentTowerToPlace;
 
-    [Header("Build Scripts")]
+    [Header("Shop Scripts")]
     [SerializeField]
     BuildingShop BuildingShop;
 
-    [Header("Grid")]
+    [Header("Grid Objects")]
     [SerializeField]
     Grid grid;
 
@@ -42,10 +42,10 @@ public class BuildState : PlayerState
     Vector3Int gridposition;
     Vector3Int placementList;
 
-    [Header("Placement Location")]
+    [Header("Tower Placement Location")]
     public Vector3 placementLocation;
 
-    [Header("Tower Parent")]
+    [Header("Tower Instantiate Parent")]
     [SerializeField]
     GameObject towerParent;
 
@@ -53,6 +53,7 @@ public class BuildState : PlayerState
 
     List<Vector3Int> towersInGrid = new List<Vector3Int>();
 
+    [Header("Raycast Ignore")]
     [SerializeField]
     LayerMask ignoreLayer;
     #endregion
@@ -96,7 +97,7 @@ public class BuildState : PlayerState
     /// </summary>
     void GridBuilding()
     {
-            if (Physics.Raycast(ray, out hit, 1000, ignoreLayer))
+            if (Physics.Raycast(ray, out hit, 1000, ~ignoreLayer))
             {
                 hitPos = hit.point;
             }
