@@ -53,6 +53,15 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""WaveButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""7f03cfaf-a200-44fc-a357-7cb6dc9ca54b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -132,6 +141,17 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
                     ""action"": ""SwitchCam"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b626a90f-084f-42f3-afd1-d464f7531c18"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WaveButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -143,6 +163,7 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_SwitchCam = m_Player.FindAction("SwitchCam", throwIfNotFound: true);
+        m_Player_WaveButton = m_Player.FindAction("WaveButton", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -207,6 +228,7 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_SwitchCam;
+    private readonly InputAction m_Player_WaveButton;
     public struct PlayerActions
     {
         private @Elgato m_Wrapper;
@@ -214,6 +236,7 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @SwitchCam => m_Wrapper.m_Player_SwitchCam;
+        public InputAction @WaveButton => m_Wrapper.m_Player_WaveButton;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -232,6 +255,9 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
             @SwitchCam.started += instance.OnSwitchCam;
             @SwitchCam.performed += instance.OnSwitchCam;
             @SwitchCam.canceled += instance.OnSwitchCam;
+            @WaveButton.started += instance.OnWaveButton;
+            @WaveButton.performed += instance.OnWaveButton;
+            @WaveButton.canceled += instance.OnWaveButton;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -245,6 +271,9 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
             @SwitchCam.started -= instance.OnSwitchCam;
             @SwitchCam.performed -= instance.OnSwitchCam;
             @SwitchCam.canceled -= instance.OnSwitchCam;
+            @WaveButton.started -= instance.OnWaveButton;
+            @WaveButton.performed -= instance.OnWaveButton;
+            @WaveButton.canceled -= instance.OnWaveButton;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -267,5 +296,6 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnSwitchCam(InputAction.CallbackContext context);
+        void OnWaveButton(InputAction.CallbackContext context);
     }
 }

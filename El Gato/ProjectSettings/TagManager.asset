@@ -9,6 +9,7 @@ TagManager:
   - egg
   - potato
   - enemyship
+  - life
   layers:
   - Default
   - TransparentFX

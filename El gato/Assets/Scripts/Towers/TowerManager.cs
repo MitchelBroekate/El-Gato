@@ -8,7 +8,8 @@ public class TowerManager : MonoBehaviour
     public float rangeScale;
     public int damage;
     public int health;
-    public float fireRateMulitplier;
+    public float fireRate, whenToFire;
+    public float bulletSpeed;
     #endregion
 
     void Start()

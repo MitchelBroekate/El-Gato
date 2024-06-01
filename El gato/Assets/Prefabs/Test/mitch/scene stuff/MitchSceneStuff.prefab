@@ -220,7 +220,9 @@ MonoBehaviour:
   rangeScale: 0
   damage: 0
   health: 0
-  fireRateMulitplier: 0
+  fireRate: 0
+  whenToFire: 0
+  bulletSpeed: 0
 --- !u!1 &5502558379668226812
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,6 +586,7 @@ GameObject:
   - component: {fileID: 6434656188504532765}
   - component: {fileID: 2208975680097498593}
   - component: {fileID: 5992976831071911387}
+  - component: {fileID: 488771278487888636}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -703,6 +706,20 @@ MonoBehaviour:
   showObject: {fileID: 0}
   sellModeText: {fileID: 0}
   TowerToShow: 0
+--- !u!114 &488771278487888636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6240009263436539157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b328439564a46342a23c45465bf8b67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnparent: {fileID: 0}
+  alienShuttle: {fileID: 0}
 --- !u!1 &6590221596785512978
 GameObject:
   m_ObjectHideFlags: 0
