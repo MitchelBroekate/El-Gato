@@ -19,7 +19,7 @@ public class BuildState : PlayerState
 
     [Header("Canvas")]
     [SerializeField]
-    GameObject canvasShop;
+    GameObject shop;
 
     [Header("Tower To Place")]
     public GameObject CurrentTowerToPlace;
@@ -78,7 +78,7 @@ public class BuildState : PlayerState
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        canvasShop.SetActive(true);
+        shop.SetActive(true);
     }
 
     //Sets the building mode inactive with indicators, the grid and the cursor state
@@ -89,7 +89,24 @@ public class BuildState : PlayerState
         gridIndicator.SetActive(false);
         gridPlane.SetActive(false);
 
-        canvasShop.SetActive(false);
+        shop.SetActive(false);
+
+        if (BuildingShop.showP || BuildingShop.showC || BuildingShop.showE)
+        {
+            Destroy(BuildingShop.showObject);
+
+            BuildingShop.showP = false;
+            BuildingShop.showC = false;
+            BuildingShop.showE = false;
+
+            BuildingShop.showObject = null;
+            CurrentTowerToPlace = null;
+        }
+
+        if (BuildingShop.sellModeSwitch)
+        {
+            BuildingShop.sellModeSwitch = false;
+        }
     }
 
     /// <summary>

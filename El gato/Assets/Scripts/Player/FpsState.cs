@@ -15,6 +15,9 @@ public class FpsState : PlayerState
 
     [SerializeField]
     Rigidbody rb;
+
+    [SerializeField]
+    GameObject text;
     #endregion
 
     //Sets the movement for the camera, sets the clamp for the camera movement and updates the Walk function
@@ -39,6 +42,8 @@ public class FpsState : PlayerState
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        text.SetActive(true);
     }
 
     //Stops the velocity for when you switch back to this state
@@ -47,6 +52,8 @@ public class FpsState : PlayerState
         base.DisableState();
 
         rb.velocity = Vector3.zero;
+
+        text.SetActive(false);
     }
 
     /// <summary>

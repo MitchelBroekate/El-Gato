@@ -32,9 +32,9 @@ public class EggTower : TowerManager
         rotateX = rotateY.FindChild("RotateX");
         bulletSpawn = rotateX.FindChild("BulletSpawn");
         bulletEgg = rotateX.FindChild("BulletEgg").gameObject;
-        rangeScale = 12;
+        rangeScale = 30;
         health = 150;
-        bulletSpeed = 3000;
+        bulletSpeed = 10000;
 
         fireRate = 15;
 
@@ -52,6 +52,8 @@ public class EggTower : TowerManager
     {
         if (other.transform.gameObject.tag == "enemyship")
         {
+            other.GetComponent<UfoBehavior>().inTurretRange = true;
+
             if (!allTargets.Contains(other.transform))
             {
                 allTargets.Add(other.transform);
@@ -63,6 +65,9 @@ public class EggTower : TowerManager
     {
         if (other.transform.gameObject.tag == "enemyship")
         {
+
+            other.GetComponent<UfoBehavior>().inTurretRange = false;
+
             if (allTargets.Contains(other.transform))
             {
                 allTargets.Remove(other.transform);

@@ -6,9 +6,25 @@ public class UfoBehavior : MonoBehaviour
 {
     public int health;
     public bool dead;
-    GameObject cowParent;
-    Transform nearestTarget;
 
+    [SerializeField]
+    GameObject cowParent;
+
+    [SerializeField]
+    Transform target;
+
+    [SerializeField]
+    float moveSpeed = 1000;
+    [SerializeField]
+    float suckSpeed = 100;
+
+    int check = 0;
+
+    bool targetCheck = true;
+
+    public bool inTurretRange;
+
+    RaycastHit hit;
     private void Start()
     {
         health = 100;
@@ -19,25 +35,75 @@ public class UfoBehavior : MonoBehaviour
     {
         if (health <= 0)
         {
-            dead = true;
+            if (inTurretRange)
+            {
+                cowParent.transform.GetChild(check).GetComponent<CowCheck>().available = true;
+
+                dead = true;
+            }
         }
 
         CowTargeting();
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.tag == "life")
+        {
+            Destroy(collision.transform.gameObject);
+
+            if (inTurretRange)
+            {
+                dead = true;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+
+        }
+    }
+
     private void CowTargeting()
     {
-        float distance;
-        float nearestDistance = float.MaxValue;
-
-        for (int i = 0; i < cowParent.transform.childCount; i++)
+        if (targetCheck)
         {
-            distance = Vector3.Distance(transform.position, cowParent.transform.GetChild(i).position);
-            if (distance < nearestDistance)
+            if (cowParent.transform.GetChild(check).GetComponent<CowCheck>().available)
             {
-                nearestTarget = cowParent.transform.GetChild(i);
-                nearestDistance = distance;
+                target = cowParent.transform.GetChild(check);
+
+                cowParent.transform.GetChild(check).GetComponent<CowCheck>().available = false;
+
+                targetCheck = false;
+            }
+            else
+            {
+                check++;
             }
         }
+
+
+        if (target != null)
+        {
+            transform.LookAt(new Vector3(target.position.x, transform.position.y, target.position.z));
+            if (Physics.Raycast(transform.position, -Vector3.up, out hit, 1000))
+            {
+                if (hit.collider != null)
+                {
+                    if (hit.transform.position == target.position)
+                    {
+                        GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+                        target.GetComponent<Rigidbody>().velocity = transform.up * suckSpeed * Time.deltaTime;
+                    }
+                    else
+                    {
+                        GetComponent<Rigidbody>().velocity = transform.forward * moveSpeed * Time.deltaTime;
+                    }
+                }
+
+            }
+        }
+
     }
 }
