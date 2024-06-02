@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -36,7 +35,7 @@ public class PotatoTower : TowerManager
         health = 150;
         bulletSpeed = 10000;
 
-        fireRate = 2;
+        fireRate = 1;
 
         GetComponent<SphereCollider>().radius = rangeScale;
     }
@@ -54,10 +53,16 @@ public class PotatoTower : TowerManager
         {
             other.GetComponent<UfoBehavior>().inTurretRange = true;
 
-            if (!allTargets.Contains(other.transform))
+            if (!other.GetComponent<UfoBehavior>().targeted)
             {
-                allTargets.Add(other.transform);
+                if (!allTargets.Contains(other.transform))
+                {
+                    allTargets.Add(other.transform);
+
+                    other.GetComponent<UfoBehavior>().targeted = true;
+                }
             }
+
         }
     }
 
@@ -72,7 +77,10 @@ public class PotatoTower : TowerManager
             {
                 allTargets.Remove(other.transform);
 
-                nearestTarget = null;
+                if (other.transform == nearestTarget)
+                {
+                    nearestTarget = null;
+                }
             }
         }
     }
@@ -84,12 +92,32 @@ public class PotatoTower : TowerManager
 
         for (int i = 0; i < allTargets.Count; i++)
         {
-            distance = Vector3.Distance(transform.position, allTargets[i].position);
-            if (distance < nearestDistance)
+            if (allTargets[i] != null)
             {
-                nearestTarget = allTargets[i];
-                nearestDistance = distance;
+                distance = Vector3.Distance(transform.position, allTargets[i].position);
+
+                if (distance < nearestDistance)
+                {
+                    nearestTarget = allTargets[i];
+                    nearestDistance = distance;
+
+                    for (int b = 0; b < allTargets.Count; b++)
+                    {
+                        if (allTargets[b] != null)
+                        {
+                            if (allTargets[b].transform != nearestTarget)
+                            {
+                                allTargets[b].GetComponent<UfoBehavior>().targeted = false;
+                            }
+                        }
+
+                    }
+
+                }
             }
+
+            
+
         }
         if (nearestTarget != null)
         {
@@ -123,6 +151,8 @@ public class PotatoTower : TowerManager
             {
                 allTargets.Remove(nearestTarget);
                 Destroy(nearestTarget.gameObject);
+
+                GameObject.Find("Scripts/PlayerInput").GetComponent<BuildingShop>().money += 50;
             }
         }
 

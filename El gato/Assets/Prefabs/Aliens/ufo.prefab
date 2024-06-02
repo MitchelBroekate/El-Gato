@@ -161,7 +161,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &2868260914658069420
 MonoBehaviour:
@@ -181,6 +181,8 @@ MonoBehaviour:
   target: {fileID: 0}
   moveSpeed: 1000
   suckSpeed: 100
+  inTurretRange: 0
+  targeted: 0
 --- !u!65 &1619024613717362568
 BoxCollider:
   m_ObjectHideFlags: 0
