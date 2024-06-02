@@ -19,6 +19,7 @@ public class PotatoBulletBehavior : BulletManager
         Destroy(gameObject);
 
     }
+
     private void Update()
     {
         Destroy(gameObject, 5);

@@ -6,7 +6,6 @@ public class TowerManager : MonoBehaviour
 {
     #region Variables
     public float rangeScale;
-    public int damage;
     public int health;
     public float fireRate, whenToFire;
     public float bulletSpeed;

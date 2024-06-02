@@ -147,6 +147,21 @@ public class BuildState : PlayerState
         //places the chosen tower on a chosen grid location if there isn't already a tower in that grid
         if (context.performed && hit.collider != null && CurrentTowerToPlace != null && !towersInGrid.Contains(placementList) && !BuildingShop.sellModeSwitch)
         {
+            if (BuildingShop.showP)
+            {
+                BuildingShop.money -= 200;
+            }
+
+            if (BuildingShop.showC)
+            {
+                BuildingShop.money -= 500;
+            }
+
+            if (BuildingShop.showE)
+            {
+                BuildingShop.money -= 350;
+            }
+
 
             if (BuildingShop.showObject != null)
             {
@@ -186,6 +201,7 @@ public class BuildState : PlayerState
                     {
                         towersInGrid.Remove(placementList);
                         Destroy(hit.transform.gameObject);
+                        BuildingShop.money += 100;
                     }
 
                 }
@@ -196,6 +212,7 @@ public class BuildState : PlayerState
                     {
                         towersInGrid.Remove(placementList);
                         Destroy(hit.transform.gameObject);
+                        BuildingShop.money += 175;
                     }
                 }
 
@@ -205,6 +222,7 @@ public class BuildState : PlayerState
                     {
                         towersInGrid.Remove(placementList);
                         Destroy(hit.transform.gameObject);
+                        BuildingShop.money += 250;
                     }
                 }
             }

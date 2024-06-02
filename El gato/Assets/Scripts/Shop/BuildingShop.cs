@@ -1,3 +1,5 @@
+using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class BuildingShop : MonoBehaviour
@@ -22,6 +24,13 @@ public class BuildingShop : MonoBehaviour
     [SerializeField]
     GameObject sellModeText;
 
+    [SerializeField]
+    GameObject moneyWarning;
+
+    public int money;
+
+    [SerializeField]
+    TMP_Text moneyAmount;
     #endregion
 
     /// <summary>
@@ -35,6 +44,17 @@ public class BuildingShop : MonoBehaviour
     }
 
     public TowerIndicators TowerToShow;
+
+    //Start money setter
+    private void Start()
+    {
+        money = 300;
+    }
+
+    private void Update()
+    {
+        moneyAmount.text = money.ToString();
+    }
 
     /// <summary>
     /// Swtich case for GameObject assignment for tower placement
@@ -71,15 +91,38 @@ public class BuildingShop : MonoBehaviour
     {
         if (!sellModeSwitch)
         {
-            if (showObject != null)
+            if (money >= 200)
             {
-                Destroy(showObject);
-            }
-            TowerToShow = TowerIndicators.Tower1;
-            showP = true;
-            showObject = Instantiate(towershowP, buildState.placementLocation, Quaternion.identity);
+                if (!showP)
+                {
+                    if (showObject != null)
+                    {
+                        Destroy(showObject);
+                    }
+                    TowerToShow = TowerIndicators.Tower1;
+                    showP = true;
+                    showObject = Instantiate(towershowP, buildState.placementLocation, Quaternion.identity);
 
-            TowerTypeIndicator();
+                    TowerTypeIndicator();
+                }
+                else
+                {
+                    if (showObject != null)
+                    {
+                        Destroy(showObject);
+                    }
+
+                    buildState.CurrentTowerToPlace = null;
+
+                    showP = false;
+
+                }
+
+            }
+            else
+            {
+                StartCoroutine(NoMannee(2));
+            }
         }
     }
 
@@ -90,15 +133,38 @@ public class BuildingShop : MonoBehaviour
     {
         if (!sellModeSwitch)
         {
-            if (showObject != null)
+            if (money >= 350)
             {
-                Destroy(showObject);
-            }
-            TowerToShow = TowerIndicators.Tower2;
-            showE = true;
-            showObject = Instantiate(towershowE, buildState.placementLocation, Quaternion.identity);
+                if (!showE)
+                {
+                    if (showObject != null)
+                    {
+                        Destroy(showObject);
+                    }
+                    TowerToShow = TowerIndicators.Tower2;
+                    showE = true;
+                    showObject = Instantiate(towershowE, buildState.placementLocation, Quaternion.identity);
 
-            TowerTypeIndicator();
+                    TowerTypeIndicator();
+                }
+                else
+                {
+                    if (showObject != null)
+                    {
+                        Destroy(showObject);
+                    }
+
+                    buildState.CurrentTowerToPlace = null;
+
+                    showE = false;
+
+                }
+
+            }
+            else
+            {
+                StartCoroutine(NoMannee(2));
+            }
         }
     }
 
@@ -110,15 +176,37 @@ public class BuildingShop : MonoBehaviour
 
         if (!sellModeSwitch)
         {
-            if (showObject != null)
+            if (money >= 500)
             {
-                Destroy(showObject);
-            }
-            TowerToShow = TowerIndicators.Tower3;
-            showC = true;
-            showObject = Instantiate(towershowC, buildState.placementLocation, Quaternion.identity);
+                if (!showC)
+                {
+                    if (showObject != null)
+                    {
+                        Destroy(showObject);
+                    }
+                    TowerToShow = TowerIndicators.Tower3;
+                    showC = true;
+                    showObject = Instantiate(towershowC, buildState.placementLocation, Quaternion.identity);
 
-            TowerTypeIndicator();
+                    TowerTypeIndicator();
+                }
+                else
+                {
+                    if (showObject != null)
+                    {
+                        Destroy(showObject);
+                    }
+
+                    buildState.CurrentTowerToPlace = null;
+
+                    showC = false;
+                }
+            }
+
+            else
+            {
+                StartCoroutine(NoMannee(2));
+            }
         }
     }
 
@@ -139,5 +227,12 @@ public class BuildingShop : MonoBehaviour
         }
 
         sellModeSwitch = !sellModeSwitch;
+    }
+
+    IEnumerator NoMannee(float waitTime)
+    {
+        moneyWarning.SetActive(true);
+        yield return new WaitForSeconds(waitTime);
+        moneyWarning.SetActive(false);
     }
 }
