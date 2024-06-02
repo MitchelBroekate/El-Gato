@@ -2276,7 +2276,7 @@ Transform:
   m_GameObject: {fileID: 1055242123}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 479.56, y: 19, z: 645.85}
+  m_LocalPosition: {x: 466, y: 19, z: 482.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2307,7 +2307,7 @@ Transform:
   m_GameObject: {fileID: 1093113509}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 502.8, y: 19, z: 623.1}
+  m_LocalPosition: {x: 502.8, y: 19, z: 457.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2627,7 +2627,7 @@ Transform:
   m_GameObject: {fileID: 1348247264}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 484.65, y: 2.95, z: 512.47}
+  m_LocalPosition: {x: 484.65, y: 2.95, z: 629.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2680,7 +2680,7 @@ Transform:
   m_GameObject: {fileID: 1382890124}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 546.2, y: 19, z: 629.9}
+  m_LocalPosition: {x: 548.7, y: 19, z: 464.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2847,7 +2847,7 @@ Transform:
   m_GameObject: {fileID: 1453813644}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 569.8, y: 19, z: 589.7}
+  m_LocalPosition: {x: 574.8, y: 19, z: 509.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3410,7 +3410,7 @@ Transform:
   m_GameObject: {fileID: 1837486960}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 423.3, y: 19, z: 587.4}
+  m_LocalPosition: {x: 423.3, y: 19, z: 504}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3584,7 +3584,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rangeScale: 0
-  damage: 0
   health: 0
   fireRate: 0
   whenToFire: 0
