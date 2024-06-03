@@ -11,6 +11,9 @@ public class UfoBehavior : MonoBehaviour
     GameObject cowParent;
 
     [SerializeField]
+    GameObject towerParent;
+
+    [SerializeField]
     Transform target;
 
     [SerializeField]
@@ -30,12 +33,14 @@ public class UfoBehavior : MonoBehaviour
 
     [SerializeField]
     int layerMask;
+
+    List<GameObject> towerTarget = new();
     private void Start()
     {
         health = 100;
         cowParent = GameObject.Find("lives");
 
-        layerMask = LayerMask.GetMask("Ignore Raycast");
+        layerMask = LayerMask.GetMask("cow");
     }
     private void Update()
     {
@@ -94,7 +99,6 @@ public class UfoBehavior : MonoBehaviour
             {
                 if (cowParent.transform.GetChild(check).GetComponent<CowCheck>().available)
                 {
-                    target = null;
                     target = cowParent.transform.GetChild(check);
 
                     target.GetComponent<CowCheck>().available = false;

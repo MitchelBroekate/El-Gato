@@ -6,7 +6,7 @@ public class EggBulletBehavior : BulletManager
 {
     private void Start()
     {
-        bulletDamage = 10;
+        bulletDamage = 5;
     }
 
     private void OnCollisionEnter(Collision collision)

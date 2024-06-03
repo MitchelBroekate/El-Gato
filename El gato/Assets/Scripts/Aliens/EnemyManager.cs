@@ -78,7 +78,7 @@ public class EnemyManager : MonoBehaviour
 
                 if (spawnCheck)
                 {
-                    StartCoroutine(WaveWaitTime(1));
+                    StartCoroutine(WaveWaitTime(4));
                     spawnCheck = false;
                 }
 
@@ -130,7 +130,7 @@ public class EnemyManager : MonoBehaviour
         if (next == 1)
         {
             int stopLoop = 0;
-            while (cowStatusCheck && stopLoop < 11)
+            while (cowStatusCheck && stopLoop < 10)
             {
                 int spawn = Random.Range(0, spawnpoints.Count);
 
@@ -145,7 +145,7 @@ public class EnemyManager : MonoBehaviour
         if (next == 2)
         {
             int stopLoop = 0;
-            while (cowStatusCheck && stopLoop < 16)
+            while (cowStatusCheck && stopLoop < 15)
             {
                 int spawn = Random.Range(0, spawnpoints.Count);
 
@@ -161,7 +161,7 @@ public class EnemyManager : MonoBehaviour
         if (next == 3)
         {
             int stopLoop = 0;
-            while (cowStatusCheck && stopLoop < 21)
+            while (cowStatusCheck && stopLoop < 20)
             {
                 int spawn = Random.Range(0, spawnpoints.Count);
 
@@ -177,7 +177,7 @@ public class EnemyManager : MonoBehaviour
         if (next == 4)
         {
             int stopLoop = 0;
-            while (cowStatusCheck && stopLoop == 31)
+            while (cowStatusCheck && stopLoop < 30)
             {
                 int spawn = Random.Range(0, spawnpoints.Count);
 

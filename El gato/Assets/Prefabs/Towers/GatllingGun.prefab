@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2273220154367327028}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4393254676492882926}
   - component: {fileID: 4328498964830041490}
   - component: {fileID: 6148712276727704652}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: RotateX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8840438312536170125}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: Bone_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 6626967019848865406}
   - component: {fileID: 5245565404432819047}
   - component: {fileID: 5953006214603560176}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +271,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rangeScale: 0
-  damage: 0
   health: 0
   fireRate: 0
   whenToFire: 0
@@ -320,7 +319,7 @@ GameObject:
   - component: {fileID: 7627437518080779032}
   - component: {fileID: 3261231480582712539}
   - component: {fileID: 7272266469833130042}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: RotateY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -402,7 +401,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4605048738241026136}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,7 +434,7 @@ GameObject:
   m_Component:
   - component: {fileID: 513684669961515642}
   - component: {fileID: 3718754943850602685}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: Buizen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -521,7 +520,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7150815696496716714}
   - component: {fileID: 7337835524873645293}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GatllingGun
   m_TagString: egg
   m_Icon: {fileID: 0}
@@ -574,7 +573,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7194309981104291465}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -663,6 +662,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BulletEgg
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ee4875f564373ff499b9cb10ab4381e1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ee4875f564373ff499b9cb10ab4381e1,
         type: 3}

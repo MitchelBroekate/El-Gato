@@ -55,7 +55,7 @@ public class BuildState : PlayerState
 
     [Header("Raycast Ignore")]
     [SerializeField]
-    LayerMask ignoreLayer;
+    LayerMask maskLayer;
 
     #endregion
 
@@ -115,7 +115,7 @@ public class BuildState : PlayerState
     /// </summary>
     void GridBuilding()
     {
-            if (Physics.Raycast(ray, out hit, 1000, ~ignoreLayer))
+            if (Physics.Raycast(ray, out hit, 1000, maskLayer))
             {
                 hitPos = hit.point;
             }
