@@ -14,6 +14,13 @@ public class EnemyManager : MonoBehaviour
     [SerializeField]
     Transform enemyParent;
 
+    int check = 0;
+
+    GameObject cowParent;
+
+    [SerializeField]
+    bool cowStatusCheck = true;
+
     bool spawnCheck = false;
 
     [SerializeField]
@@ -22,13 +29,38 @@ public class EnemyManager : MonoBehaviour
     private void Start()
     {
         GetSpawnpoints();
+
+        cowParent = GameObject.Find("lives");
     }
 
     private void Update()
     {
         SpawnShuttle();
+        GetCowStatus();
     }
 
+    void GetCowStatus()
+    {
+        if (check >= cowParent.transform.childCount)
+        {
+            cowStatusCheck = false;
+
+            check = 0;
+        }
+        else
+        {
+            if (cowParent.transform.GetChild(check).GetComponent<CowCheck>().available)
+            {
+
+                cowStatusCheck = true;
+
+            }
+            else
+            {
+                check++;
+            }
+        }
+    }
 
     void GetSpawnpoints()
     {
@@ -46,7 +78,7 @@ public class EnemyManager : MonoBehaviour
 
                 if (spawnCheck)
                 {
-                    StartCoroutine(WaveWaitTime(4));
+                    StartCoroutine(WaveWaitTime(1));
                     spawnCheck = false;
                 }
 
@@ -95,56 +127,73 @@ public class EnemyManager : MonoBehaviour
 
     IEnumerator WaveWaitTime(int waitTime)
     {
-        if (next == 1)
+        bool stopLoop = false;
+        while (cowStatusCheck)
         {
-            for (int i = 0; i < 10; i++)
+            if (!stopLoop)
             {
-                int spawn = Random.Range(0, spawnpoints.Count);
+                if (next == 1)
+                {
+                    stopLoop = false;
+                    for (int i = 0; i < 30; i++)
+                    {
+                        int spawn = Random.Range(0, spawnpoints.Count);
 
-                GameObject enemy = Instantiate(alienShuttle, spawnpoints[spawn].position, Quaternion.identity);
-                enemy.transform.parent = enemyParent;
+                        GameObject enemy = Instantiate(alienShuttle, spawnpoints[spawn].position, Quaternion.identity);
+                        enemy.transform.parent = enemyParent;
 
-                yield return new WaitForSeconds(waitTime);
+                        yield return new WaitForSeconds(waitTime);
+                    }
+                    stopLoop = true;
+                }
             }
-        }
 
-        if (next == 2)
-        {
-            for (int i = 0; i < 15; i++)
+
+            if (next == 2)
             {
-                int spawn = Random.Range(0, spawnpoints.Count);
+                stopLoop = false;
+                for (int i = 0; i < 15; i++)
+                {
+                    int spawn = Random.Range(0, spawnpoints.Count);
 
-                GameObject enemy = Instantiate(alienShuttle, spawnpoints[spawn].position, Quaternion.identity);
-                enemy.transform.parent = enemyParent;
+                    GameObject enemy = Instantiate(alienShuttle, spawnpoints[spawn].position, Quaternion.identity);
+                    enemy.transform.parent = enemyParent;
 
-                yield return new WaitForSeconds(waitTime);
+                    yield return new WaitForSeconds(waitTime);
+                }
+                stopLoop = true;
             }
-        }
 
-        if (next == 3)
-        {
-            for (int i = 0; i < 20; i++)
+            if (next == 3)
             {
-                int spawn = Random.Range(0, spawnpoints.Count);
+                stopLoop = false;
+                for (int i = 0; i < 20; i++)
+                {
+                    int spawn = Random.Range(0, spawnpoints.Count);
 
-                GameObject enemy = Instantiate(alienShuttle, spawnpoints[spawn].position, Quaternion.identity);
-                enemy.transform.parent = enemyParent;
+                    GameObject enemy = Instantiate(alienShuttle, spawnpoints[spawn].position, Quaternion.identity);
+                    enemy.transform.parent = enemyParent;
 
-                yield return new WaitForSeconds(waitTime);
+                    yield return new WaitForSeconds(waitTime);
+                }
+                stopLoop = true;
             }
-        }
 
-        if (next == 4)
-        {
-            for (int i = 0; i < 30; i++)
+            if (next == 4)
             {
-                int spawn = Random.Range(0, spawnpoints.Count);
+                stopLoop = false;
+                for (int i = 0; i < 30; i++)
+                {
+                    int spawn = Random.Range(0, spawnpoints.Count);
 
-                GameObject enemy = Instantiate(alienShuttle, spawnpoints[spawn].position, Quaternion.identity);
-                enemy.transform.parent = enemyParent;
+                    GameObject enemy = Instantiate(alienShuttle, spawnpoints[spawn].position, Quaternion.identity);
+                    enemy.transform.parent = enemyParent;
 
-                yield return new WaitForSeconds(waitTime);
+                    yield return new WaitForSeconds(waitTime);
+                }
+                stopLoop = true;
             }
+
         }
 
         if (next == 5)

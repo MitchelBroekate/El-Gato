@@ -28,6 +28,7 @@ public class UfoBehavior : MonoBehaviour
 
     RaycastHit hit;
 
+    [SerializeField]
     int layerMask;
     private void Start()
     {
@@ -87,7 +88,6 @@ public class UfoBehavior : MonoBehaviour
         {
             if (check >= cowParent.transform.childCount)
             {
-                target = GameObject.Find("11").transform;
                 check = 0;
             }
             else
@@ -112,17 +112,13 @@ public class UfoBehavior : MonoBehaviour
 
         if (target != null)
         {
-            Debug.Log("1");
             transform.LookAt(new Vector3(target.position.x, transform.position.y, target.position.z));
             if (Physics.Raycast(transform.position, -Vector3.up, out hit, 1000, layerMask))
             {
-                Debug.Log("2");
                 if (hit.collider != null)
                 {
-                    Debug.Log("3");
                     if (hit.transform.position == target.position)
                     {
-                        Debug.Log("4");
                         GetComponent<Rigidbody>().velocity = Vector3.zero;
 
                         target.GetComponent<Rigidbody>().velocity = transform.up * suckSpeed * Time.deltaTime;
@@ -131,7 +127,6 @@ public class UfoBehavior : MonoBehaviour
             }
             else
             {
-                Debug.Log("5");
                 GetComponent<Rigidbody>().velocity = transform.forward * moveSpeed * Time.deltaTime;
             }
         }
