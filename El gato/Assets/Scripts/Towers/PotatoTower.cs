@@ -108,6 +108,14 @@ public class PotatoTower : TowerManager
                             if (allTargets[b].transform != nearestTarget)
                             {
                                 allTargets[b].GetComponent<UfoBehavior>().targeted = false;
+
+                                if (allTargets[b].GetComponent<UfoBehavior>().dead)
+                                {
+                                    Destroy(allTargets[b].gameObject);
+                                    allTargets.Remove(allTargets[b]);
+
+                                    GameObject.Find("Scripts/PlayerInput").GetComponent<BuildingShop>().money += 50;
+                                }
                             }
                         }
 

@@ -520,7 +520,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7150815696496716714}
   - component: {fileID: 7337835524873645293}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: GatllingGun
   m_TagString: egg
   m_Icon: {fileID: 0}
