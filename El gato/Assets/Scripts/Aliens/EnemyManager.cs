@@ -127,73 +127,67 @@ public class EnemyManager : MonoBehaviour
 
     IEnumerator WaveWaitTime(int waitTime)
     {
-        bool stopLoop = false;
-        while (cowStatusCheck)
+        if (next == 1)
         {
-            if (!stopLoop)
+            int stopLoop = 0;
+            while (cowStatusCheck && stopLoop < 11)
             {
-                if (next == 1)
-                {
-                    stopLoop = false;
-                    for (int i = 0; i < 30; i++)
-                    {
-                        int spawn = Random.Range(0, spawnpoints.Count);
+                int spawn = Random.Range(0, spawnpoints.Count);
 
-                        GameObject enemy = Instantiate(alienShuttle, spawnpoints[spawn].position, Quaternion.identity);
-                        enemy.transform.parent = enemyParent;
+                GameObject enemy = Instantiate(alienShuttle, spawnpoints[spawn].position, Quaternion.identity);
+                enemy.transform.parent = enemyParent;
 
-                        yield return new WaitForSeconds(waitTime);
-                    }
-                    stopLoop = true;
-                }
+                yield return new WaitForSeconds(waitTime);
+                        
+                stopLoop++;
             }
-
-
-            if (next == 2)
+        }
+        if (next == 2)
+        {
+            int stopLoop = 0;
+            while (cowStatusCheck && stopLoop < 16)
             {
-                stopLoop = false;
-                for (int i = 0; i < 15; i++)
-                {
-                    int spawn = Random.Range(0, spawnpoints.Count);
+                int spawn = Random.Range(0, spawnpoints.Count);
 
-                    GameObject enemy = Instantiate(alienShuttle, spawnpoints[spawn].position, Quaternion.identity);
-                    enemy.transform.parent = enemyParent;
+                GameObject enemy = Instantiate(alienShuttle, spawnpoints[spawn].position, Quaternion.identity);
+                enemy.transform.parent = enemyParent;
 
-                    yield return new WaitForSeconds(waitTime);
-                }
-                stopLoop = true;
+                yield return new WaitForSeconds(waitTime);
+
+                stopLoop++;
             }
+        }
 
-            if (next == 3)
+        if (next == 3)
+        {
+            int stopLoop = 0;
+            while (cowStatusCheck && stopLoop < 21)
             {
-                stopLoop = false;
-                for (int i = 0; i < 20; i++)
-                {
-                    int spawn = Random.Range(0, spawnpoints.Count);
+                int spawn = Random.Range(0, spawnpoints.Count);
 
-                    GameObject enemy = Instantiate(alienShuttle, spawnpoints[spawn].position, Quaternion.identity);
-                    enemy.transform.parent = enemyParent;
+                GameObject enemy = Instantiate(alienShuttle, spawnpoints[spawn].position, Quaternion.identity);
+                enemy.transform.parent = enemyParent;
 
-                    yield return new WaitForSeconds(waitTime);
-                }
-                stopLoop = true;
+                yield return new WaitForSeconds(waitTime);
+
+                stopLoop++;
             }
+        }
 
-            if (next == 4)
+        if (next == 4)
+        {
+            int stopLoop = 0;
+            while (cowStatusCheck && stopLoop == 31)
             {
-                stopLoop = false;
-                for (int i = 0; i < 30; i++)
-                {
-                    int spawn = Random.Range(0, spawnpoints.Count);
+                int spawn = Random.Range(0, spawnpoints.Count);
 
-                    GameObject enemy = Instantiate(alienShuttle, spawnpoints[spawn].position, Quaternion.identity);
-                    enemy.transform.parent = enemyParent;
+                GameObject enemy = Instantiate(alienShuttle, spawnpoints[spawn].position, Quaternion.identity);
+                enemy.transform.parent = enemyParent;
 
-                    yield return new WaitForSeconds(waitTime);
-                }
-                stopLoop = true;
+                yield return new WaitForSeconds(waitTime);
+
+                stopLoop++;
             }
-
         }
 
         if (next == 5)

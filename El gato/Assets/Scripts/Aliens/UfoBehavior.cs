@@ -113,6 +113,7 @@ public class UfoBehavior : MonoBehaviour
         if (target != null)
         {
             transform.LookAt(new Vector3(target.position.x, transform.position.y, target.position.z));
+
             if (Physics.Raycast(transform.position, -Vector3.up, out hit, 1000, layerMask))
             {
                 if (hit.collider != null)
