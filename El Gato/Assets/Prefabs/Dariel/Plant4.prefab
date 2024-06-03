@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &7922291704762912499
+--- !u!1001 &3220733876923458636
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -11,17 +11,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9f9863b21fd735c4daf8579dbecf4010,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 139.3
+      value: -77.00325
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9f9863b21fd735c4daf8579dbecf4010,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.000008106232
+      value: -0.000019073486
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9f9863b21fd735c4daf8579dbecf4010,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 481.81
+      value: -20.915945
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9f9863b21fd735c4daf8579dbecf4010,
         type: 3}
@@ -62,16 +62,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 26939adb8118b1240b2b2edf132c88b3, type: 2}
+      objectReference: {fileID: 2100000, guid: c2c0a35edb7c954468118e4fc574f77c, type: 2}
     - target: {fileID: 919132149155446097, guid: 9f9863b21fd735c4daf8579dbecf4010,
         type: 3}
       propertyPath: m_Name
       value: Plant4
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 9f9863b21fd735c4daf8579dbecf4010,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
