@@ -56,6 +56,7 @@ public class BuildState : PlayerState
     [Header("Raycast Ignore")]
     [SerializeField]
     LayerMask ignoreLayer;
+
     #endregion
 
     //Updates the corresponding functions and sets the var ray to the mouse position
