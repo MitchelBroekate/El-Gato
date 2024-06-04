@@ -62,6 +62,24 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DevMoney"",
+                    ""type"": ""Button"",
+                    ""id"": ""6e70092e-4645-4653-b014-72d3340c4c77"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DevWave"",
+                    ""type"": ""Button"",
+                    ""id"": ""73b9e3c8-4a89-4558-ab6d-1674b1aa642f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -152,6 +170,28 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
                     ""action"": ""WaveButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e4340bc1-0aa4-48a4-bcca-0251c1d00d84"",
+                    ""path"": ""<Keyboard>/0"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DevMoney"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""52e5c38a-c9be-457d-a40d-69363a627d9e"",
+                    ""path"": ""<Keyboard>/9"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DevWave"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -164,6 +204,8 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_SwitchCam = m_Player.FindAction("SwitchCam", throwIfNotFound: true);
         m_Player_WaveButton = m_Player.FindAction("WaveButton", throwIfNotFound: true);
+        m_Player_DevMoney = m_Player.FindAction("DevMoney", throwIfNotFound: true);
+        m_Player_DevWave = m_Player.FindAction("DevWave", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -229,6 +271,8 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_SwitchCam;
     private readonly InputAction m_Player_WaveButton;
+    private readonly InputAction m_Player_DevMoney;
+    private readonly InputAction m_Player_DevWave;
     public struct PlayerActions
     {
         private @Elgato m_Wrapper;
@@ -237,6 +281,8 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @SwitchCam => m_Wrapper.m_Player_SwitchCam;
         public InputAction @WaveButton => m_Wrapper.m_Player_WaveButton;
+        public InputAction @DevMoney => m_Wrapper.m_Player_DevMoney;
+        public InputAction @DevWave => m_Wrapper.m_Player_DevWave;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -258,6 +304,12 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
             @WaveButton.started += instance.OnWaveButton;
             @WaveButton.performed += instance.OnWaveButton;
             @WaveButton.canceled += instance.OnWaveButton;
+            @DevMoney.started += instance.OnDevMoney;
+            @DevMoney.performed += instance.OnDevMoney;
+            @DevMoney.canceled += instance.OnDevMoney;
+            @DevWave.started += instance.OnDevWave;
+            @DevWave.performed += instance.OnDevWave;
+            @DevWave.canceled += instance.OnDevWave;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -274,6 +326,12 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
             @WaveButton.started -= instance.OnWaveButton;
             @WaveButton.performed -= instance.OnWaveButton;
             @WaveButton.canceled -= instance.OnWaveButton;
+            @DevMoney.started -= instance.OnDevMoney;
+            @DevMoney.performed -= instance.OnDevMoney;
+            @DevMoney.canceled -= instance.OnDevMoney;
+            @DevWave.started -= instance.OnDevWave;
+            @DevWave.performed -= instance.OnDevWave;
+            @DevWave.canceled -= instance.OnDevWave;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -297,5 +355,7 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
         void OnFire(InputAction.CallbackContext context);
         void OnSwitchCam(InputAction.CallbackContext context);
         void OnWaveButton(InputAction.CallbackContext context);
+        void OnDevMoney(InputAction.CallbackContext context);
+        void OnDevWave(InputAction.CallbackContext context);
     }
 }

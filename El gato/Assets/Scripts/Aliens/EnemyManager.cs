@@ -23,8 +23,7 @@ public class EnemyManager : MonoBehaviour
 
     bool spawnCheck = false;
 
-    [SerializeField]
-    int next;
+    public int next;
 
     private void Start()
     {
@@ -124,6 +123,8 @@ public class EnemyManager : MonoBehaviour
                 break;
         }
     }
+
+
 
     IEnumerator WaveWaitTime(int waitTime)
     {

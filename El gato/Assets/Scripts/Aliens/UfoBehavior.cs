@@ -24,49 +24,38 @@ public class UfoBehavior : MonoBehaviour
     int check = 0;
 
     bool targetCheck = true;
-
-    public bool inTurretRange;
-
-    public bool targeted;
-
     RaycastHit hit;
 
     [SerializeField]
     int layerMask;
 
     List<GameObject> towerTarget = new();
+
+    List<Transform> towers = new();
+
     private void Start()
     {
         health = 100;
         cowParent = GameObject.Find("lives");
 
         layerMask = LayerMask.GetMask("cow");
+
+        towerParent = GameObject.Find("TowersParent");
     }
     private void Update()
     {
         if (health <= 0)
         {
-            if (inTurretRange)
+            if (check < cowParent.transform.childCount)
             {
-                if (check < cowParent.transform.childCount)
-                {
-                    cowParent.transform.GetChild(check).GetComponent<CowCheck>().available = true;
-                }
-
-                dead = true;
+                cowParent.transform.GetChild(check).GetComponent<CowCheck>().available = true;
             }
-            else
-            {
-                if (check < cowParent.transform.childCount)
-                {
-                    cowParent.transform.GetChild(check).GetComponent<CowCheck>().available = true;
-                }
 
-                Destroy(gameObject);
-            }
+            dead = true;
         }
 
         CowTargeting();
+        TowerDeathCheck();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -75,15 +64,7 @@ public class UfoBehavior : MonoBehaviour
         {
             Destroy(collision.transform.gameObject);
 
-            if (inTurretRange)
-            {
                 dead = true;
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-
         }
     }
 
@@ -136,5 +117,72 @@ public class UfoBehavior : MonoBehaviour
             }
         }
 
+    }
+
+    void TowerDeathCheck()
+    {
+        for (int i = 0; i < towerParent.transform.childCount; i++)
+        {
+            if (towerParent.transform.tag == "potato")
+            {
+                if (towerParent.transform.GetChild(i).GetComponent<PotatoTower>().allTargets.Contains(transform))
+                {
+                    if (!towers.Contains(towerParent.transform.GetChild(i)))
+                    {
+                        towers.Add(towerParent.transform.GetChild(i));
+                    }
+
+                }
+            }
+
+            if (towerParent.transform.tag == "egg")
+            {
+                if (towerParent.transform.GetChild(i).GetComponent<EggTower>().allTargets.Contains(transform))
+                {
+                    if (!towers.Contains(towerParent.transform.GetChild(i)))
+                    {
+                        towers.Add(towerParent.transform.GetChild(i));
+                    }
+                }
+            }
+
+            //if (towerParent.transform.tag == "corn")
+            //{
+            //    if (towerParent.transform.GetChild(i).GetComponent<CornTower>().allTargets.Contains(transform))
+            //    {
+            //      if (!towers.Contains(towerParent.transform.GetChild(i)))
+            //      {
+            //          towers.Add(towerParent.transform.GetChild(i));
+            //      }
+            //    }
+            //}
+        }
+
+        if (dead)
+        {
+            for (int i = 0; i < towerParent.transform.childCount; i++)
+            {
+                if (towers.Contains(towerParent.transform.GetChild(i)))
+                {
+                    if (towerParent.transform.tag == "potato")
+                    {
+                        towerParent.transform.GetChild(i).GetComponent<PotatoTower>().allTargets.Remove(transform);
+                    }
+
+                    if (towerParent.transform.tag == "egg")
+                    {
+                        towerParent.transform.GetChild(i).GetComponent<PotatoTower>().allTargets.Remove(transform);
+                    }
+
+                    //if (towerParent.transform.tag == "corn")
+                    //{
+                    //    towerParent.transform.GetChild(i).GetComponent<PotatoTower>().allTargets.Remove(transform);
+                    //}
+                }
+            }
+
+            GameObject.Find("Scripts/PlayerInput").GetComponent<BuildingShop>().money += 50;
+            Destroy(gameObject);
+        }
     }
 }

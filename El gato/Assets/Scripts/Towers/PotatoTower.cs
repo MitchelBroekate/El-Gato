@@ -15,8 +15,7 @@ public class PotatoTower : TowerManager
     GameObject bulletPotato;
 
     [Header("List With Targets")]
-    [SerializeField]
-    List<Transform> allTargets = new();
+    public List<Transform> allTargets = new();
 
     [Header("Current Targeted Target")]
     [SerializeField]
@@ -51,18 +50,10 @@ public class PotatoTower : TowerManager
     {
         if (other.transform.gameObject.tag == "enemyship")
         {
-            other.GetComponent<UfoBehavior>().inTurretRange = true;
-
-            if (!other.GetComponent<UfoBehavior>().targeted)
+            if (!allTargets.Contains(other.transform))
             {
-                if (!allTargets.Contains(other.transform))
-                {
-                    allTargets.Add(other.transform);
-
-                    other.GetComponent<UfoBehavior>().targeted = true;
-                }
+                allTargets.Add(other.transform);
             }
-
         }
     }
 
@@ -70,9 +61,6 @@ public class PotatoTower : TowerManager
     {
         if (other.transform.gameObject.tag == "enemyship")
         {
-
-            other.GetComponent<UfoBehavior>().inTurretRange = false;
-
             if (allTargets.Contains(other.transform))
             {
                 allTargets.Remove(other.transform);
@@ -101,31 +89,8 @@ public class PotatoTower : TowerManager
                     nearestTarget = allTargets[i];
                     nearestDistance = distance;
 
-                    for (int b = 0; b < allTargets.Count; b++)
-                    {
-                        if (allTargets[b] != null)
-                        {
-                            if (allTargets[b].transform != nearestTarget)
-                            {
-                                allTargets[b].GetComponent<UfoBehavior>().targeted = false;
-
-                                if (allTargets[b].GetComponent<UfoBehavior>().dead)
-                                {
-                                    Destroy(allTargets[b].gameObject);
-                                    allTargets.Remove(allTargets[b]);
-
-                                    GameObject.Find("Scripts/PlayerInput").GetComponent<BuildingShop>().money += 50;
-                                }
-                            }
-                        }
-
-                    }
-
                 }
             }
-
-            
-
         }
         if (nearestTarget != null)
         {
@@ -137,9 +102,7 @@ public class PotatoTower : TowerManager
                 whenToFire = Time.time + 1 / fireRate;
                 Shooting();
             }
-
         }
-
     }
 
     void Shooting()
