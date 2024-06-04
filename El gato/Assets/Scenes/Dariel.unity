@@ -437,8 +437,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1106258561573059220, guid: 89d67b4ca9111ad4580d9b5d2f2ad40d,
         type: 3}
+      propertyPath: m_TreeCrossFadeLength
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1106258561573059220, guid: 89d67b4ca9111ad4580d9b5d2f2ad40d,
+        type: 3}
       propertyPath: m_TreeBillboardDistance
-      value: 5
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1106258561573059220, guid: 89d67b4ca9111ad4580d9b5d2f2ad40d,
+        type: 3}
+      propertyPath: m_TreeMaximumFullLODCount
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6724453696643714446, guid: 89d67b4ca9111ad4580d9b5d2f2ad40d,
         type: 3}
