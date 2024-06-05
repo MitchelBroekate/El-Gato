@@ -52,6 +52,8 @@ public class UfoBehavior : MonoBehaviour
             }
 
             dead = true;
+
+            GameObject.Find("Scripts/PlayerInput").GetComponent<BuildingShop>().money += 50;
         }
 
         CowTargeting();
@@ -180,8 +182,6 @@ public class UfoBehavior : MonoBehaviour
                     //}
                 }
             }
-
-            GameObject.Find("Scripts/PlayerInput").GetComponent<BuildingShop>().money += 50;
             Destroy(gameObject);
         }
     }

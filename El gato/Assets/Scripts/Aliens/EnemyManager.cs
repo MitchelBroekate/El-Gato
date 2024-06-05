@@ -78,7 +78,7 @@ public class EnemyManager : MonoBehaviour
                 if (spawnCheck)
                 {
                     StartCoroutine(WaveWaitTime(4));
-                    spawnCheck = false;
+                    //spawnCheck = false;
                 }
 
                 break;
@@ -88,7 +88,7 @@ public class EnemyManager : MonoBehaviour
                 if (spawnCheck)
                 {
                     StartCoroutine(WaveWaitTime(3));
-                    spawnCheck = false;
+                    //spawnCheck = false;
                 }
 
                 break;
@@ -98,7 +98,7 @@ public class EnemyManager : MonoBehaviour
                 if (spawnCheck)
                 {
                     StartCoroutine(WaveWaitTime(2));
-                    spawnCheck = false;
+                    //spawnCheck = false;
                 }
 
                 break;
@@ -108,7 +108,7 @@ public class EnemyManager : MonoBehaviour
                 if (spawnCheck)
                 {
                     StartCoroutine(WaveWaitTime(1));
-                    spawnCheck = false;
+                    //spawnCheck = false;
                 }
 
                 break;
@@ -118,7 +118,7 @@ public class EnemyManager : MonoBehaviour
                 if (spawnCheck)
                 {
                     StartCoroutine(WaveWaitTime(1));
-                    spawnCheck = false;
+                    //spawnCheck = false;
                 }
                 break;
         }
@@ -142,6 +142,11 @@ public class EnemyManager : MonoBehaviour
                         
                 stopLoop++;
             }
+
+            if (stopLoop >= 10)
+            {
+                spawnCheck = false;
+            }
         }
         if (next == 2)
         {
@@ -156,6 +161,11 @@ public class EnemyManager : MonoBehaviour
                 yield return new WaitForSeconds(waitTime);
 
                 stopLoop++;
+            }
+
+            if (stopLoop >= 15)
+            {
+                spawnCheck = false;
             }
         }
 
@@ -173,6 +183,11 @@ public class EnemyManager : MonoBehaviour
 
                 stopLoop++;
             }
+
+            if (stopLoop >= 20)
+            {
+                spawnCheck = false;
+            }
         }
 
         if (next == 4)
@@ -188,6 +203,11 @@ public class EnemyManager : MonoBehaviour
                 yield return new WaitForSeconds(waitTime);
 
                 stopLoop++;
+            }
+
+            if (stopLoop >= 30)
+            {
+                spawnCheck = false;
             }
         }
 

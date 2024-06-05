@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LoseCheck : MonoBehaviour
 {
-    void CheckIfLost()
+    private void Update()
     {
         if (transform.childCount <= 0)
         {

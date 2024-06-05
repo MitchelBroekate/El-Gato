@@ -64,19 +64,16 @@ public class BuildingShop : MonoBehaviour
         switch (TowerToShow)
         {
             case TowerIndicators.Tower1:
-                Debug.Log("Tower1");
 
                 buildState.CurrentTowerToPlace = potatoT;
 
                 break;
             case TowerIndicators.Tower2:
-                Debug.Log("Tower2");
 
                 buildState.CurrentTowerToPlace = eggT;
 
                 break;
             case TowerIndicators.Tower3:
-                Debug.Log("Tower3");
 
                 buildState.CurrentTowerToPlace = cornT;
 
