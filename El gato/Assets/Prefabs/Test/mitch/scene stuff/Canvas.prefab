@@ -303,7 +303,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32.3
+  m_fontSize: 33.25
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -378,8 +378,8 @@ RectTransform:
   - {fileID: 3877224305870060001}
   m_Father: {fileID: 601702882489126002}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.74047923, y: 0.6}
-  m_AnchorMax: {x: 0.80500007, y: 0.71000004}
+  m_AnchorMin: {x: 0.74047923, y: 0.44274074}
+  m_AnchorMax: {x: 0.80500007, y: 0.55374086}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -514,7 +514,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32.9
+  m_fontSize: 32.2
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -945,7 +945,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &601702882489126002
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1008,8 +1008,8 @@ RectTransform:
   - {fileID: 3682123730793508969}
   m_Father: {fileID: 601702882489126002}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.81652087, y: 0.60700005}
-  m_AnchorMax: {x: 0.9872709, y: 0.703}
+  m_AnchorMin: {x: 0.81652087, y: 0.45200002}
+  m_AnchorMax: {x: 0.98935425, y: 0.54800004}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1448,8 +1448,8 @@ RectTransform:
   - {fileID: 1924541757547952037}
   m_Father: {fileID: 601702882489126002}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.81652087, y: 0.7382964}
-  m_AnchorMax: {x: 0.98935425, y: 0.8335928}
+  m_AnchorMin: {x: 0.81652087, y: 0.57100004}
+  m_AnchorMax: {x: 0.9872709, y: 0.669}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1842,7 +1842,7 @@ GameObject:
   - component: {fileID: 1991420105241055038}
   - component: {fileID: 3208481885113692294}
   m_Layer: 5
-  m_Name: Egg Gattler Background (1)
+  m_Name: Corn Missle Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1863,8 +1863,8 @@ RectTransform:
   - {fileID: 3857449620801159625}
   m_Father: {fileID: 601702882489126002}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.74047923, y: 0.47166666}
-  m_AnchorMax: {x: 0.80500007, y: 0.58500004}
+  m_AnchorMin: {x: 0.74047923, y: 0.31800002}
+  m_AnchorMax: {x: 0.80500007, y: 0.43500003}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1940,8 +1940,8 @@ RectTransform:
   - {fileID: 6313912812518880086}
   m_Father: {fileID: 601702882489126002}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.81652087, y: 0.48000002}
-  m_AnchorMax: {x: 0.9872709, y: 0.577}
+  m_AnchorMin: {x: 0.81652087, y: 0.33}
+  m_AnchorMax: {x: 0.9872709, y: 0.425}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2188,7 +2188,7 @@ GameObject:
   - component: {fileID: 5565629206935985418}
   - component: {fileID: 6972717587843320747}
   m_Layer: 5
-  m_Name: Egg Gattler Icon
+  m_Name: Corn Missle Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2284,8 +2284,8 @@ RectTransform:
   - {fileID: 7233403811407440036}
   m_Father: {fileID: 601702882489126002}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.74047923, y: 0.72800004}
-  m_AnchorMax: {x: 0.80500007, y: 0.8428519}
+  m_AnchorMin: {x: 0.74047923, y: 0.563}
+  m_AnchorMax: {x: 0.80500007, y: 0.6773332}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
