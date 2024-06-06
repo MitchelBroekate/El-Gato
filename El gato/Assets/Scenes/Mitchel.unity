@@ -16706,6 +16706,7 @@ GameObject:
   - component: {fileID: 1604760526}
   - component: {fileID: 1604760525}
   - component: {fileID: 1604760528}
+  - component: {fileID: 1604760529}
   m_Layer: 0
   m_Name: Scripts/PlayerInput
   m_TagString: Untagged
@@ -16824,6 +16825,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 7f03cfaf-a200-44fc-a357-7cb6dc9ca54b
     m_ActionName: Player/WaveButton[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1604760529}
+        m_TargetAssemblyTypeName: Devtools, Assembly-CSharp
+        m_MethodName: AddMoney
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6e70092e-4645-4653-b014-72d3340c4c77
+    m_ActionName: Player/DevMoney[/Keyboard/0]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1604760529}
+        m_TargetAssemblyTypeName: Devtools, Assembly-CSharp
+        m_MethodName: NextWave
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 73b9e3c8-4a89-4558-ab6d-1674b1aa642f
+    m_ActionName: Player/DevWave[/Keyboard/9]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -16862,6 +16895,18 @@ MonoBehaviour:
   enemyParent: {fileID: 2593131921281110756}
   cowStatusCheck: 1
   next: 0
+--- !u!114 &1604760529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604760524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44c233e16822fcf4a949466fee0eaa42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1621823395
 GameObject:
   m_ObjectHideFlags: 0
