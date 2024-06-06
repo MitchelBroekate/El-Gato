@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UfoBehavior : MonoBehaviour
 {
+    #region Variables
     public int health;
     public bool dead;
 
@@ -33,6 +34,10 @@ public class UfoBehavior : MonoBehaviour
 
     List<Transform> towers = new();
 
+    bool moveAlong = false;
+    #endregion
+
+    //Start for getting Gameobjects and layer + setting default values
     private void Start()
     {
         health = 100;
@@ -41,7 +46,11 @@ public class UfoBehavior : MonoBehaviour
         layerMask = LayerMask.GetMask("cow");
 
         towerParent = GameObject.Find("TowersParent");
+
+        Physics.IgnoreLayerCollision(2, 2);
     }
+
+    //Update for death check, CowTargeting and killed by tower check
     private void Update()
     {
         if (health <= 0)
@@ -60,6 +69,7 @@ public class UfoBehavior : MonoBehaviour
         TowerDeathCheck();
     }
 
+    //checks if the ufo has caputered a cow and removes it and itself
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == "life")
@@ -69,7 +79,15 @@ public class UfoBehavior : MonoBehaviour
                 dead = true;
         }
     }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.transform.tag == "enemyship")
+        {
+            moveAlong = false;
+        }
+    }
 
+    //Targets the first available cow
     private void CowTargeting()
     {
         if (targetCheck)
@@ -107,6 +125,8 @@ public class UfoBehavior : MonoBehaviour
                 {
                     if (hit.transform.position == target.position)
                     {
+                        moveAlong = false;
+
                         GetComponent<Rigidbody>().velocity = Vector3.zero;
 
                         target.GetComponent<Rigidbody>().velocity = transform.up * suckSpeed * Time.deltaTime;
@@ -116,11 +136,13 @@ public class UfoBehavior : MonoBehaviour
             else
             {
                 GetComponent<Rigidbody>().velocity = transform.forward * moveSpeed * Time.deltaTime;
+                moveAlong = true;
             }
         }
 
     }
 
+    //checks if the enemy died by a tower
     void TowerDeathCheck()
     {
         for (int i = 0; i < towerParent.transform.childCount; i++)

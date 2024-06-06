@@ -178,11 +178,11 @@ MonoBehaviour:
   health: 0
   dead: 0
   cowParent: {fileID: 0}
+  towerParent: {fileID: 0}
   target: {fileID: 0}
   moveSpeed: 1000
   suckSpeed: 100
-  inTurretRange: 0
-  targeted: 0
+  layerMask: 0
 --- !u!65 &1619024613717362568
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -190,7 +190,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8461445473164850596}
-  m_Material: {fileID: 13400000, guid: b077254645c256547acc9c7cfc826c06, type: 2}
+  m_Material: {fileID: 13400000, guid: 2fee9571dd0693a40ae08eeb5cee88b0, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
