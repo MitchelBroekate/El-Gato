@@ -25,6 +25,8 @@ public class EnemyManager : MonoBehaviour
 
     public int next;
 
+    int stopLoop = 0;
+
     private void Start()
     {
         GetSpawnpoints();
@@ -130,7 +132,6 @@ public class EnemyManager : MonoBehaviour
     {
         if (next == 1)
         {
-            int stopLoop = 0;
             while (cowStatusCheck && stopLoop < 10)
             {
                 int spawn = Random.Range(0, spawnpoints.Count);
@@ -146,11 +147,11 @@ public class EnemyManager : MonoBehaviour
             if (stopLoop >= 10)
             {
                 spawnCheck = false;
+                stopLoop = 0;
             }
         }
         if (next == 2)
         {
-            int stopLoop = 0;
             while (cowStatusCheck && stopLoop < 15)
             {
                 int spawn = Random.Range(0, spawnpoints.Count);
@@ -171,7 +172,6 @@ public class EnemyManager : MonoBehaviour
 
         if (next == 3)
         {
-            int stopLoop = 0;
             while (cowStatusCheck && stopLoop < 20)
             {
                 int spawn = Random.Range(0, spawnpoints.Count);
@@ -192,7 +192,6 @@ public class EnemyManager : MonoBehaviour
 
         if (next == 4)
         {
-            int stopLoop = 0;
             while (cowStatusCheck && stopLoop < 30)
             {
                 int spawn = Random.Range(0, spawnpoints.Count);
