@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1114387740106119753}
   - component: {fileID: 7454976948941740591}
   - component: {fileID: 5037424840898534610}
+  - component: {fileID: 2207340994598412139}
   m_Layer: 0
   m_Name: Buttons
   m_TagString: Untagged
@@ -74,3 +75,15 @@ MonoBehaviour:
   musicSlider: {fileID: 0}
   sfxSlider: {fileID: 0}
   resolutionDropdown: {fileID: 0}
+--- !u!114 &2207340994598412139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2339902615138537071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b2a8702a3a41184e94f4b244ec5fcc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
