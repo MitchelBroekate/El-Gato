@@ -5,206 +5,145 @@ using UnityEngine;
 public class UfoBehavior : MonoBehaviour
 {
     #region Variables
-    public int health;
-    public bool dead;
+    private int health = 100;
 
-    [SerializeField]
-    GameObject cowParent;
-
-    [SerializeField]
-    GameObject towerParent;
-
-    [SerializeField]
-    Transform target;
+    public Transform target;
 
     [SerializeField]
     float moveSpeed = 1000;
     [SerializeField]
-    float suckSpeed = 100;
-
-    int check = 0;
-
-    bool targetCheck = true;
-    RaycastHit hit;
+    float levitationSpeed = 100;
+    [SerializeField]
+    float claimedCowDistance = 0.25f;
 
     [SerializeField]
     int layerMask;
 
-    List<GameObject> towerTarget = new();
+    Quaternion targetRotation;
+    RaycastHit hit;
 
-    List<Transform> towers = new();
+    public Transform centerObject;
 
-    bool moveAlong = false;
+    public float radius = 20.0f;
+
+    public float speed = 1.0f;
+
+    private float angle = 0.0f;
     #endregion
 
-    //Start for getting Gameobjects and layer + setting default values
+    public enum UFOState
+    {
+        QUEUE,
+        GOTOCOW,
+        GETTINGCOW,
+        MOVINGOUT
+    }
+
+    public UFOState uFOState;
+
     private void Start()
     {
-        health = 100;
-        cowParent = GameObject.Find("lives");
+        centerObject = GameObject.Find("Queue").transform;
 
         layerMask = LayerMask.GetMask("cow");
 
-        towerParent = GameObject.Find("TowersParent");
-
         Physics.IgnoreLayerCollision(2, 2);
+
+        uFOState = UFOState.QUEUE;
     }
 
-    //Update for death check, CowTargeting and killed by tower check
     private void Update()
     {
+        DoState();
+    }
+
+    void DoState()
+    {
+        switch (uFOState)
+        {
+            case UFOState.QUEUE:
+                Queue();
+                break;
+            case UFOState.GOTOCOW:
+                GoToCow();
+                break;
+            case UFOState.GETTINGCOW:
+                GettingCow();
+                break;
+            case UFOState.MOVINGOUT:
+                MovingOut();
+                break;
+            default:
+                break;
+        }
+    }
+
+    void Queue()
+    {
+        GameObject.Find("Queue").GetComponent<Queue>().AddUfoToQueue(this);
+
+        float x = centerObject.position.x + Mathf.Cos(angle) * radius;
+        float z = centerObject.position.z + Mathf.Sin(angle) * radius;
+
+        transform.position = new Vector3(x, transform.position.y, z);
+
+        angle += speed * Time.deltaTime;
+
+        if (angle > Mathf.PI * 2)
+        {
+            angle -= Mathf.PI * 2;
+        }
+    }
+
+    void GoToCow()
+    {
+        if (Physics.Raycast(transform.position, -Vector3.up, out hit, Mathf.Infinity, layerMask))
+        {
+            if (hit.transform == target)
+            {
+                transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                uFOState = UFOState.GETTINGCOW;
+            }
+        }
+        else
+        {
+            targetRotation = Quaternion.Euler(target.position.x, transform.rotation.y, target.position.z);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 2);
+            transform.GetComponent<Rigidbody>().velocity = transform.forward * moveSpeed * Time.deltaTime;
+        }
+    }
+
+    void GettingCow()
+    {
+        if(Vector3.Distance(target.position,transform.position) < claimedCowDistance)
+        {
+            GameObject.Find("CowManager").GetComponent<CowManager>().RemoveCow(target);
+            uFOState = UFOState.MOVINGOUT;
+        }
+        else
+        {
+            target.GetComponent<Rigidbody>().velocity = transform.up * levitationSpeed * Time.deltaTime;
+        }
+    }
+
+    void MovingOut()
+    {
+        transform.GetComponent<Rigidbody>().AddForce(Vector3.up * levitationSpeed * Time.deltaTime) ;
+
+        Destroy(gameObject, 3);
+    }
+
+    public void DoDamage(int damage)
+    {
+        health -= damage;
         if (health <= 0)
         {
-            if (check < cowParent.transform.childCount)
+            if(uFOState == UFOState.GETTINGCOW)
             {
-                cowParent.transform.GetChild(check).GetComponent<CowCheck>().available = true;
+                GameObject.Find("Queue").GetComponent<Queue>().AssignCow();
             }
-
-            dead = true;
 
             GameObject.Find("Scripts/PlayerInput").GetComponent<BuildingShop>().money += 50;
-        }
-
-        CowTargeting();
-        TowerDeathCheck();
-    }
-
-    //checks if the ufo has caputered a cow and removes it and itself
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.transform.tag == "life")
-        {
-            Destroy(collision.transform.gameObject);
-
-                dead = true;
-        }
-    }
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.transform.tag == "enemyship")
-        {
-            moveAlong = false;
-        }
-    }
-
-    //Targets the first available cow
-    private void CowTargeting()
-    {
-        if (targetCheck)
-        {
-            if (check >= cowParent.transform.childCount)
-            {
-                check = 0;
-            }
-            else
-            {
-                if (cowParent.transform.GetChild(check).GetComponent<CowCheck>().available)
-                {
-                    target = cowParent.transform.GetChild(check);
-
-                    target.GetComponent<CowCheck>().available = false;
-
-                    targetCheck = false;
-                }
-                else
-                {
-                    check++;
-                }
-            }
-
-        }
-
-
-        if (target != null)
-        {
-            transform.LookAt(new Vector3(target.position.x, transform.position.y, target.position.z));
-
-            if (Physics.Raycast(transform.position, -Vector3.up, out hit, 1000, layerMask))
-            {
-                if (hit.collider != null)
-                {
-                    if (hit.transform.position == target.position)
-                    {
-                        moveAlong = false;
-
-                        GetComponent<Rigidbody>().velocity = Vector3.zero;
-
-                        target.GetComponent<Rigidbody>().velocity = transform.up * suckSpeed * Time.deltaTime;
-                    }
-                }
-            }
-            else
-            {
-                GetComponent<Rigidbody>().velocity = transform.forward * moveSpeed * Time.deltaTime;
-                moveAlong = true;
-            }
-        }
-
-    }
-
-    //checks if the enemy died by a tower
-    void TowerDeathCheck()
-    {
-        for (int i = 0; i < towerParent.transform.childCount; i++)
-        {
-            if (towerParent.transform.tag == "potato")
-            {
-                if (towerParent.transform.GetChild(i).GetComponent<PotatoTower>().allTargets.Contains(transform))
-                {
-                    if (!towers.Contains(towerParent.transform.GetChild(i)))
-                    {
-                        towers.Add(towerParent.transform.GetChild(i));
-                    }
-
-                }
-            }
-
-            if (towerParent.transform.tag == "egg")
-            {
-                if (towerParent.transform.GetChild(i).GetComponent<EggTower>().allTargets.Contains(transform))
-                {
-                    if (!towers.Contains(towerParent.transform.GetChild(i)))
-                    {
-                        towers.Add(towerParent.transform.GetChild(i));
-                    }
-                }
-            }
-
-            //if (towerParent.transform.tag == "corn")
-            //{
-            //    if (towerParent.transform.GetChild(i).GetComponent<CornTower>().allTargets.Contains(transform))
-            //    {
-            //      if (!towers.Contains(towerParent.transform.GetChild(i)))
-            //      {
-            //          towers.Add(towerParent.transform.GetChild(i));
-            //      }
-            //    }
-            //}
-        }
-
-        if (dead)
-        {
-            for (int i = 0; i < towerParent.transform.childCount; i++)
-            {
-                if (towers.Contains(towerParent.transform.GetChild(i)))
-                {
-                    if (towerParent.transform.tag == "potato")
-                    {
-                        towerParent.transform.GetChild(i).GetComponent<PotatoTower>().allTargets.Remove(transform);
-                    }
-
-                    if (towerParent.transform.tag == "egg")
-                    {
-                        towerParent.transform.GetChild(i).GetComponent<PotatoTower>().allTargets.Remove(transform);
-                    }
-
-                    //if (towerParent.transform.tag == "corn")
-                    //{
-                    //    towerParent.transform.GetChild(i).GetComponent<PotatoTower>().allTargets.Remove(transform);
-                    //}
-                }
-            }
-            Destroy(gameObject);
         }
     }
 }

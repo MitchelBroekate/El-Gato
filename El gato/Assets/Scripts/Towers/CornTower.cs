@@ -42,8 +42,6 @@ public class CornTower : TowerManager
     private void Update()
     {
         Targeting();
-
-        DeathCheck();
     }
 
     private void FixedUpdate()
@@ -128,21 +126,6 @@ public class CornTower : TowerManager
         missileSpeedIncrease = true;
 
         missile.SetActive(true);
-    }
-
-    void DeathCheck()
-    {
-        if (nearestTarget != null)
-        {
-            if (nearestTarget.GetComponent<UfoBehavior>().dead)
-            {
-                allTargets.Remove(nearestTarget);
-                Destroy(nearestTarget.gameObject);
-
-                GameObject.Find("Scripts/PlayerInput").GetComponent<BuildingShop>().money += 50;
-            }
-        }
-
     }
 
     IEnumerator BulletSpeedStop(float time)

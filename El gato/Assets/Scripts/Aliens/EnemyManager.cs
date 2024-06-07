@@ -14,13 +14,6 @@ public class EnemyManager : MonoBehaviour
     [SerializeField]
     Transform enemyParent;
 
-    int check = 0;
-
-    GameObject cowParent;
-
-    [SerializeField]
-    bool cowStatusCheck = true;
-
     bool spawnCheck = false;
 
     public int next;
@@ -30,37 +23,11 @@ public class EnemyManager : MonoBehaviour
     private void Start()
     {
         GetSpawnpoints();
-
-        cowParent = GameObject.Find("lives");
     }
 
     private void Update()
     {
         SpawnShuttle();
-        GetCowStatus();
-    }
-
-    void GetCowStatus()
-    {
-        if (check >= cowParent.transform.childCount)
-        {
-            cowStatusCheck = false;
-
-            check = 0;
-        }
-        else
-        {
-            if (cowParent.transform.GetChild(check).GetComponent<CowCheck>().available)
-            {
-
-                cowStatusCheck = true;
-
-            }
-            else
-            {
-                check++;
-            }
-        }
     }
 
     void GetSpawnpoints()
@@ -132,8 +99,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (next == 1)
         {
-            int stopLoop = 0;
-            while (cowStatusCheck && stopLoop < 30)
+            for (int i = 0; i < 10; i++)
             {
                 int spawn = Random.Range(0, spawnpoints.Count);
 
@@ -141,18 +107,12 @@ public class EnemyManager : MonoBehaviour
                 enemy.transform.parent = enemyParent;
 
                 yield return new WaitForSeconds(waitTime);
-                        
-                stopLoop++;
             }
-            if (stopLoop >= 30)
-            {
-                StopAllCoroutines();
-            }
+            StopAllCoroutines();
         }
         if (next == 2)
         {
-            int stopLoop = 0;
-            while (cowStatusCheck && stopLoop < 15)
+            for (int i = 0; i < 15; i++)
             {
                 int spawn = Random.Range(0, spawnpoints.Count);
 
@@ -160,19 +120,13 @@ public class EnemyManager : MonoBehaviour
                 enemy.transform.parent = enemyParent;
 
                 yield return new WaitForSeconds(waitTime);
-
-                stopLoop++;
             }
-            if (stopLoop >= 15)
-            {
-                StopAllCoroutines();
-            }
+            StopAllCoroutines();
         }
 
         if (next == 3)
         {
-            int stopLoop = 0;
-            while (cowStatusCheck && stopLoop < 20)
+            for (int i = 0; i <20; i++)
             {
                 int spawn = Random.Range(0, spawnpoints.Count);
 
@@ -180,19 +134,13 @@ public class EnemyManager : MonoBehaviour
                 enemy.transform.parent = enemyParent;
 
                 yield return new WaitForSeconds(waitTime);
-
-                stopLoop++;
             }
-            if (stopLoop >= 20)
-            {
                 StopAllCoroutines();
-            }
         }
 
         if (next == 4)
         {
-            int stopLoop = 0;
-            while (cowStatusCheck && stopLoop < 30)
+            for (int i = 0; i < 30; i++)
             {
                 int spawn = Random.Range(0, spawnpoints.Count);
 
@@ -200,13 +148,8 @@ public class EnemyManager : MonoBehaviour
                 enemy.transform.parent = enemyParent;
 
                 yield return new WaitForSeconds(waitTime);
-
-                stopLoop++;
             }
-            if (stopLoop >= 30)
-            {
-                StopAllCoroutines();
-            }
+            StopAllCoroutines();
         }
 
         if (next == 5)

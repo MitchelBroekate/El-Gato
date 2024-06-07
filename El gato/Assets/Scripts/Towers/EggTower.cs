@@ -42,8 +42,6 @@ public class EggTower : TowerManager
     private void Update()
     {
         Targeting();
-
-        DeathCheck();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -112,20 +110,5 @@ public class EggTower : TowerManager
         bullet.SetActive(true);
 
         bullet.GetComponent<Rigidbody>().AddForce(rotateX.forward * bulletSpeed);
-    }
-
-    void DeathCheck()
-    {
-        if (nearestTarget != null)
-        {
-            if (nearestTarget.GetComponent<UfoBehavior>().dead)
-            {
-                allTargets.Remove(nearestTarget);
-                Destroy(nearestTarget.gameObject);
-
-                GameObject.Find("Scripts/PlayerInput").GetComponent<BuildingShop>().money += 50;
-            }
-        }
-
     }
 }

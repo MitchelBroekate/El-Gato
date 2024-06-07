@@ -23,10 +23,10 @@ public class CornBulletBehavior : BulletManager
     {
             if (collision.transform.tag == "enemyship")
             {
-                collision.gameObject.GetComponent<UfoBehavior>().health -= bulletDamage;
+                collision.gameObject.GetComponent<UfoBehavior>().DoDamage(bulletDamage);
+            Destroy(gameObject);
             }
 
-            Destroy(gameObject);
     }
 
     //private void OnTriggerStay(Collider other)
