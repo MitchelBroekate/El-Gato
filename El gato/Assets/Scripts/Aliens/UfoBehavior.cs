@@ -29,6 +29,7 @@ public class UfoBehavior : MonoBehaviour
     public float circleSpeed = 1;
 
     private float angle = 0;
+
     #endregion
 
     public enum UFOState
