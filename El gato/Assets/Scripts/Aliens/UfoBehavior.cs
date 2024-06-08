@@ -24,11 +24,11 @@ public class UfoBehavior : MonoBehaviour
 
     public Transform centerObject;
 
-    public float radius = 20.0f;
+    public float radius = 40;
 
-    public float speed = 1.0f;
+    public float circleSpeed = 1;
 
-    private float angle = 0.0f;
+    private float angle = 0;
     #endregion
 
     public enum UFOState
@@ -82,17 +82,25 @@ public class UfoBehavior : MonoBehaviour
     {
         GameObject.Find("Queue").GetComponent<Queue>().AddUfoToQueue(this);
 
-        float x = centerObject.position.x + Mathf.Cos(angle) * radius;
-        float z = centerObject.position.z + Mathf.Sin(angle) * radius;
-
-        transform.position = new Vector3(x, transform.position.y, z);
-
-        angle += speed * Time.deltaTime;
-
-        if (angle > Mathf.PI * 2)
+        if (target != null)
         {
-            angle -= Mathf.PI * 2;
+            uFOState = UFOState.GOTOCOW;
         }
+        else
+        {
+            float x = centerObject.position.x + Mathf.Cos(angle) * radius;
+            float z = centerObject.position.z + Mathf.Sin(angle) * radius;
+
+            transform.position = new Vector3(x, transform.position.y, z);
+
+            angle += circleSpeed * Time.deltaTime;
+
+            if (angle > Mathf.PI * 2)
+            {
+                angle -= Mathf.PI * 2;
+            }
+        }
+
     }
 
     void GoToCow()
@@ -108,7 +116,7 @@ public class UfoBehavior : MonoBehaviour
         else
         {
             targetRotation = Quaternion.Euler(target.position.x, transform.rotation.y, target.position.z);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 2);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 1);
             transform.GetComponent<Rigidbody>().velocity = transform.forward * moveSpeed * Time.deltaTime;
         }
     }

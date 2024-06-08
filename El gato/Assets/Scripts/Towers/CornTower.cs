@@ -52,7 +52,7 @@ public class CornTower : TowerManager
             {
                 if (speedstop)
                 {
-                    StartCoroutine(BulletSpeedStop(3));
+                    StartCoroutine(BulletSpeedStop(4.5f));
                     speedstop = false;
                 }
                 bulletSpeed += 0.1f;
@@ -120,6 +120,7 @@ public class CornTower : TowerManager
 
     void Shooting()
     {
+        bulletSpeed = 10;
         missile = Instantiate(missileCorn, missileSpawn.position, quaternion.identity);
         missile.transform.parent = transform;
         speedstop = true;

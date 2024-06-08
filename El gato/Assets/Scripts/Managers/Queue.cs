@@ -22,7 +22,6 @@ public class Queue : MonoBehaviour
         if(newTarget != null)
         {
             ufoInQueue[0].target = newTarget;
-            cowManager.freeCows.Remove(newTarget);
         }
     }
 }

@@ -8,48 +8,68 @@ using UnityEngine;
 public class CornBulletBehavior : BulletManager
 {
 
-    float moveSpeed = 1500;
+    float moveSpeed = 40;
     Transform target;
     Quaternion targetRotation;
+    bool enableDamage = false;
+    bool enableFilght = false;
     private void Start()
     {
-        bulletDamage = 300;
-
         target = transform.parent.GetComponent<CornTower>().nearestTarget;
-        targetRotation = Quaternion.Euler(target.position.x, target.position.y, target.position.z);
+        bulletDamage = 300;
+        targetRotation = Quaternion.Euler(target.position.x, 0, target.position.z);
+        StartCoroutine(WaitForce(4.5f));
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.transform.tag == "enemyship")
+        {
+            if (enableDamage)
+            {
+                other.gameObject.GetComponent<UfoBehavior>().DoDamage(bulletDamage);
+
+            }
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-            if (collision.transform.tag == "enemyship")
-            {
-                collision.gameObject.GetComponent<UfoBehavior>().DoDamage(bulletDamage);
+        if (collision.transform.tag == "ground")
+        {
+            enableDamage = true;
             Destroy(gameObject);
-            }
+        }
+
+        if(collision.transform.tag == "enemyship")
+        {
+            enabled = true;
+            Destroy(gameObject);
+        }
+
 
     }
 
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    if (other.transform.tag == "enemyship")
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //}
+    private void FixedUpdate()
+    {
+        if (enableFilght)
+        {
+            transform.GetComponent<Rigidbody>().velocity = transform.forward * moveSpeed;
 
+        }
+
+    }
     private void Update()
     {
-            Destroy(gameObject, 50);
-
+        if (enableDamage)
+        {
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 3f);
+        }
     }
 
-    //private void FixedUpdate()
-    //{
-    //    if (start)
-    //    {
-    //        transform.GetComponent<Rigidbody>().velocity = transform.forward * moveSpeed;
-
-    //        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 1f);
-    //    }
-    //}
+    IEnumerator WaitForce(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        enableFilght = true;
+    }
 }

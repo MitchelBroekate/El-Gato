@@ -29,7 +29,7 @@ public class PotatoTower : TowerManager
         rotateY = transform.FindChild("RotateY");
         rotateX = rotateY.FindChild("RotateX");
         bulletSpawn = rotateX.FindChild("BulletSpawn");
-        bulletPotato = rotateX.FindChild("BulletPotato").gameObject;
+        bulletPotato = rotateX.FindChild("PotatoBullet").gameObject;
         rangeScale = 30;
         health = 150;
         bulletSpeed = 10000;
