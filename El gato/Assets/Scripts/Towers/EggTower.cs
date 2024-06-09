@@ -92,6 +92,7 @@ public class EggTower : TowerManager
         }
         if (nearestTarget != null)
         {
+
             rotateY.transform.LookAt(new Vector3(nearestTarget.position.x, rotateY.transform.position.y, nearestTarget.position.z));
             rotateX.transform.LookAt(nearestTarget.position);
 

@@ -37,6 +37,8 @@ public class CornTower : TowerManager
         fireRate = 10;
 
         GetComponent<SphereCollider>().radius = rangeScale;
+
+        Physics.IgnoreLayerCollision(7, 3);
     }
 
     private void Update()

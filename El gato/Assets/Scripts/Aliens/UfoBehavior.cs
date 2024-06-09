@@ -24,7 +24,7 @@ public class UfoBehavior : MonoBehaviour
 
     public Transform centerObject;
 
-    public float radius = 40;
+    public float radius = 60;
 
     public float circleSpeed = 1;
 

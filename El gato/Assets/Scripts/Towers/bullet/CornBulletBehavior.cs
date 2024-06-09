@@ -19,6 +19,8 @@ public class CornBulletBehavior : BulletManager
         bulletDamage = 300;
         targetRotation = Quaternion.Euler(target.position.x, 0, target.position.z);
         StartCoroutine(WaitForce(4.5f));
+
+        Physics.IgnoreLayerCollision(7, 3);
     }
 
     private void OnTriggerStay(Collider other)
