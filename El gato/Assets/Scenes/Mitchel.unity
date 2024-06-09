@@ -11494,7 +11494,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &926088666
 Transform:
   m_ObjectHideFlags: 0
@@ -17056,13 +17056,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildState: {fileID: 480376252}
   potatoT: {fileID: 2123381139471594779, guid: e67851d9062430c4b8196e0bb6620a51, type: 3}
-  cornT: {fileID: 7527224584001562987, guid: 1987a3a6a3437fa409071ba37bc096aa, type: 3}
+  cornT: {fileID: 805836001737737472, guid: df58788a8ae97674ca78602cdcc2a78f, type: 3}
   eggT: {fileID: 7527516440036454672, guid: 9e991d948d49f10478165fd6dfb391ee, type: 3}
   sellModeSwitch: 0
   towerHidePlace: {fileID: 0}
   towershowP: {fileID: 1807286458633377488, guid: 62e1f25e12cc1c24994f54a7b0c62a9e,
     type: 3}
-  towershowC: {fileID: 7527224584001562987, guid: 974133e42d78889498b38dba6ec7a1cd,
+  towershowC: {fileID: 805836001737737472, guid: 042d1bacec64cb444a1513743bcf9f61,
     type: 3}
   towershowE: {fileID: 8381935300684104660, guid: ceaa3eb6e6b038b4bb170c4029b2bfca,
     type: 3}

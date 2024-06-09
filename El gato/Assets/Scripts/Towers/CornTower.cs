@@ -17,11 +17,15 @@ public class CornTower : TowerManager
 
     [Header("Current Targeted Target")]
     public Transform nearestTarget;
-    bool missileSpeedIncrease = true;
+    bool missileSpeedIncrease = false;
 
     GameObject missile;
 
     bool speedstop = true;
+
+    Animator animator;
+
+    bool bulletNumerator = true;
 
     #endregion
 
@@ -34,9 +38,10 @@ public class CornTower : TowerManager
         health = 150;
         bulletSpeed = 10;
 
-        fireRate = 10;
+        fireRate = 12;
 
         GetComponent<SphereCollider>().radius = rangeScale;
+        animator = GetComponent<Animator>();
 
         Physics.IgnoreLayerCollision(7, 3);
     }
@@ -115,6 +120,8 @@ public class CornTower : TowerManager
             if (Time.time >= whenToFire)
             {
                 whenToFire = Time.time + 1 * fireRate;
+                animator.GetBool("RocketLift");
+                animator.SetBool("RocketLift", true);
                 Shooting();
             }
         }
@@ -122,19 +129,37 @@ public class CornTower : TowerManager
 
     void Shooting()
     {
+        bulletNumerator = true;
         bulletSpeed = 10;
         missile = Instantiate(missileCorn, missileSpawn.position, quaternion.identity);
         missile.transform.parent = transform;
-        speedstop = true;
-        missileSpeedIncrease = true;
-
         missile.SetActive(true);
+        speedstop = true;
+
+
+        if (bulletNumerator)
+        {
+            StartCoroutine(BulletWait());
+        }
+
     }
 
     IEnumerator BulletSpeedStop(float time)
     {
+        animator.GetBool("RocketLift");
+        animator.SetBool("RocketLift", false);
+
         yield return new WaitForSeconds(time);
 
         missileSpeedIncrease = false;
+    }
+
+    IEnumerator BulletWait()
+    {
+        bulletNumerator = false;
+        yield return new WaitForSeconds(2);
+
+        missileSpeedIncrease = true;
+
     }
 }
