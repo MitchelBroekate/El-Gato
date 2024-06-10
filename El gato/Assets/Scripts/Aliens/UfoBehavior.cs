@@ -18,8 +18,6 @@ public class UfoBehavior : MonoBehaviour
 
     [SerializeField]
     int layerMask;
-
-    Quaternion targetRotation;
     RaycastHit hit;
 
     public Transform centerObject;
