@@ -20,7 +20,6 @@ public class EggTower : TowerManager
     [Header("Current Targeted Target")]
     [SerializeField]
     Transform nearestTarget;
-
     #endregion
 
     [System.Obsolete]

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 75546534257487864}
   - component: {fileID: 6363603002940460291}
   - component: {fileID: 5534080073721660931}
+  - component: {fileID: 2912247249299646661}
   m_Layer: 3
   m_Name: Base
   m_TagString: Untagged
@@ -34,6 +35,8 @@ Transform:
   - {fileID: 2160378569533162107}
   - {fileID: 7488508721200392615}
   - {fileID: 7649997330863411038}
+  - {fileID: 1302911757049936563}
+  - {fileID: 5237545196656174882}
   m_Father: {fileID: 7010945245333410533}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6363603002940460291
@@ -78,6 +81,27 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &2912247249299646661
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50211094049341793}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3eabe772e9ac57542a5a510d6b1b34f8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &532830543253030961
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,12 +438,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5058870654877975227}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -7.275958e-12, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7010945245333410533}
+  m_Father: {fileID: 75546534257487864}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7638158992492955743
 GameObject:
@@ -430,7 +454,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7010945245333410533}
-  - component: {fileID: 6535258016318839559}
   - component: {fileID: 3389570994662651225}
   m_Layer: 7
   m_Name: CornSilo
@@ -453,31 +476,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 75546534257487864}
-  - {fileID: 1302911757049936563}
-  - {fileID: 5237545196656174882}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0.552, y: 2.337, z: 0.808}
---- !u!95 &6535258016318839559
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7638158992492955743}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3eabe772e9ac57542a5a510d6b1b34f8, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!65 &3389570994662651225
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -654,7 +654,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 7010945245333410533}
+    m_TransformParent: {fileID: 75546534257487864}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a58109fb47369ad4f83e53ccf9cae2b0,
         type: 3}
@@ -689,7 +689,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a58109fb47369ad4f83e53ccf9cae2b0,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -7.275958e-12
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a58109fb47369ad4f83e53ccf9cae2b0,
         type: 3}
