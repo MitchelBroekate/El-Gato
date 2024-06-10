@@ -10,7 +10,7 @@ public class UfoBehavior : MonoBehaviour
     public Transform target;
 
     [SerializeField]
-    float moveSpeed = 1000;
+    float moveSpeed = 10;
     [SerializeField]
     float levitationSpeed = 100;
     [SerializeField]
@@ -24,11 +24,13 @@ public class UfoBehavior : MonoBehaviour
 
     public Transform centerObject;
 
-    public float radius = 60;
+    public float radius = 20;
 
-    public float circleSpeed = 1;
+    public float circleSpeed = 10;
 
     private float angle = 0;
+
+    public float rotationSpeed = 2f;
 
     #endregion
 
@@ -50,12 +52,22 @@ public class UfoBehavior : MonoBehaviour
 
         Physics.IgnoreLayerCollision(2, 2);
 
+        GameObject.Find("Queue").GetComponent<Queue>().AddUfoToQueue(this);
+
         uFOState = UFOState.QUEUE;
     }
 
     private void Update()
     {
         DoState();
+        if (Input.GetButtonDown("Fire2"))
+        {
+            int r = Random.Range(0, 2);
+            if(r > 0)
+            {
+                DoDamage(10000);
+            }
+        }
     }
 
     void DoState()
@@ -81,8 +93,6 @@ public class UfoBehavior : MonoBehaviour
 
     void Queue()
     {
-        GameObject.Find("Queue").GetComponent<Queue>().AddUfoToQueue(this);
-
         if (target != null)
         {
             uFOState = UFOState.GOTOCOW;
@@ -101,7 +111,6 @@ public class UfoBehavior : MonoBehaviour
                 angle -= Mathf.PI * 2;
             }
         }
-
     }
 
     void GoToCow()
@@ -116,10 +125,21 @@ public class UfoBehavior : MonoBehaviour
         }
         else
         {
-            targetRotation = Quaternion.Euler(target.position.x, transform.rotation.y, target.position.z);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 1);
-            transform.GetComponent<Rigidbody>().velocity = transform.forward * moveSpeed * Time.deltaTime;
+
+            if (target != null)
+            {
+                Vector3 direction = (target.position - transform.position).normalized;
+
+                direction.y = 0;
+
+                Quaternion targetRotation = Quaternion.LookRotation(direction);
+
+                transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+                transform.GetComponent<Rigidbody>().velocity = transform.forward * moveSpeed;
+            }
         }
+        
     }
 
     void GettingCow()
@@ -138,8 +158,7 @@ public class UfoBehavior : MonoBehaviour
     void MovingOut()
     {
         transform.GetComponent<Rigidbody>().AddForce(Vector3.up * levitationSpeed * Time.deltaTime) ;
-
-        Destroy(gameObject, 3);
+        DoDamage(100000);
     }
 
     public void DoDamage(int damage)
@@ -149,10 +168,14 @@ public class UfoBehavior : MonoBehaviour
         {
             if(uFOState == UFOState.GETTINGCOW)
             {
-                GameObject.Find("Queue").GetComponent<Queue>().AssignCow();
+                GameObject.Find("CowManager").GetComponent<CowManager>().AddFreeCow(target);
+            }
+            if (uFOState != UFOState.MOVINGOUT)
+            {
+                GameObject.Find("Scripts/PlayerInput").GetComponent<BuildingShop>().money += 50;
             }
 
-            GameObject.Find("Scripts/PlayerInput").GetComponent<BuildingShop>().money += 50;
+            Destroy(gameObject);
         }
     }
 }

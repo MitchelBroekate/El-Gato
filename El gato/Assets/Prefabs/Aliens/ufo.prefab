@@ -144,7 +144,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8461445473164850596}
   serializedVersion: 4
-  m_Mass: 234324
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -161,7 +161,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &2868260914658069420
 MonoBehaviour:
@@ -175,14 +175,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da82dde9580c39e4eb2b622101e0d46e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  dead: 0
-  cowParent: {fileID: 0}
-  towerParent: {fileID: 0}
   target: {fileID: 0}
-  moveSpeed: 1000
-  suckSpeed: 100
+  moveSpeed: 10
+  levitationSpeed: 100
+  claimedCowDistance: 3
   layerMask: 0
+  centerObject: {fileID: 0}
+  radius: 50
+  circleSpeed: 1
+  rotationSpeed: 2
+  uFOState: 0
 --- !u!65 &1619024613717362568
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -6,6 +6,17 @@ public class CowManager : MonoBehaviour
 {
     public List<Transform> totalCows = new();
     public List<Transform> freeCows = new();
+    Queue queue;
+
+    private void Start()
+    {
+        queue = GameObject.Find("Queue").GetComponent<Queue>();
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            totalCows.Add(transform.GetChild(i));
+            freeCows.Add(transform.GetChild(i));    
+        }
+    }
 
     public Transform GetCow()
     {
@@ -24,15 +35,17 @@ public class CowManager : MonoBehaviour
     public void AddFreeCow(Transform cow)
     {
         freeCows.Add(cow);
+        queue.AssignCow();
+
     }
 
     public void RemoveCow(Transform cow)
     {
         totalCows.Remove(cow);
-        Destroy(cow);
+        Destroy(cow.gameObject);
         if (totalCows.Count == 0)
         {
-            // game over.
+            print("Game Over!");
         }
     }
 }

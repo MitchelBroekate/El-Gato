@@ -15,13 +15,28 @@ public class Queue : MonoBehaviour
         }
         AssignCow();
     }
+    public void RemoveUfoFromQueue(UfoBehavior ufoToRemove)
+    {
+        for (int i = 0; i < ufoInQueue.Count; i++)
+        {
+            if (ufoInQueue[i] == ufoToRemove)
+            {
+                ufoInQueue.RemoveAt(i);
+            }
+        }
+        AssignCow();
+    }
 
     public void AssignCow()
     {
-        Transform newTarget = cowManager.GetCow();
-        if(newTarget != null)
+        if(ufoInQueue.Count > 0)
         {
-            ufoInQueue[0].target = newTarget;
+            Transform newTarget = cowManager.GetCow();
+            if(newTarget != null)
+            {
+                ufoInQueue[0].target = newTarget;
+                RemoveUfoFromQueue(ufoInQueue[0]);
+            }
         }
     }
 }

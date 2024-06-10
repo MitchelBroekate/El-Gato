@@ -14444,7 +14444,7 @@ GameObject:
   - component: {fileID: 1348247265}
   - component: {fileID: 1348247267}
   m_Layer: 2
-  m_Name: lives
+  m_Name: CowManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14487,17 +14487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 315ae8ce1a9eb1449938c9dba1bedd23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalCows:
-  - {fileID: 395344259}
-  - {fileID: 152187611}
-  - {fileID: 309465909}
-  - {fileID: 133701247}
-  - {fileID: 1932371517}
-  - {fileID: 1530402937}
-  - {fileID: 1624156712}
-  - {fileID: 270305185}
-  - {fileID: 1245466668}
-  - {fileID: 487906102}
+  totalCows: []
   freeCows: []
 --- !u!4 &1350089137 stripped
 Transform:
