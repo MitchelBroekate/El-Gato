@@ -1,11 +1,14 @@
 
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CowManager : MonoBehaviour
 {
     public List<Transform> totalCows = new();
     public List<Transform> freeCows = new();
+
+    
     Queue queue;
 
     private void Start()
@@ -45,6 +48,7 @@ public class CowManager : MonoBehaviour
         Destroy(cow.gameObject);
         if (totalCows.Count == 0)
         {
+            GameObject.Find("UIManager").GetComponent<UiManager>().ShowGameOverScreen();
             print("Game Over!");
         }
     }
