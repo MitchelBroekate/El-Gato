@@ -5334,10 +5334,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 4323017173646422275, guid: d0a7c537229c2dd468c19f8799e5c128,
+    - target: {fileID: 7038017017699126797, guid: d0a7c537229c2dd468c19f8799e5c128,
         type: 3}
-      propertyPath: m_IsActive
+      propertyPath: m_AnchorMax.x
+      value: 0.98935425
+      objectReference: {fileID: 0}
+    - target: {fileID: 7038017017699126797, guid: d0a7c537229c2dd468c19f8799e5c128,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.10585186
+      objectReference: {fileID: 0}
+    - target: {fileID: 7038017017699126797, guid: d0a7c537229c2dd468c19f8799e5c128,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.8454792
+      objectReference: {fileID: 0}
+    - target: {fileID: 7038017017699126797, guid: d0a7c537229c2dd468c19f8799e5c128,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.019518523
+      objectReference: {fileID: 0}
+    - target: {fileID: 7038017017699126797, guid: d0a7c537229c2dd468c19f8799e5c128,
+        type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7038017017699126797, guid: d0a7c537229c2dd468c19f8799e5c128,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7038017017699126797, guid: d0a7c537229c2dd468c19f8799e5c128,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7038017017699126797, guid: d0a7c537229c2dd468c19f8799e5c128,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7875299689493533875, guid: d0a7c537229c2dd468c19f8799e5c128,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 30.95
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
