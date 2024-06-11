@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.5
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.09014195, g: 0.11285721, b: 0.1534621, a: 0.5}
+  m_IndirectSpecularColor: {r: 0.0901419, g: 0.11285716, b: 0.15346183, a: 0.5}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -657,6 +657,74 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 425772807}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &537637203
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 902bd7a3e4a8044469781cf81e964c91,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.516
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 902bd7a3e4a8044469781cf81e964c91,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.81
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 902bd7a3e4a8044469781cf81e964c91,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -75.912
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 902bd7a3e4a8044469781cf81e964c91,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 902bd7a3e4a8044469781cf81e964c91,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 902bd7a3e4a8044469781cf81e964c91,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 902bd7a3e4a8044469781cf81e964c91,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 902bd7a3e4a8044469781cf81e964c91,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 902bd7a3e4a8044469781cf81e964c91,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 902bd7a3e4a8044469781cf81e964c91,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 902bd7a3e4a8044469781cf81e964c91,
+        type: 3}
+      propertyPath: m_Name
+      value: Pumkinlauncher
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 902bd7a3e4a8044469781cf81e964c91, type: 3}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,6 +935,74 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee4875f564373ff499b9cb10ab4381e1, type: 3}
+--- !u!1001 &1108093396
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2339025408867939619, guid: 453ecd7bc10ebb448afdbe2f94e5b699,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 2339025408867939619, guid: 453ecd7bc10ebb448afdbe2f94e5b699,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.004165411
+      objectReference: {fileID: 0}
+    - target: {fileID: 2339025408867939619, guid: 453ecd7bc10ebb448afdbe2f94e5b699,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -71.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2339025408867939619, guid: 453ecd7bc10ebb448afdbe2f94e5b699,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2339025408867939619, guid: 453ecd7bc10ebb448afdbe2f94e5b699,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2339025408867939619, guid: 453ecd7bc10ebb448afdbe2f94e5b699,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2339025408867939619, guid: 453ecd7bc10ebb448afdbe2f94e5b699,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2339025408867939619, guid: 453ecd7bc10ebb448afdbe2f94e5b699,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2339025408867939619, guid: 453ecd7bc10ebb448afdbe2f94e5b699,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2339025408867939619, guid: 453ecd7bc10ebb448afdbe2f94e5b699,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3115984736802041753, guid: 453ecd7bc10ebb448afdbe2f94e5b699,
+        type: 3}
+      propertyPath: m_Name
+      value: GatllingGun (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 453ecd7bc10ebb448afdbe2f94e5b699, type: 3}
 --- !u!1001 &1299290530
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1159,3 +1295,5 @@ SceneRoots:
   - {fileID: 2276835415435020596}
   - {fileID: 1024897418}
   - {fileID: 642066151761580072}
+  - {fileID: 1108093396}
+  - {fileID: 537637203}
