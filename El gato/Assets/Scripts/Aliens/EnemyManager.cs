@@ -154,7 +154,7 @@ public class EnemyManager : MonoBehaviour
 
         if (next == 5)
         {
-            //enable winscreen
+            GameObject.Find("UIManager").GetComponent<UiManager>().ShowWinScreen();
         }
     }
 
