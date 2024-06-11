@@ -87,7 +87,7 @@ public class CowAnimations : MonoBehaviour
         {
             if (hitUp.transform != null)
             {
-                if (hitUp.transform.GetComponent<UfoBehavior>().uFOState == UfoBehavior.UFOState.GETTINGCOW)
+                if (hitUp.transform.GetComponent<UfoBehaviour>().uFOState == UfoBehaviour.UFOState.GETTINGCOW)
                 {
                     currentState = animateState.LEVITATING;
                 }

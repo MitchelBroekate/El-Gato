@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Queue : MonoBehaviour
 {
-    public List<UfoBehavior> ufoInQueue = new();
+    public List<UfoBehaviour> ufoInQueue = new();
     public CowManager cowManager;
 
-    public void AddUfoToQueue(UfoBehavior ufoToAdd)
+    public void AddUfoToQueue(UfoBehaviour ufoToAdd)
     {
         if (!ufoInQueue.Contains(ufoToAdd))
         {
@@ -15,7 +15,7 @@ public class Queue : MonoBehaviour
         }
         AssignCow();
     }
-    public void RemoveUfoFromQueue(UfoBehavior ufoToRemove)
+    public void RemoveUfoFromQueue(UfoBehaviour ufoToRemove)
     {
         for (int i = 0; i < ufoInQueue.Count; i++)
         {

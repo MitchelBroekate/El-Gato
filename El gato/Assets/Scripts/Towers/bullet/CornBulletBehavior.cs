@@ -29,7 +29,7 @@ public class CornBulletBehavior : BulletManager
         {
             if (enableDamage)
             {
-                other.gameObject.GetComponent<UfoBehavior>().DoDamage(bulletDamage);
+                other.gameObject.GetComponent<UfoBehaviour>().DoDamage(bulletDamage);
 
             }
         }

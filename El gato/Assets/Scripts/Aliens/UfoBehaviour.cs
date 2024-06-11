@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UfoBehavior : MonoBehaviour
+public class UfoBehaviour : MonoBehaviour
 {
     #region Variables
     private int health = 100;

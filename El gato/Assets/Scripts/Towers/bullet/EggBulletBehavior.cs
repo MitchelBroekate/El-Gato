@@ -13,7 +13,7 @@ public class EggBulletBehavior : BulletManager
     {
         if (collision.transform.tag == "enemyship")
         {
-            collision.gameObject.GetComponent<UfoBehavior>().DoDamage(bulletDamage);
+            collision.gameObject.GetComponent<UfoBehaviour>().DoDamage(bulletDamage);
         }
 
         Destroy(gameObject);
