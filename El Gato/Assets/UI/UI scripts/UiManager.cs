@@ -5,6 +5,7 @@ using UnityEngine;
 public class UiManager : MonoBehaviour
 {
     public GameObject lossScreen;
+    public GameObject winScreen;
     public GameObject settings;
     public GameObject mainMenu;
     public void ShowGameOverScreen()
@@ -12,6 +13,14 @@ public class UiManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         lossScreen.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void ShowWinScreen()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        winScreen.SetActive(true);
         Time.timeScale = 0;
     }
 

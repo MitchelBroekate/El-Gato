@@ -12839,16 +12839,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1849082715}
     - target: {fileID: 5253682123087410796, guid: 18aedd08b3c598644858f90317515a1a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ToMainGame
+      value: GoToGame
       objectReference: {fileID: 0}
     - target: {fileID: 5253682123087410796, guid: 18aedd08b3c598644858f90317515a1a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ToGame, Assembly-CSharp
+      value: UiManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5253682123087410796, guid: 18aedd08b3c598644858f90317515a1a,
         type: 3}
@@ -12859,22 +12859,28 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1849082715}
     - target: {fileID: 6312883954439611552, guid: 18aedd08b3c598644858f90317515a1a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ToMainMenu
+      value: GoToMainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 6312883954439611552, guid: 18aedd08b3c598644858f90317515a1a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ToMenu, Assembly-CSharp
+      value: UiManager, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18aedd08b3c598644858f90317515a1a, type: 3}
+--- !u!1 &1222465670 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2954019339250404316, guid: 18aedd08b3c598644858f90317515a1a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1222465669}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1223754414
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18466,6 +18472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lossScreen: {fileID: 1881157341}
+  winScreen: {fileID: 1222465670}
   settings: {fileID: 0}
   mainMenu: {fileID: 0}
 --- !u!4 &1849082716
