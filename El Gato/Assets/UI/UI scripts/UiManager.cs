@@ -8,6 +8,7 @@ public class UiManager : MonoBehaviour
     public GameObject winScreen;
     public GameObject settings;
     public GameObject mainMenu;
+    public GameObject credits;
     public void ShowGameOverScreen()
     {
         Cursor.lockState = CursorLockMode.None;
@@ -53,6 +54,16 @@ public class UiManager : MonoBehaviour
         mainMenu.SetActive(true);
     }
 
+    public void ShowCredits()
+    {
+        mainMenu.SetActive(false);
+        credits.SetActive(false);
+    }
 
+    public void HideCredits()
+    {
+        credits.SetActive(false);
+        mainMenu.SetActive(true);
+    }
 }
 
