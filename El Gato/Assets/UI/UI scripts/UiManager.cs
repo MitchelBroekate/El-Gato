@@ -9,6 +9,8 @@ public class UiManager : MonoBehaviour
     public GameObject settings;
     public GameObject mainMenu;
     public GameObject credits;
+
+    [System.Obsolete]
     public void ShowGameOverScreen()
     {
         Cursor.lockState = CursorLockMode.None;
