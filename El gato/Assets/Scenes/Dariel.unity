@@ -66784,6 +66784,74 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2716a53bcf0d91e4d8808714e2f8bda4, type: 3}
+--- !u!1001 &1420057102379598262
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 664167301956146231, guid: 14c4fce9ce0a83f4e8e41b1317870ad9,
+        type: 3}
+      propertyPath: m_Name
+      value: Picknick Table
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051458047075410992, guid: 14c4fce9ce0a83f4e8e41b1317870ad9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051458047075410992, guid: 14c4fce9ce0a83f4e8e41b1317870ad9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051458047075410992, guid: 14c4fce9ce0a83f4e8e41b1317870ad9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051458047075410992, guid: 14c4fce9ce0a83f4e8e41b1317870ad9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9659259
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051458047075410992, guid: 14c4fce9ce0a83f4e8e41b1317870ad9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051458047075410992, guid: 14c4fce9ce0a83f4e8e41b1317870ad9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.258819
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051458047075410992, guid: 14c4fce9ce0a83f4e8e41b1317870ad9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051458047075410992, guid: 14c4fce9ce0a83f4e8e41b1317870ad9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051458047075410992, guid: 14c4fce9ce0a83f4e8e41b1317870ad9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051458047075410992, guid: 14c4fce9ce0a83f4e8e41b1317870ad9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 14c4fce9ce0a83f4e8e41b1317870ad9, type: 3}
 --- !u!1001 &1557891286994033192
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67429,74 +67497,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
---- !u!1001 &7529119949212603187
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1228558793254708002, guid: 14c4fce9ce0a83f4e8e41b1317870ad9,
-        type: 3}
-      propertyPath: m_Name
-      value: Picknick Table
-      objectReference: {fileID: 0}
-    - target: {fileID: 1704172600708739199, guid: 14c4fce9ce0a83f4e8e41b1317870ad9,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -31
-      objectReference: {fileID: 0}
-    - target: {fileID: 1704172600708739199, guid: 14c4fce9ce0a83f4e8e41b1317870ad9,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1704172600708739199, guid: 14c4fce9ce0a83f4e8e41b1317870ad9,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 65
-      objectReference: {fileID: 0}
-    - target: {fileID: 1704172600708739199, guid: 14c4fce9ce0a83f4e8e41b1317870ad9,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.8679947
-      objectReference: {fileID: 0}
-    - target: {fileID: 1704172600708739199, guid: 14c4fce9ce0a83f4e8e41b1317870ad9,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.002678402
-      objectReference: {fileID: 0}
-    - target: {fileID: 1704172600708739199, guid: 14c4fce9ce0a83f4e8e41b1317870ad9,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.49656525
-      objectReference: {fileID: 0}
-    - target: {fileID: 1704172600708739199, guid: 14c4fce9ce0a83f4e8e41b1317870ad9,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.0009962525
-      objectReference: {fileID: 0}
-    - target: {fileID: 1704172600708739199, guid: 14c4fce9ce0a83f4e8e41b1317870ad9,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -0.323
-      objectReference: {fileID: 0}
-    - target: {fileID: 1704172600708739199, guid: 14c4fce9ce0a83f4e8e41b1317870ad9,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 59.546
-      objectReference: {fileID: 0}
-    - target: {fileID: 1704172600708739199, guid: 14c4fce9ce0a83f4e8e41b1317870ad9,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -0.053
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 14c4fce9ce0a83f4e8e41b1317870ad9, type: 3}
 --- !u!154 &7733758445479285806
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -67619,7 +67619,7 @@ SceneRoots:
   - {fileID: 651004467}
   - {fileID: 556244165}
   - {fileID: 2031049229}
-  - {fileID: 7529119949212603187}
   - {fileID: 1268580574238447422}
   - {fileID: 623209984}
   - {fileID: 1664830709}
+  - {fileID: 1420057102379598262}
