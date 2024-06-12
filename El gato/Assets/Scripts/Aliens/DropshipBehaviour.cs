@@ -4,15 +4,63 @@ using UnityEngine;
 
 public class DropshipBehaviour : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    float decendSpeed;
+
+    shipStates currentState;
+    enum shipStates
     {
-        
+        DECENDING,
+        DROPOFF,
+        SHIPEXIT    
+    }
+    private void Start()
+    {
+        decendSpeed = 100;
+
+
+    }
+    private void Update()
+    {
+        DoState();
+        StateSwitcher();
     }
 
-    // Update is called once per frame
-    void Update()
+    void DoState()
     {
-        
+        switch (currentState)
+        {
+            case shipStates.DECENDING:
+                Decending();
+                break;
+
+            case shipStates.DROPOFF:
+                DropOff();
+                break;
+
+            case shipStates.SHIPEXIT:
+                ShipExit();
+                break;
+        }
     }
+
+    void StateSwitcher()
+    {
+
+    }
+
+    void Decending()
+    {
+
+    }
+
+    void DropOff()
+    {
+
+    }
+
+    void ShipExit()
+    {
+
+    }
+
 }
