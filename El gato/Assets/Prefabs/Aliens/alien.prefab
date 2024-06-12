@@ -66,7 +66,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f59ac441c03818545a5b68daf3d31f48,
         type: 3}
       propertyPath: m_Name
-      value: alien
+      value: Alien
       objectReference: {fileID: 0}
     - target: {fileID: 4318842964270612441, guid: f59ac441c03818545a5b68daf3d31f48,
         type: 3}
