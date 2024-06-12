@@ -11,7 +11,7 @@ public class UiManager : MonoBehaviour
     public GameObject credits;
     public GameObject levelSelect; 
 
-    [System.Obsolete]
+   
     public void ShowGameOverScreen()
     {
         Cursor.lockState = CursorLockMode.None;
@@ -27,7 +27,7 @@ public class UiManager : MonoBehaviour
         winScreen.SetActive(true);
         Time.timeScale = 0;
     }
-
+    [System.Obsolete]
     public void GoToMainMenu()
     {
         Time.timeScale = 1;
@@ -38,7 +38,7 @@ public class UiManager : MonoBehaviour
     {
         Application.Quit();
     }
-
+    [System.Obsolete]
     public void GoToGame()
     {
         Time.timeScale = 1;
