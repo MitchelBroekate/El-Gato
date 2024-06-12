@@ -19,7 +19,7 @@ public class Settings : MonoBehaviour
     private float currentRefreshRate;
     private int currentResolutionIndex = 0;
 
-
+    [System.Obsolete]
     public void Start()
     {
         musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 1f);

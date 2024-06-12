@@ -9,6 +9,7 @@ public class UiManager : MonoBehaviour
     public GameObject settings;
     public GameObject mainMenu;
     public GameObject credits;
+    public GameObject levelSelect; 
 
     [System.Obsolete]
     public void ShowGameOverScreen()
@@ -59,13 +60,26 @@ public class UiManager : MonoBehaviour
     public void ShowCredits()
     {
         mainMenu.SetActive(false);
-        credits.SetActive(false);
+        credits.SetActive(true);
     }
 
     public void HideCredits()
-    {
-        credits.SetActive(false);
+    { 
         mainMenu.SetActive(true);
+        credits.SetActive(false);
+    }
+
+    public void ShowLevleSelect()
+    {
+        mainMenu.SetActive(false);
+        levelSelect.SetActive(true);
+
+    }
+
+    public void HideLevelSelect()
+    {
+        mainMenu.SetActive(true);
+        levelSelect.SetActive(false);
     }
 }
 
