@@ -162,10 +162,11 @@ public class UfoBehaviour : MonoBehaviour
     public void DoDamage(int damage)
     {
         health -= damage;
-        if (health <= 0)
+        if (health <= 0 && uFOState != UFOState.QUEUE)
         {
+
             if(uFOState == UFOState.GETTINGCOW)
-            {
+            { 
                 GameObject.Find("CowManager").GetComponent<CowManager>().AddFreeCow(target);
             }
             if (uFOState != UFOState.MOVINGOUT)

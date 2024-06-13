@@ -7,6 +7,7 @@ public class CowManager : MonoBehaviour
 {
     public List<Transform> totalCows = new();
     public List<Transform> freeCows = new();
+    public List<Transform> freeCows2 = new();
 
     
     Queue queue;
@@ -37,7 +38,9 @@ public class CowManager : MonoBehaviour
 
     public void AddFreeCow(Transform cow)
     {
+        print("Adding Cow");
         freeCows.Add(cow);
+        freeCows2.Add(cow);
         queue.AssignCow();
 
     }

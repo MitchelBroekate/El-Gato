@@ -15,16 +15,9 @@ public class Queue : MonoBehaviour
         }
         AssignCow();
     }
-    public void RemoveUfoFromQueue(UfoBehaviour ufoToRemove)
+    public void RemoveUfoFromQueue()
     {
-        for (int i = 0; i < ufoInQueue.Count; i++)
-        {
-            if (ufoInQueue[i] == ufoToRemove)
-            {
-                ufoInQueue.RemoveAt(i);
-            }
-        }
-        AssignCow();
+        ufoInQueue.RemoveAt(0);
     }
 
     public void AssignCow()
@@ -35,7 +28,7 @@ public class Queue : MonoBehaviour
             if(newTarget != null)
             {
                 ufoInQueue[0].target = newTarget;
-                RemoveUfoFromQueue(ufoInQueue[0]);
+                RemoveUfoFromQueue();
             }
         }
     }
