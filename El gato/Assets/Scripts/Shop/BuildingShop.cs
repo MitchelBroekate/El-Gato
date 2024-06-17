@@ -11,6 +11,8 @@ public class BuildingShop : MonoBehaviour
     [SerializeField]
     GameObject potatoT, cornT, eggT;
 
+    public bool weaponBought = false;
+
     public bool sellModeSwitch = false;
 
     public Transform towerHidePlace;
@@ -124,6 +126,18 @@ public class BuildingShop : MonoBehaviour
         }
     }
 
+    public void GunButton1()
+    {
+        if (!sellModeSwitch)
+        {
+            if (money >= 800)
+            {
+                weaponBought = true;
+                money -= 800;
+            }
+        }
+    }
+
     /// <summary>
     /// assigns the "Egg Tower" for placement
     /// </summary>
@@ -209,10 +223,6 @@ public class BuildingShop : MonoBehaviour
     }
 
 
-    public void GunButton1()
-    {
-
-    }
 
     /// <summary>
     /// Function for the sell button. Sets current towers to null and sell mode to active/inactive
