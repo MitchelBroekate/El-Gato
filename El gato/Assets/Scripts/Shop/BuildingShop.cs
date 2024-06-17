@@ -43,6 +43,7 @@ public class BuildingShop : MonoBehaviour
         Tower3
     }
 
+ 
     public TowerIndicators TowerToShow;
 
     //Start money setter
@@ -205,6 +206,12 @@ public class BuildingShop : MonoBehaviour
                 StartCoroutine(NoMannee(2));
             }
         }
+    }
+
+
+    public void GunButton1()
+    {
+
     }
 
     /// <summary>
