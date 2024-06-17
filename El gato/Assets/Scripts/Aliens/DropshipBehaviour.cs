@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class DropshipBehaviour : MonoBehaviour
 {
+    #region Variables
     float decendSpeedShip;
-    float decendSpeedAlien;
 
     float ascendSpeedShip;
 
@@ -18,42 +19,54 @@ public class DropshipBehaviour : MonoBehaviour
 
     Transform spawnLocation;
 
+    [SerializeField]
     List<Transform> spawnpoints = new();
 
     bool doRoutine = true;
+    #endregion
 
+    /// <summary>
+    /// Enum for ship states
+    /// </summary>
     enum shipStates
     {
         DECENDING,
         DROPOFF,
-        SHIPEXIT    
+        SHIPEXIT
     }
     [System.Obsolete]
+
+    //Sets default values, starting state and gets children/spawnpoints
     private void Start()
     {
         GetShipChildInfo();
 
         decendSpeedShip = 1000;
-        decendSpeedAlien = 10;
 
-        ascendSpeedShip = 10;
+        ascendSpeedShip = 20;
 
         currentState = shipStates.DECENDING;
 
+        transform.Rotate(0, UnityEngine.Random.Range(0, 360), 0);
+
     }
+
+    //Updates the voids
     private void Update()
     {
         DoState();
-        StateSwitcher();
     }
 
+    /// <summary>
+    /// Gets children and spawnpoints
+    /// </summary>
     [System.Obsolete]
     void GetShipChildInfo()
     {
         alien = transform.FindChild("Alien").gameObject;
         spawnLocation = transform.FindChild("Spawns").transform;
 
-        for (int i = 0; 0 < spawnLocation.childCount -1; i++) 
+        for (int i = 0; i < spawnLocation.childCount; i++)
         {
             if (!spawnpoints.Contains(spawnLocation.GetChild(i)))
             {
@@ -62,6 +75,7 @@ public class DropshipBehaviour : MonoBehaviour
         }
     }
 
+    //Switch case for the ships states
     void DoState()
     {
         switch (currentState)
@@ -80,11 +94,9 @@ public class DropshipBehaviour : MonoBehaviour
         }
     }
 
-    void StateSwitcher()
-    {
-
-    }
-
+    /// <summary>
+    /// Starts the ship with a decend 
+    /// </summary>
     void Decending()
     {
         GetComponent<Rigidbody>().velocity = -transform.up * decendSpeedShip * Time.deltaTime;
@@ -94,17 +106,25 @@ public class DropshipBehaviour : MonoBehaviour
 
             if (Vector3.Distance(transform.position, hit.point) <= 60)
             {
-                GetComponent<Rigidbody>().AddForce(transform.up * ascendSpeedShip * Time.deltaTime);
+                if (decendSpeedShip > 0)
+                {
+                    decendSpeedShip -= 200 * Time.deltaTime;
+                }
             }
 
-            if (Vector3.Distance(transform.position, hit.point) >= 200)
+            if (Vector3.Distance(transform.position, hit.point) <= 30)
             {
-                Destroy(gameObject);
+                GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+                currentState = shipStates.DROPOFF;
             }
         }
 
     }
 
+    /// <summary>
+    /// Activates the alien spawner
+    /// </summary>
     void DropOff()
     {
         if (doRoutine)
@@ -113,47 +133,66 @@ public class DropshipBehaviour : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Ascends the ship when its done and destroys it
+    /// </summary>
     void ShipExit()
     {
-        GetComponent<Rigidbody>().velocity = transform.up * decendSpeedShip * Time.deltaTime;
+        doRoutine = true;
+
+        GetComponent<Rigidbody>().velocity = transform.up * ascendSpeedShip * Time.deltaTime;
 
         if (Physics.Raycast(transform.position, -transform.up, out hit, Mathf.Infinity))
         {
             if (Vector3.Distance(transform.position, hit.point) <= 60)
             {
-                if (decendSpeedShip > 0)
-                {
-                    decendSpeedShip -= 5;
-                }
-
+                ascendSpeedShip += 500 * Time.deltaTime;
             }
 
-            if (Vector3.Distance(transform.position, hit.point) <= 30)
+            if (Vector3.Distance(transform.position, hit.point) >= 200)
             {
-                GetComponent<Rigidbody>().velocity = Vector3.zero;
+                ascendSpeedShip = 50000;
+
+                GetComponent<Rigidbody>().velocity = transform.forward * ascendSpeedShip * Time.deltaTime;
+
+                if (doRoutine)
+                {
+                    StartCoroutine(KillShip());
+                }
             }
         }
     }
 
+    /// <summary>
+    /// Spawns aliens at random spawnpoints
+    /// </summary>
+    /// <returns></returns>
     IEnumerator AlienSpawn()
     {
         doRoutine = false;
 
-        for (int i = 0; 0 < Random.Range(2, 6); i++)
+        for (int i = 0; i < UnityEngine.Random.Range(2, 6); i++)
         {
-            int randomWaitTime = Random.Range(4, 6);
-            int randomSpawn = Random.Range(0, 4);
+            int randomWaitTime = UnityEngine.Random.Range(4, 6);
+            int randomSpawn = UnityEngine.Random.Range(0, 3);
 
             currentAlien = Instantiate(alien, spawnpoints[randomSpawn].position, Quaternion.identity);
             currentAlien.SetActive(true);
-            currentAlien.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-
-            currentAlien.GetComponent<Rigidbody>().velocity = -currentAlien.transform.up * decendSpeedAlien * Time.deltaTime;
 
             yield return new WaitForSeconds(randomWaitTime);
         }
 
         currentState = shipStates.SHIPEXIT;
+
+        StopCoroutine(AlienSpawn());
     }
 
+    IEnumerator KillShip()
+    {
+        doRoutine = false;
+
+        yield return new WaitForSeconds (3);
+
+        Destroy(gameObject);
+    }
 }

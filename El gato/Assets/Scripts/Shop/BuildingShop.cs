@@ -48,12 +48,13 @@ public class BuildingShop : MonoBehaviour
  
     public TowerIndicators TowerToShow;
 
-    //Start money setter
+    //Sets the start money amount
     private void Start()
     {
         money = 300;
     }
 
+    //Updates the visual for the amount of money you have
     private void Update()
     {
         moneyAmount.text = money.ToString();
@@ -85,7 +86,7 @@ public class BuildingShop : MonoBehaviour
     }
 
     /// <summary>
-    /// assigns the "Potato Tower" for placement
+    /// Assigns the "Potato Tower" for placement
     /// </summary>
     public void TowerButton1()
     {
@@ -126,6 +127,9 @@ public class BuildingShop : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Sets the corresponding bool active for when you buy the gun
+    /// </summary>
     public void GunButton1()
     {
         if (!sellModeSwitch)
@@ -144,7 +148,7 @@ public class BuildingShop : MonoBehaviour
     }
 
     /// <summary>
-    /// assigns the "Egg Tower" for placement
+    /// Assigns the "Egg Tower" for placement
     /// </summary>
     public void TowerButton2()
     {
@@ -186,7 +190,7 @@ public class BuildingShop : MonoBehaviour
     }
 
     /// <summary>
-    /// assigns the "Corn Tower" for placement
+    /// Assigns the "Corn Tower" for placement
     /// </summary>
     public void TowerButton3()
     {
@@ -227,8 +231,6 @@ public class BuildingShop : MonoBehaviour
         }
     }
 
-
-
     /// <summary>
     /// Function for the sell button. Sets current towers to null and sell mode to active/inactive
     /// </summary>
@@ -248,6 +250,7 @@ public class BuildingShop : MonoBehaviour
         sellModeSwitch = !sellModeSwitch;
     }
 
+    //Indicator for when you dont have enough cash
     IEnumerator NoMannee(float waitTime)
     {
         moneyWarning.SetActive(true);
