@@ -135,7 +135,12 @@ public class BuildingShop : MonoBehaviour
                 weaponBought = true;
                 money -= 800;
             }
+            else
+            {
+                StartCoroutine(NoMannee(2));
+            }
         }
+        
     }
 
     /// <summary>
