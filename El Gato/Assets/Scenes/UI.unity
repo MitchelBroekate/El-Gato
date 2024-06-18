@@ -30607,6 +30607,104 @@ Transform:
   - {fileID: 886265866}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &9023835568709823911
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8043088277945847903, guid: 29f7560648b964e44b00d478621712f3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043088277945847903, guid: 29f7560648b964e44b00d478621712f3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461445473164850596, guid: 29f7560648b964e44b00d478621712f3,
+        type: 3}
+      propertyPath: m_Name
+      value: ufo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940065078470881983, guid: 29f7560648b964e44b00d478621712f3,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940065078470881983, guid: 29f7560648b964e44b00d478621712f3,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940065078470881983, guid: 29f7560648b964e44b00d478621712f3,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 1.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940065078470881983, guid: 29f7560648b964e44b00d478621712f3,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090172247660015390, guid: 29f7560648b964e44b00d478621712f3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090172247660015390, guid: 29f7560648b964e44b00d478621712f3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090172247660015390, guid: 29f7560648b964e44b00d478621712f3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090172247660015390, guid: 29f7560648b964e44b00d478621712f3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090172247660015390, guid: 29f7560648b964e44b00d478621712f3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090172247660015390, guid: 29f7560648b964e44b00d478621712f3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090172247660015390, guid: 29f7560648b964e44b00d478621712f3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090172247660015390, guid: 29f7560648b964e44b00d478621712f3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090172247660015390, guid: 29f7560648b964e44b00d478621712f3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090172247660015390, guid: 29f7560648b964e44b00d478621712f3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 29f7560648b964e44b00d478621712f3, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -30622,3 +30720,4 @@ SceneRoots:
   - {fileID: 120139095}
   - {fileID: 1099063683}
   - {fileID: 653750613}
+  - {fileID: 9023835568709823911}
