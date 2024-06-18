@@ -30,6 +30,8 @@ public class UfoBehaviour : MonoBehaviour
 
     public float rotationSpeed = 2f;
 
+    GameObject hover;
+
     #endregion
 
     public enum UFOState
@@ -42,9 +44,13 @@ public class UfoBehaviour : MonoBehaviour
 
     public UFOState uFOState;
 
+    [System.Obsolete]
     private void Start()
     {
         centerObject = GameObject.Find("Queue").transform;
+
+        hover = transform.FindChild("Hover").gameObject;
+        hover.SetActive(false);
 
         layerMask = LayerMask.GetMask("cow");
 
@@ -149,12 +155,14 @@ public class UfoBehaviour : MonoBehaviour
         }
         else
         {
+            hover.SetActive(true);
             target.GetComponent<Rigidbody>().velocity = transform.up * levitationSpeed * Time.deltaTime;
         }
     }
 
     void MovingOut()
     {
+        hover.SetActive(false);
         transform.GetComponent<Rigidbody>().AddForce(Vector3.up * levitationSpeed * Time.deltaTime) ;
         DoDamage(100000);
     }
