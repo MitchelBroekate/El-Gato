@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &2410036108965355726
+--- !u!1001 &2212929537792603550
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -58,6 +58,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: efcbd9cb49a4929448c463903fa3ad77,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: efcbd9cb49a4929448c463903fa3ad77,
+        type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: efcbd9cb49a4929448c463903fa3ad77,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a9eebcd4a6a39574a83c855d7830c1c2, type: 2}
     - target: {fileID: 919132149155446097, guid: efcbd9cb49a4929448c463903fa3ad77,
         type: 3}
       propertyPath: m_Name
@@ -65,13 +80,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: efcbd9cb49a4929448c463903fa3ad77,
         type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: efcbd9cb49a4929448c463903fa3ad77,
-        type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
