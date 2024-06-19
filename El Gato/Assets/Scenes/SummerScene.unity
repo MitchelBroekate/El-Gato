@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &3493396517096018819
+--- !u!1001 &758949468
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -184,7 +184,7 @@ PrefabInstance:
     - target: {fileID: 822437377125559426, guid: 04ded7fa792067e4c9cb68df4e811862,
         type: 3}
       propertyPath: m_Name
-      value: Scene
+      value: SummrLighting
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -264,4 +264,4 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 7743858086217501230}
-  - {fileID: 3493396517096018819}
+  - {fileID: 758949468}
