@@ -5016,7 +5016,7 @@ MonoBehaviour:
   target: {fileID: 0}
   moveSpeed: 10
   levitationSpeed: 100
-  claimedCowDistance: 3
+  claimedCowDistance: 4.5
   layerMask: 0
   centerObject: {fileID: 0}
   radius: 50

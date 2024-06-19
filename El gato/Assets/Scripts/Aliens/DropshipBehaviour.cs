@@ -22,6 +22,10 @@ public class DropshipBehaviour : MonoBehaviour
     [SerializeField]
     List<Transform> spawnpoints = new();
 
+    List<Transform> TotalTowers = new();
+
+    Transform towerParent;
+
     bool doRoutine = true;
     #endregion
 
@@ -49,12 +53,15 @@ public class DropshipBehaviour : MonoBehaviour
 
         transform.Rotate(0, UnityEngine.Random.Range(0, 360), 0);
 
+        towerParent = transform.Find("TowersParent");
+
     }
 
     //Updates the voids
     private void Update()
     {
         DoState();
+        GetTowers();
     }
 
     /// <summary>
@@ -163,6 +170,17 @@ public class DropshipBehaviour : MonoBehaviour
         }
     }
 
+    void GetTowers()
+    {
+        for (int i = 0; i < towerParent.childCount; i++)
+        {
+            if (!TotalTowers.Contains(towerParent.GetChild(i)))
+            {
+                TotalTowers.Add(towerParent.GetChild(i));
+            }
+        }
+    }
+
     /// <summary>
     /// Spawns aliens at random spawnpoints
     /// </summary>
@@ -171,22 +189,31 @@ public class DropshipBehaviour : MonoBehaviour
     {
         doRoutine = false;
 
-        for (int i = 0; i < UnityEngine.Random.Range(2, 6); i++)
+        if (TotalTowers != null)
         {
-            int randomWaitTime = UnityEngine.Random.Range(4, 6);
-            int randomSpawn = UnityEngine.Random.Range(0, 3);
+            for (int i = 0; i < TotalTowers.Count; i++)
+            {
+                int randomSpawn = UnityEngine.Random.Range(0, 3);
 
-            currentAlien = Instantiate(alien, spawnpoints[randomSpawn].position, Quaternion.identity);
-            currentAlien.SetActive(true);
+                currentAlien = Instantiate(alien, spawnpoints[randomSpawn].position, Quaternion.identity);
+                currentAlien.SetActive(true);
+                currentAlien.GetComponent<AlienBehaviour>().target = TotalTowers[0];
+                TotalTowers.RemoveAt(0);
 
-            yield return new WaitForSeconds(randomWaitTime);
+                yield return new WaitForSeconds(4);
+            }
+
+            currentState = shipStates.SHIPEXIT;
+
+            StopCoroutine(AlienSpawn());
         }
 
-        currentState = shipStates.SHIPEXIT;
-
-        StopCoroutine(AlienSpawn());
     }
 
+    /// <summary>
+    /// Destroys the ship after takeoff
+    /// </summary>
+    /// <returns></returns>
     IEnumerator KillShip()
     {
         doRoutine = false;

@@ -14,7 +14,7 @@ public class UfoBehaviour : MonoBehaviour
     [SerializeField]
     float levitationSpeed = 100;
     [SerializeField]
-    float claimedCowDistance = 0.25f;
+    float claimedCowDistance;
 
     [SerializeField]
     int layerMask;
@@ -150,6 +150,8 @@ public class UfoBehaviour : MonoBehaviour
     {
         if(Vector3.Distance(target.position,transform.position) < claimedCowDistance)
         {
+            Debug.Log("Claimed");
+
             GameObject.Find("CowManager").GetComponent<CowManager>().RemoveCow(target);
             uFOState = UFOState.MOVINGOUT;
         }

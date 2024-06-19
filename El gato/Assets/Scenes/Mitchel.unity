@@ -174,7 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1845063180}
   mouseSens: 550
-  walkSpeed: 7
+  walkSpeed: 11
   rb: {fileID: 120297647}
 --- !u!114 &120297646
 MonoBehaviour:
@@ -3433,17 +3433,17 @@ PrefabInstance:
     - target: {fileID: 3617890253937782676, guid: 9f6991bfdca01a34fb39668a50a315aa,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 501.388
+      value: 496.95
       objectReference: {fileID: 0}
     - target: {fileID: 3617890253937782676, guid: 9f6991bfdca01a34fb39668a50a315aa,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.196
+      value: 15.65
       objectReference: {fileID: 0}
     - target: {fileID: 3617890253937782676, guid: 9f6991bfdca01a34fb39668a50a315aa,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 498.554
+      value: 449.835
       objectReference: {fileID: 0}
     - target: {fileID: 3617890253937782676, guid: 9f6991bfdca01a34fb39668a50a315aa,
         type: 3}
@@ -3573,7 +3573,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &926088666
 Transform:
   m_ObjectHideFlags: 0
