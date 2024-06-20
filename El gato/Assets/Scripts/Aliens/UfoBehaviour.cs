@@ -32,6 +32,12 @@ public class UfoBehaviour : MonoBehaviour
 
     GameObject hover;
 
+    EnemyManager enemyManager;
+
+    Rigidbody rb;
+
+    bool shipExit = false;
+
     #endregion
 
     public enum UFOState
@@ -47,7 +53,13 @@ public class UfoBehaviour : MonoBehaviour
     [System.Obsolete]
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
+
+        rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+
         centerObject = GameObject.Find("Queue").transform;
+
+        enemyManager = GameObject.Find("Scripts/PlayerInput").GetComponent<EnemyManager>();
 
         hover = transform.FindChild("Hover").gameObject;
         hover.SetActive(false);
@@ -64,14 +76,6 @@ public class UfoBehaviour : MonoBehaviour
     private void Update()
     {
         DoState();
-        if (Input.GetButtonDown("Fire2"))
-        {
-            int r = Random.Range(0, 2);
-            if(r > 0)
-            {
-                DoDamage(10000);
-            }
-        }
     }
 
     void DoState()
@@ -150,8 +154,6 @@ public class UfoBehaviour : MonoBehaviour
     {
         if(Vector3.Distance(target.position,transform.position) < claimedCowDistance)
         {
-            Debug.Log("Claimed");
-
             GameObject.Find("CowManager").GetComponent<CowManager>().RemoveCow(target);
             uFOState = UFOState.MOVINGOUT;
         }
@@ -164,9 +166,15 @@ public class UfoBehaviour : MonoBehaviour
 
     void MovingOut()
     {
+        rb.constraints = RigidbodyConstraints.None;
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         hover.SetActive(false);
-        transform.GetComponent<Rigidbody>().AddForce(Vector3.up * levitationSpeed * Time.deltaTime) ;
-        DoDamage(100000);
+        transform.GetComponent<Rigidbody>().AddForce(Vector3.up * levitationSpeed * 3 * Time.deltaTime) ;
+        StartCoroutine(KillWaitTime());
+        if (shipExit)
+        {
+            DoDamage(100000);
+        }
     }
 
     public void DoDamage(int damage)
@@ -175,7 +183,7 @@ public class UfoBehaviour : MonoBehaviour
         if (health <= 0 && uFOState != UFOState.QUEUE)
         {
 
-            if(uFOState == UFOState.GETTINGCOW)
+            if(uFOState == UFOState.GETTINGCOW || uFOState == UFOState.GOTOCOW)
             { 
                 GameObject.Find("CowManager").GetComponent<CowManager>().AddFreeCow(target);
             }
@@ -185,6 +193,14 @@ public class UfoBehaviour : MonoBehaviour
             }
 
             Destroy(gameObject);
+
+            enemyManager.waves[enemyManager.currentWave].enemiesAlive--;
         }
+    }
+
+    IEnumerator KillWaitTime()
+    {
+        yield return new WaitForSeconds(4);
+        shipExit = true;
     }
 }

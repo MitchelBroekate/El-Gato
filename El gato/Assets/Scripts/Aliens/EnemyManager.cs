@@ -1,33 +1,71 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class EnemyManager : MonoBehaviour
 {
-    List<Transform> spawnpoints = new();
-
     [SerializeField]
     Transform spawnparent;
-    [SerializeField]
-    GameObject alienShuttle;
+
     [SerializeField]
     Transform enemyParent;
 
-    bool spawnCheck = false;
+    List<Transform> spawnpoints = new();
 
-    public int next;
+    public Wave[] waves;
 
+    public int currentWave;
 
+    bool waveReady;
 
     private void Start()
     {
+        currentWave = -1;
+
+        waveReady = true;
+
         GetSpawnpoints();
+
+        for (int i = 0; i < waves.Length; i++) 
+        {
+            waves[i].enemiesAlive = waves[i].enemies.Length;
+        }
     }
 
     private void Update()
     {
-        SpawnShuttle();
+        if (currentWave >= waves.Length)
+        {
+            GameObject.Find("UIManager").GetComponent<UiManager>().ShowWinScreen();
+            print("Game Won");
+
+            return;
+        }
+        if (currentWave >= 0)
+        {
+            if (waves[currentWave].enemiesAlive <= 0)
+            {
+                waveReady = true;
+            }
+        }
+
+    }
+
+    public void NextWave(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (waveReady)
+            {
+                currentWave++;
+                StartCoroutine(SpawnWave());
+                waveReady = false;
+            }
+
+        }
     }
 
     void GetSpawnpoints()
@@ -38,138 +76,28 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    void SpawnShuttle()
+    private IEnumerator SpawnWave()
     {
-        switch (next)
+        if (currentWave < waves.Length)
         {
-            case 1:
-
-                if (spawnCheck)
-                {
-                    StartCoroutine(WaveWaitTime(1));
-                    spawnCheck = false;
-                }
-
-                break;
-
-            case 2:
-
-                if (spawnCheck)
-                {
-                    StartCoroutine(WaveWaitTime(3));
-                    spawnCheck = false;
-                }
-
-                break;
-
-            case 3:
-
-                if (spawnCheck)
-                {
-                    StartCoroutine(WaveWaitTime(2));
-                    spawnCheck = false;
-                }
-
-                break;
-
-            case 4:
-
-                if (spawnCheck)
-                {
-                    StartCoroutine(WaveWaitTime(1));
-                    spawnCheck = false;
-                }
-
-                break;
-
-            case 5:
-
-                if (spawnCheck)
-                {
-                    StartCoroutine(WaveWaitTime(1));
-                    spawnCheck = false;
-                }
-                break;
-        }
-    }
-
-
-
-    IEnumerator WaveWaitTime(int waitTime)
-    {
-        if (next == 1)
-        {
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < waves[currentWave].enemies.Length; i++)
             {
-                int spawn = Random.Range(0, spawnpoints.Count);
-
-                GameObject enemy = Instantiate(alienShuttle, spawnpoints[spawn].position, Quaternion.identity);
+                int spawn = UnityEngine.Random.Range(0, spawnpoints.Count);
+                GameObject enemy = Instantiate(waves[currentWave].enemies[i], spawnpoints[spawn].position, Quaternion.identity);
                 enemy.transform.parent = enemyParent;
 
-                yield return new WaitForSeconds(waitTime);
+                yield return new WaitForSeconds(waves[currentWave].enemyWaitTime);
             }
-            StopAllCoroutines();
         }
-        if (next == 2)
-        {
-            for (int i = 0; i < 15; i++)
-            {
-                int spawn = Random.Range(0, spawnpoints.Count);
-
-                GameObject enemy = Instantiate(alienShuttle, spawnpoints[spawn].position, Quaternion.identity);
-                enemy.transform.parent = enemyParent;
-
-                yield return new WaitForSeconds(waitTime);
-            }
-            StopAllCoroutines();
-        }
-
-        if (next == 3)
-        {
-            for (int i = 0; i <20; i++)
-            {
-                int spawn = Random.Range(0, spawnpoints.Count);
-
-                GameObject enemy = Instantiate(alienShuttle, spawnpoints[spawn].position, Quaternion.identity);
-                enemy.transform.parent = enemyParent;
-
-                yield return new WaitForSeconds(waitTime);
-            }
-                StopAllCoroutines();
-        }
-
-        if (next == 4)
-        {
-            for (int i = 0; i < 30; i++)
-            {
-                int spawn = Random.Range(0, spawnpoints.Count);
-
-                GameObject enemy = Instantiate(alienShuttle, spawnpoints[spawn].position, Quaternion.identity);
-                enemy.transform.parent = enemyParent;
-
-                yield return new WaitForSeconds(waitTime);
-            }
-            StopAllCoroutines();
-        }
-
-        if (next == 5)
-        {
-            GameObject.Find("UIManager").GetComponent<UiManager>().ShowWinScreen();
-        }
-    }
-
-    public void NextWave(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            if (enemyParent.childCount <= 0)
-            {
-                next++;
-                spawnCheck = true;
-            }
-
-        }
-
 
     }
+}
+
+[Serializable]
+public class Wave
+{
+    public GameObject[] enemies;
+    public float enemyWaitTime = 4;
+
+    public int enemiesAlive;
 }

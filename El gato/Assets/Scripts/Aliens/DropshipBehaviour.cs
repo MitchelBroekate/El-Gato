@@ -172,12 +172,19 @@ public class DropshipBehaviour : MonoBehaviour
 
     void GetTowers()
     {
-        for (int i = 0; i < towerParent.childCount; i++)
+        if (towerParent.childCount > 0)
         {
-            if (!TotalTowers.Contains(towerParent.GetChild(i)))
+            for (int i = 0; i < towerParent.childCount; i++)
             {
-                TotalTowers.Add(towerParent.GetChild(i));
+                if (!TotalTowers.Contains(towerParent.GetChild(i)))
+                {
+                    TotalTowers.Add(towerParent.GetChild(i));
+                }
             }
+        }
+        else
+        {
+            return;
         }
     }
 

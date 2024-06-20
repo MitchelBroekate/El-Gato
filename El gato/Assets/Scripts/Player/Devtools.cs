@@ -18,7 +18,7 @@ public class Devtools : MonoBehaviour
     {
         if (context.performed)
         {
-            GetComponent<EnemyManager>().next++;
+            //GetComponent<EnemyManager>().next++;
         }
 
     }

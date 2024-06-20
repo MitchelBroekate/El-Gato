@@ -12,8 +12,8 @@ public class Queue : MonoBehaviour
         if (!ufoInQueue.Contains(ufoToAdd))
         {
             ufoInQueue.Add(ufoToAdd);
+            AssignCow();
         }
-        AssignCow();
     }
     public void RemoveUfoFromQueue()
     {
