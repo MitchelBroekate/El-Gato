@@ -53,7 +53,7 @@ public class DropshipBehaviour : MonoBehaviour
 
         transform.Rotate(0, UnityEngine.Random.Range(0, 360), 0);
 
-        towerParent = transform.Find("TowersParent");
+        towerParent = GameObject.Find("TowersParent").transform;
 
     }
 
@@ -181,10 +181,6 @@ public class DropshipBehaviour : MonoBehaviour
                     TotalTowers.Add(towerParent.GetChild(i));
                 }
             }
-        }
-        else
-        {
-            return;
         }
     }
 

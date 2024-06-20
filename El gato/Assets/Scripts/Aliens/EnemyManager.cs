@@ -7,6 +7,8 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 public class EnemyManager : MonoBehaviour
 {
+    #region Variables
+    #region UFO Enemy
     [SerializeField]
     Transform spawnparent;
 
@@ -20,9 +22,17 @@ public class EnemyManager : MonoBehaviour
     public int currentWave;
 
     bool waveReady;
+    #endregion
+
+    #region Dropship Enemy
+
+    #endregion
+    #endregion
+
 
     private void Start()
     {
+        #region UFO Enemy
         currentWave = -1;
 
         waveReady = true;
@@ -33,10 +43,16 @@ public class EnemyManager : MonoBehaviour
         {
             waves[i].enemiesAlive = waves[i].enemies.Length;
         }
+        #endregion
+
+        #region Dropship Enemy
+
+        #endregion
     }
 
     private void Update()
     {
+        #region UFO Enemy
         if (currentWave >= waves.Length)
         {
             GameObject.Find("UIManager").GetComponent<UiManager>().ShowWinScreen();
@@ -51,9 +67,15 @@ public class EnemyManager : MonoBehaviour
                 waveReady = true;
             }
         }
+        #endregion
+
+        #region Dropship Enemy
+
+        #endregion
 
     }
 
+    // Starts a new wave when all enemies are gone/dead
     public void NextWave(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -68,6 +90,7 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    //Gets the spawnpoints where the enemies need to spawn
     void GetSpawnpoints()
     {
         for (int i = 0; i < spawnparent.childCount; i++)
@@ -76,6 +99,7 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    //Spawns the enemies with a pause between each spawn
     private IEnumerator SpawnWave()
     {
         if (currentWave < waves.Length)
@@ -93,6 +117,9 @@ public class EnemyManager : MonoBehaviour
     }
 }
 
+/// <summary>
+/// This class is used to create a list of enemies and the information needed for configuration
+/// </summary>
 [Serializable]
 public class Wave
 {

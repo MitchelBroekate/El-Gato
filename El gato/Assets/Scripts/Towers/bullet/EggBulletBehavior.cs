@@ -22,6 +22,6 @@ public class EggBulletBehavior : BulletManager
 
     private void Update()
     {
-        Destroy(gameObject, 5);
+        Destroy(gameObject, 2);
     }
 }
