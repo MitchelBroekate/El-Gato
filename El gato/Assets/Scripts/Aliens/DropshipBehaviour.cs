@@ -25,6 +25,7 @@ public class DropshipBehaviour : MonoBehaviour
     List<Transform> TotalTowers = new();
 
     Transform towerParent;
+    Transform enemyParent;
 
     bool doRoutine = true;
     #endregion
@@ -54,6 +55,7 @@ public class DropshipBehaviour : MonoBehaviour
         transform.Rotate(0, UnityEngine.Random.Range(0, 360), 0);
 
         towerParent = GameObject.Find("TowersParent").transform;
+        enemyParent = GameObject.Find("EnemyParent").transform;
 
     }
 
@@ -192,13 +194,14 @@ public class DropshipBehaviour : MonoBehaviour
     {
         doRoutine = false;
 
-        if (TotalTowers != null)
+        if (TotalTowers.Count > 0)
         {
             for (int i = 0; i < TotalTowers.Count; i++)
             {
                 int randomSpawn = UnityEngine.Random.Range(0, 3);
 
                 currentAlien = Instantiate(alien, spawnpoints[randomSpawn].position, Quaternion.identity);
+                currentAlien.transform.parent = enemyParent;
                 currentAlien.SetActive(true);
                 currentAlien.GetComponent<AlienBehaviour>().target = TotalTowers[0];
                 TotalTowers.RemoveAt(0);
