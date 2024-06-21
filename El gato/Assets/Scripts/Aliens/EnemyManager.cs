@@ -38,10 +38,10 @@ public class EnemyManager : MonoBehaviour
 
         GetSpawnpoints();
 
-        for (int i = 0; i < waves.Length; i++) 
-        {
-            waves[i].enemiesAlive = waves[i].enemies.Length;
-        }
+        //for (int i = 0; i < waves.Length; i++) 
+        //{
+        //    waves[i].enemiesAlive = waves[i].enemies.Length;
+        //}
         #endregion
 
         #region Dropship Enemy
@@ -103,11 +103,12 @@ public class EnemyManager : MonoBehaviour
     {
         if (currentWave < waves.Length)
         {
-            for (int i = 0; i < waves[currentWave].enemies.Length; i++)
+            for (int i = 0; i < waves[currentWave].toSpawn.Length; i++)
             {
                 int spawn = UnityEngine.Random.Range(0, spawnpoints.Count);
-                GameObject enemy = Instantiate(waves[currentWave].enemies[i], spawnpoints[spawn].position, Quaternion.identity);
-                enemy.transform.parent = enemyParent;
+                //GameObject enemy = Instantiate(waves[currentWave].enemies[i], spawnpoints[spawn].position, Quaternion.identity);
+                GameObject g = waves[currentWave].toSpawn[i].Spawn();
+                g.transform.parent = enemyParent;
 
                 yield return new WaitForSeconds(waves[currentWave].enemyWaitTime);
             }
@@ -122,7 +123,7 @@ public class EnemyManager : MonoBehaviour
 [Serializable]
 public class Wave
 {
-    public GameObject[] enemies;
+    public ToSpawn[] toSpawn;
     public float enemyWaitTime = 4;
 
     public int enemiesAlive;
