@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,13 +7,19 @@ public class AlienBehaviour : MonoBehaviour
 
     public Transform target;
 
+    [SerializeField]
     List<Transform> checkpoints;
+
+    Transform checkpointParent;
 
     public Transform nearestCheckpoint;
 
     float walkSpeed;
 
+    [SerializeField]
     AlienStates currentState;
+
+    bool collisionCheck;
 
     enum AlienStates
     {
@@ -25,11 +30,20 @@ public class AlienBehaviour : MonoBehaviour
 
     private void Start()
     {
-        walkSpeed = 15;
+        collisionCheck = true;
+
+        checkpointParent = GameObject.Find("AlienCheckpoint").transform;
+
+        for (int i = 0; i < checkpointParent.childCount; i++)
+        {
+                checkpoints.Add(checkpointParent.GetChild(i));
+        }
+
+        walkSpeed = 150;
 
         rb = GetComponent<Rigidbody>();
 
-        GoToCheckpoint();
+        rb.velocity = -transform.up * 100 * Time.deltaTime;
     }
 
     private void Update()
@@ -41,9 +55,15 @@ public class AlienBehaviour : MonoBehaviour
     {
         if (collision.transform.tag == "ground")
         {
-            rb.constraints = RigidbodyConstraints.None | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
+            if (collisionCheck)
+            {
+                rb.constraints = RigidbodyConstraints.None | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
 
-            currentState = AlienStates.GOTOCHECKPOINT;
+                currentState = AlienStates.GOTOCHECKPOINT;
+
+                collisionCheck = false;
+            }
+
         }
     }
 
@@ -61,6 +81,10 @@ public class AlienBehaviour : MonoBehaviour
 
             case AlienStates.ATTACKTOWER:
                 AttackTower();
+                break;
+
+            default:
+                Debug.Log("No State Active!");
                 break;
         }
     }
@@ -101,7 +125,7 @@ public class AlienBehaviour : MonoBehaviour
 
         rb.velocity = transform.forward * walkSpeed * Time.deltaTime;
 
-        if (Vector3.Distance(transform.position, nearestCheckpoint.position) < 0.5f)
+        if (Vector3.Distance(transform.position, target.position) < 0.5f)
         {
             rb.velocity = Vector3.zero;
             currentState = AlienStates.ATTACKTOWER;
