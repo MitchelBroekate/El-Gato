@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CreateAssetMenu(fileName = "ToSpawn", menuName = "Eldoradothingmijig/Spawn", order = 1)]
+[CreateAssetMenu(fileName = "ToSpawn", menuName = "EnemySO/Spawn", order = 1)]
 public class ToSpawn : ScriptableObject
 {
     public Transform[] spawnPoints;
     public GameObject toSpawn;
+
+    
 
     public GameObject Spawn()
     {

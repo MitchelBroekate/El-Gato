@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 public class EnemyManager : MonoBehaviour
 {
     #region Variables
-    #region UFO Enemy
     [SerializeField]
     Transform spawnparent;
 
@@ -23,35 +22,16 @@ public class EnemyManager : MonoBehaviour
     bool waveReady;
     #endregion
 
-    #region Dropship Enemy
-
-    #endregion
-    #endregion
-
 
     private void Start()
     {
-        #region UFO Enemy
         currentWave = -1;
 
         waveReady = true;
-
-        GetSpawnpoints();
-
-        //for (int i = 0; i < waves.Length; i++) 
-        //{
-        //    waves[i].enemiesAlive = waves[i].enemies.Length;
-        //}
-        #endregion
-
-        #region Dropship Enemy
-
-        #endregion
     }
 
     private void Update()
     {
-        #region UFO Enemy
         if (currentWave >= waves.Length)
         {
             GameObject.Find("UIManager").GetComponent<UiManager>().ShowWinScreen();
@@ -66,12 +46,6 @@ public class EnemyManager : MonoBehaviour
                 waveReady = true;
             }
         }
-        #endregion
-
-        #region Dropship Enemy
-
-        #endregion
-
     }
 
     // Starts a new wave when all enemies are gone/dead
@@ -86,15 +60,6 @@ public class EnemyManager : MonoBehaviour
                 waveReady = false;
             }
 
-        }
-    }
-
-    //Gets the spawnpoints where the enemies need to spawn
-    void GetSpawnpoints()
-    {
-        for (int i = 0; i < spawnparent.childCount; i++)
-        {
-            spawnpoints.Add(spawnparent.GetChild(i));
         }
     }
 
