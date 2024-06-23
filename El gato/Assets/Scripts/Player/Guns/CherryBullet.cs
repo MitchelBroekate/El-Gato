@@ -16,6 +16,8 @@ public class CherryBullet : MonoBehaviour
 
     private void Start()
     {
+        Physics.IgnoreLayerCollision(10, 8);
+
         Destroy(gameObject, 10);
     }
 }

@@ -42,9 +42,13 @@ public class CherryGun : FpsState
     {
         if (context.performed)
         {
-            animator.GetBool("Shoot");
-            animator.SetBool("Shoot", true);
-            fireCoroutine = StartCoroutine(FireRate());
+            if (gameObject.activeInHierarchy)
+            {
+                animator.GetBool("Shoot");
+                animator.SetBool("Shoot", true);
+                fireCoroutine = StartCoroutine(FireRate());
+            }
+
         }
 
         if (context.canceled)

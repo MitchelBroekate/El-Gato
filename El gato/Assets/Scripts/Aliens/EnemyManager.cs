@@ -8,9 +8,6 @@ public class EnemyManager : MonoBehaviour
 {
     #region Variables
     [SerializeField]
-    Transform spawnparent;
-
-    [SerializeField]
     Transform enemyParent;
 
     List<Transform> spawnpoints = new();
@@ -55,6 +52,7 @@ public class EnemyManager : MonoBehaviour
         {
             if (waveReady)
             {
+                Debug.Log("Why no go");
                 currentWave++;
                 StartCoroutine(SpawnWave());
                 waveReady = false;

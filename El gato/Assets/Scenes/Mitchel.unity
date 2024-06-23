@@ -153,7 +153,7 @@ Transform:
   m_GameObject: {fileID: 120297643}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 28.27, y: -15.12, z: -92.19}
+  m_LocalPosition: {x: 28.27, y: -15.215, z: -92.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -248,7 +248,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 1
 --- !u!136 &120297648
 CapsuleCollider:
@@ -2244,6 +2244,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CherryBullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f57764ac135d1724797e63e1fc587045,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f57764ac135d1724797e63e1fc587045,
         type: 3}
@@ -5190,9 +5195,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1604760527}
   - component: {fileID: 1604760528}
+  - component: {fileID: 1604760530}
+  - component: {fileID: 1604760529}
   - component: {fileID: 1604760526}
   - component: {fileID: 1604760525}
-  - component: {fileID: 1604760529}
   m_Layer: 0
   m_Name: Scripts/PlayerInput
   m_TagString: Untagged
@@ -5360,6 +5366,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 93dc7408-7a1c-42ed-b815-31c872c89a3e
     m_ActionName: Player/FireFPS[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 12df5d0a-cc18-4363-ac94-03aaad8b5bcc
+    m_ActionName: Player/New action
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -5643,6 +5653,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44c233e16822fcf4a949466fee0eaa42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1604760530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604760524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b4e23a815cbb5c44b728dc8c4bb44a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cherryGun: {fileID: 0}
+  pumpkinGun: {fileID: 0}
 --- !u!1 &1621823395
 GameObject:
   m_ObjectHideFlags: 0

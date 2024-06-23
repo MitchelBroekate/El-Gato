@@ -91,9 +91,14 @@ public class EggTower : TowerManager
         }
         if (nearestTarget != null)
         {
+            Quaternion lookTowardsY = Quaternion.LookRotation(new Vector3(nearestTarget.position.x, rotateY.transform.position.y, nearestTarget.position.z) - rotateY.transform.position);
+            Quaternion lookTowardsX = Quaternion.LookRotation(nearestTarget.position - rotateX.transform.position);
 
-            rotateY.transform.LookAt(new Vector3(nearestTarget.position.x, rotateY.transform.position.y, nearestTarget.position.z));
-            rotateX.transform.LookAt(nearestTarget.position);
+            rotateY.transform.rotation = Quaternion.Slerp(rotateY.transform.rotation, lookTowardsY, 2 * Time.deltaTime);
+            rotateX.transform.rotation = Quaternion.Slerp(rotateX.transform.rotation, lookTowardsX, 2 * Time.deltaTime);
+
+            //rotateY.transform.LookAt(new Vector3(nearestTarget.position.x, rotateY.transform.position.y, nearestTarget.position.z));
+            //rotateX.transform.LookAt(nearestTarget.position);
 
             if (Time.time >= whenToFire)
             {

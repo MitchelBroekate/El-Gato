@@ -43,6 +43,8 @@ public class AlienBehaviour : MonoBehaviour
 
     private void Start()
     {
+        Physics.IgnoreLayerCollision(9, 8);
+
         currentState = AlienStates.DECEND;
 
         animator = GetComponent<Animator>();
