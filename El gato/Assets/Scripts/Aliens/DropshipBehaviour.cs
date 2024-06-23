@@ -22,8 +22,6 @@ public class DropshipBehaviour : MonoBehaviour
     [SerializeField]
     List<Transform> spawnpoints = new();
 
-    List<Transform> TotalTowers = new();
-
     Transform towerParent;
     Transform enemyParent;
 
@@ -63,7 +61,6 @@ public class DropshipBehaviour : MonoBehaviour
     private void Update()
     {
         DoState();
-        GetTowers();
     }
 
     /// <summary>
@@ -172,20 +169,6 @@ public class DropshipBehaviour : MonoBehaviour
         }
     }
 
-    void GetTowers()
-    {
-        if (towerParent.childCount > 0)
-        {
-            for (int i = 0; i < towerParent.childCount; i++)
-            {
-                if (!TotalTowers.Contains(towerParent.GetChild(i)))
-                {
-                    TotalTowers.Add(towerParent.GetChild(i));
-                }
-            }
-        }
-    }
-
     /// <summary>
     /// Spawns aliens at random spawnpoints
     /// </summary>
@@ -194,17 +177,16 @@ public class DropshipBehaviour : MonoBehaviour
     {
         doRoutine = false;
 
-        if (TotalTowers.Count > 0)
+        if (towerParent.childCount > 0)
         {
-            for (int i = 0; i < TotalTowers.Count; i++)
+            for (int i = 0; i < towerParent.childCount; i++)
             {
                 int randomSpawn = UnityEngine.Random.Range(0, 3);
 
                 currentAlien = Instantiate(alien, spawnpoints[randomSpawn].position, Quaternion.identity);
                 currentAlien.transform.parent = enemyParent;
+                currentAlien.GetComponent<AlienBehaviour>().towerParent = towerParent;
                 currentAlien.SetActive(true);
-                currentAlien.GetComponent<AlienBehaviour>().target = TotalTowers[0];
-                TotalTowers.RemoveAt(0);
 
                 yield return new WaitForSeconds(4);
             }

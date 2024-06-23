@@ -71,7 +71,6 @@ public class EnemyManager : MonoBehaviour
             for (int i = 0; i < waves[currentWave].toSpawn.Length; i++)
             {
                 int spawn = UnityEngine.Random.Range(0, spawnpoints.Count);
-                //GameObject enemy = Instantiate(waves[currentWave].enemies[i], spawnpoints[spawn].position, Quaternion.identity);
                 GameObject g = waves[currentWave].toSpawn[i].Spawn();
                 g.transform.parent = enemyParent;
 

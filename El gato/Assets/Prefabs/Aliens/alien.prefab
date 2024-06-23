@@ -26,17 +26,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f59ac441c03818545a5b68daf3d31f48,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 475.32
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f59ac441c03818545a5b68daf3d31f48,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.43
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f59ac441c03818545a5b68daf3d31f48,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 594.257
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f59ac441c03818545a5b68daf3d31f48,
         type: 3}
@@ -114,6 +114,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 9109578593398472994}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f59ac441c03818545a5b68daf3d31f48,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 137663388018110311}
     - targetCorrespondingSourceObject: {fileID: 8653679715977119207, guid: f59ac441c03818545a5b68daf3d31f48,
         type: 3}
       insertIndex: -1
@@ -214,3 +218,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6262ac20e51f843b0794c340e6f8a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkpoints: []
+  towerParent: {fileID: 0}
+  nearestCheckpoint: {fileID: 0}
+  nearestTower: {fileID: 0}
+  currentState: 0
+--- !u!95 &137663388018110311
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8757228853137575682}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a65881c122d308345ba546d91e8b4b42, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
