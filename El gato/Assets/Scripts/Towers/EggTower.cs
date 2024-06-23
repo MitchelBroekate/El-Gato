@@ -111,4 +111,14 @@ public class EggTower : TowerManager
 
         bullet.GetComponent<Rigidbody>().AddForce(rotateX.forward * bulletSpeed);
     }
+
+    public void DoDamage(int damage)
+    {
+        health -= damage;
+
+        if (health < 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 }

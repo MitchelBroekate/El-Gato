@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1602176775822487457}
   - component: {fileID: 8318916903144698657}
+  - component: {fileID: 1716357067578250837}
   m_Layer: 7
   m_Name: PotatoCannon
   m_TagString: potato
@@ -54,6 +55,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.8402972, y: 4.7397494, z: 4.190846}
   m_Center: {x: -0.0477705, y: 1.2698746, z: 0.10612744}
+--- !u!114 &1716357067578250837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123381139471594779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec4380cece8f3c140b89a1887e5dfea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 200
 --- !u!1 &5145921071912811895
 GameObject:
   m_ObjectHideFlags: 0

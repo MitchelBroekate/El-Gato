@@ -454,6 +454,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7010945245333410533}
   - component: {fileID: 3389570994662651225}
+  - component: {fileID: -3102500559403390561}
   m_Layer: 7
   m_Name: CornSilo
   m_TagString: corn
@@ -499,6 +500,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.970363, y: 5.001507, z: 1.9152204}
   m_Center: {x: 0.0862003, y: 2.0007534, z: -0.018700302}
+--- !u!114 &-3102500559403390561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7638158992492955743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec4380cece8f3c140b89a1887e5dfea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 500
 --- !u!1001 &3374921306095249108
 PrefabInstance:
   m_ObjectHideFlags: 0

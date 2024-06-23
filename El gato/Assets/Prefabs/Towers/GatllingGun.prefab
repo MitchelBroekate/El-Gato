@@ -109,6 +109,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2339025408867939619}
   - component: {fileID: 4444202991983875924}
+  - component: {fileID: 3446596613848484883}
   m_Layer: 7
   m_Name: GatllingGun
   m_TagString: egg
@@ -153,6 +154,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.9324305, y: 3.5691416, z: 1.5176762}
   m_Center: {x: 0.00054621696, y: 1.7800423, z: 0.014180958}
+--- !u!114 &3446596613848484883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3115984736802041753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec4380cece8f3c140b89a1887e5dfea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 300
 --- !u!1 &4157922935223325721
 GameObject:
   m_ObjectHideFlags: 0

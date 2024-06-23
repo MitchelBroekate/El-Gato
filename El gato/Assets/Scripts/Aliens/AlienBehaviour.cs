@@ -23,8 +23,12 @@ public class AlienBehaviour : MonoBehaviour
     bool collisionCheck;
 
     int health = 150;
+    int damage = 100;
 
     Animator animator;
+
+    bool allowAttack;
+    bool allowDamage;
 
     enum AlienStates
     {
@@ -137,6 +141,8 @@ public class AlienBehaviour : MonoBehaviour
     /// </summary>
     void GoToCheckpoint()
     {
+        allowAttack = true;
+
         float distance;
         float nearestDistance = float.MaxValue;
 
@@ -182,6 +188,7 @@ public class AlienBehaviour : MonoBehaviour
     /// </summary>
     void GoToTower()
     {
+        allowAttack = true;
         float distance;
         float nearestDistance = float.MaxValue;
 
@@ -221,19 +228,29 @@ public class AlienBehaviour : MonoBehaviour
     {
         if (nearestTower != null)
         {
+            allowDamage = true;
             Quaternion lookTowards = Quaternion.LookRotation(new Vector3(nearestTower.position.x, transform.position.y, nearestTower.position.z) - transform.position);
 
             transform.rotation = Quaternion.Slerp(transform.rotation, lookTowards, 2 * Time.deltaTime);
+            if (allowAttack)
+            {
+                StartCoroutine(AttackDamage());
 
-            // numerator that gives an attack speed or same fire rate as towers
+                allowAttack = false;
+            }
+           
         }
 
         if (nearestTower == null && towerParent.childCount <= 0)
         {
+            allowDamage = false;
+            StopAllCoroutines();
             currentState = AlienStates.GOTOCHECKPOINT;
         }
         else if (nearestTower == null && towerParent.childCount > 0)
         {
+            allowDamage = false;
+            StopAllCoroutines();
             currentState = AlienStates.GOTOTOWER;
         }
 
@@ -255,14 +272,18 @@ public class AlienBehaviour : MonoBehaviour
             animator.SetBool("Attacking", false);
             animator.SetBool("Walking", false);
 
-            StartCoroutine(Dying());
+            Destroy(gameObject, 2.5f);
         }
     }
 
-    IEnumerator Dying()
+    IEnumerator AttackDamage()
     {
-        yield return new WaitForSeconds(2.5f);
+        while (allowDamage)
+        {
+            yield return new WaitForSeconds(2f);
 
-        Destroy(gameObject);
+            nearestTower.GetComponent<Health>().DoDamage(damage);
+        }
+
     }
 }
