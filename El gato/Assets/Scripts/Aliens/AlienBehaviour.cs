@@ -22,7 +22,9 @@ public class AlienBehaviour : MonoBehaviour
 
     bool collisionCheck;
 
-    int health = 150;
+    [SerializeField]
+    int health = 300;
+
     int damage = 100;
 
     Animator animator;
@@ -35,7 +37,8 @@ public class AlienBehaviour : MonoBehaviour
         DECEND,
         GOTOCHECKPOINT,
         GOTOTOWER,
-        ATTACKTOWER
+        ATTACKTOWER,
+        DYING   
     }
 
     private void Start()
@@ -128,6 +131,20 @@ public class AlienBehaviour : MonoBehaviour
                 animator.SetBool("Walking", false);
 
                 AttackTower();
+                break;
+
+            case AlienStates.DYING:
+                animator.GetBool("Dying");
+                animator.GetBool("Attacking");
+                animator.GetBool("Walking");
+                animator.GetBool("Idle");
+
+                animator.SetBool("Dying", true);
+                animator.SetBool("Attacking", false);
+                animator.SetBool("Walking", false);
+                animator.SetBool("Idle", false);
+
+                Destroy(gameObject, 2.5f);
                 break;
 
             default:
@@ -261,18 +278,10 @@ public class AlienBehaviour : MonoBehaviour
     {
         health -= damage;
 
-        if (health < 0)
+        if (health <= 0)
         {
+            currentState = AlienStates.DYING;
 
-            animator.GetBool("Dying");
-            animator.GetBool("Attacking");
-            animator.GetBool("Walking");
-
-            animator.SetBool("Dying", true);
-            animator.SetBool("Attacking", false);
-            animator.SetBool("Walking", false);
-
-            Destroy(gameObject, 2.5f);
         }
     }
 

@@ -11,6 +11,7 @@ TagManager:
   - enemyship
   - life
   - dropship
+  - Alien
   layers:
   - Default
   - TransparentFX

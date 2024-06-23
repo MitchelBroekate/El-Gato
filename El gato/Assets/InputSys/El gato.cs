@@ -80,6 +80,15 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FireFPS"",
+                    ""type"": ""Button"",
+                    ""id"": ""93dc7408-7a1c-42ed-b815-31c872c89a3e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -192,6 +201,17 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
                     ""action"": ""DevWave"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b26e20c1-754c-43ad-a664-7f4bf9edcc5d"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FireFPS"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -206,6 +226,7 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
         m_Player_WaveButton = m_Player.FindAction("WaveButton", throwIfNotFound: true);
         m_Player_DevMoney = m_Player.FindAction("DevMoney", throwIfNotFound: true);
         m_Player_DevWave = m_Player.FindAction("DevWave", throwIfNotFound: true);
+        m_Player_FireFPS = m_Player.FindAction("FireFPS", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -273,6 +294,7 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_WaveButton;
     private readonly InputAction m_Player_DevMoney;
     private readonly InputAction m_Player_DevWave;
+    private readonly InputAction m_Player_FireFPS;
     public struct PlayerActions
     {
         private @Elgato m_Wrapper;
@@ -283,6 +305,7 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
         public InputAction @WaveButton => m_Wrapper.m_Player_WaveButton;
         public InputAction @DevMoney => m_Wrapper.m_Player_DevMoney;
         public InputAction @DevWave => m_Wrapper.m_Player_DevWave;
+        public InputAction @FireFPS => m_Wrapper.m_Player_FireFPS;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -310,6 +333,9 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
             @DevWave.started += instance.OnDevWave;
             @DevWave.performed += instance.OnDevWave;
             @DevWave.canceled += instance.OnDevWave;
+            @FireFPS.started += instance.OnFireFPS;
+            @FireFPS.performed += instance.OnFireFPS;
+            @FireFPS.canceled += instance.OnFireFPS;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -332,6 +358,9 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
             @DevWave.started -= instance.OnDevWave;
             @DevWave.performed -= instance.OnDevWave;
             @DevWave.canceled -= instance.OnDevWave;
+            @FireFPS.started -= instance.OnFireFPS;
+            @FireFPS.performed -= instance.OnFireFPS;
+            @FireFPS.canceled -= instance.OnFireFPS;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -357,5 +386,6 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
         void OnWaveButton(InputAction.CallbackContext context);
         void OnDevMoney(InputAction.CallbackContext context);
         void OnDevWave(InputAction.CallbackContext context);
+        void OnFireFPS(InputAction.CallbackContext context);
     }
 }
