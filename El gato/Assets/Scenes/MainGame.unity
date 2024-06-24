@@ -3822,6 +3822,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1359157272}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1359157275 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1106816248143685186, guid: 9f6991bfdca01a34fb39668a50a315aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1359157272}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359157274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adf68c1a0dfdb4c46baee07d05541f0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1423979891 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2891095013070819785, guid: d0a7c537229c2dd468c19f8799e5c128,
@@ -4653,8 +4665,20 @@ MonoBehaviour:
     m_ActionName: Player/DevWave[/Keyboard/9]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1359157275}
         m_TargetAssemblyTypeName: CherryGun, Assembly-CSharp
+        m_MethodName: FireManager
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1567931150}
+        m_TargetAssemblyTypeName: PumpkinLauncher, Assembly-CSharp
         m_MethodName: FireManager
         m_Mode: 0
         m_Arguments:
