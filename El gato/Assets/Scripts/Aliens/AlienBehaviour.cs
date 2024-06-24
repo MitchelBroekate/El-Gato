@@ -136,6 +136,8 @@ public class AlienBehaviour : MonoBehaviour
                 break;
 
             case AlienStates.DYING:
+
+                rb.constraints = RigidbodyConstraints.FreezeAll;
                 animator.GetBool("Dying");
                 animator.GetBool("Attacking");
                 animator.GetBool("Walking");

@@ -94,11 +94,8 @@ public class EggTower : TowerManager
             Quaternion lookTowardsY = Quaternion.LookRotation(new Vector3(nearestTarget.position.x, rotateY.transform.position.y, nearestTarget.position.z) - rotateY.transform.position);
             Quaternion lookTowardsX = Quaternion.LookRotation(nearestTarget.position - rotateX.transform.position);
 
-            rotateY.transform.rotation = Quaternion.Slerp(rotateY.transform.rotation, lookTowardsY, 2 * Time.deltaTime);
-            rotateX.transform.rotation = Quaternion.Slerp(rotateX.transform.rotation, lookTowardsX, 2 * Time.deltaTime);
-
-            //rotateY.transform.LookAt(new Vector3(nearestTarget.position.x, rotateY.transform.position.y, nearestTarget.position.z));
-            //rotateX.transform.LookAt(nearestTarget.position);
+            rotateY.transform.rotation = Quaternion.Slerp(rotateY.transform.rotation, lookTowardsY, 1 * Time.deltaTime);
+            rotateX.transform.rotation = Quaternion.Slerp(rotateX.transform.rotation, lookTowardsX, 1 * Time.deltaTime);
 
             if (Time.time >= whenToFire)
             {
@@ -111,6 +108,7 @@ public class EggTower : TowerManager
     void Shooting()
     {
         GameObject bullet = Instantiate(bulletEgg, bulletSpawn.position, rotateY.transform.rotation);
+        bullet.transform.parent = null;
 
         bullet.SetActive(true);
 

@@ -51,7 +51,7 @@ public class BuildingShop : MonoBehaviour
     //Sets the start money amount
     private void Start()
     {
-        money = 300;
+        money = 400;
     }
 
     //Updates the visual for the amount of money you have

@@ -128,7 +128,10 @@ public class BuildState : PlayerState
     {
         if (BuildingShop.showP || BuildingShop.showC || BuildingShop.showE)
         {
-            BuildingShop.showObject.transform.position = placementLocation;
+            if (BuildingShop.showObject != null)
+            {
+                BuildingShop.showObject.transform.position = placementLocation;
+            }
         }
         else
         {

@@ -30,18 +30,12 @@ public class CherryGun : FpsState
         }
     }
 
-    void OnFire()
-    {
-        GameObject currentBullet = Instantiate(bullet, bulletspawn.position, Quaternion.identity);
-        currentBullet.SetActive(true);
-
-        currentBullet.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed * Time.deltaTime;
-    }
 
     public void FireManager(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
+            print("Perform");
             if (gameObject.activeInHierarchy)
             {
                 animator.GetBool("Shoot");
@@ -53,6 +47,7 @@ public class CherryGun : FpsState
 
         if (context.canceled)
         {
+            print("Cancel");
             if (fireCoroutine != null)
             {
                 animator.GetBool("Shoot");
@@ -61,6 +56,13 @@ public class CherryGun : FpsState
             }
         }
 
+    }
+    void OnFire()
+    {
+        GameObject currentBullet = Instantiate(bullet, bulletspawn.position, Quaternion.identity);
+        currentBullet.SetActive(true);
+
+        currentBullet.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed * Time.deltaTime;
     }
 
     IEnumerator FireRate()

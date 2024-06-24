@@ -9,6 +9,8 @@ public class CowAnimations : MonoBehaviour
     bool grounded;
     bool isCycling = true;
     bool PauseRoutine = false;
+    [SerializeField]
+    LayerMask maskLayer;
 
 
     //missing: walking and grazing
@@ -83,13 +85,13 @@ public class CowAnimations : MonoBehaviour
 
     void CheckStates()
     {
-        if (Physics.Raycast(transform.position, transform.up, out hitUp, Mathf.Infinity))
+        if (Physics.Raycast(transform.position, transform.up, out hitUp, Mathf.Infinity, maskLayer))
         {
             if (hitUp.transform != null)
             {
                 if (hitUp.transform.GetComponent<UfoBehaviour>().uFOState == UfoBehaviour.UFOState.GETTINGCOW)
                 {
-                    currentState = animateState.LEVITATING;
+                        currentState = animateState.LEVITATING;
                 }
 
             }

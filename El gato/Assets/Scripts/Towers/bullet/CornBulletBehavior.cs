@@ -4,6 +4,7 @@ using TreeEditor;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CornBulletBehavior : BulletManager
 {
@@ -12,12 +13,13 @@ public class CornBulletBehavior : BulletManager
     Transform target;
     Quaternion targetRotation;
     bool enableDamage = false;
-    bool enableFilght = false;
+    bool enableFlight = false;
+
+    Quaternion lookTowards;
     private void Start()
     {
         target = transform.parent.GetComponent<CornTower>().nearestTarget;
         bulletDamage = 300;
-        targetRotation = Quaternion.Euler(target.position.x, 0, target.position.z);
         StartCoroutine(WaitForce(4.5f));
 
         Physics.IgnoreLayerCollision(7, 3);
@@ -54,24 +56,25 @@ public class CornBulletBehavior : BulletManager
 
     private void FixedUpdate()
     {
-        if (enableFilght)
+        if (enableFlight)
         {
-            transform.GetComponent<Rigidbody>().velocity = transform.forward * moveSpeed;
+            transform.GetComponent<Rigidbody>().velocity = transform.up * moveSpeed;
 
         }
 
     }
     private void Update()
     {
-        if (enableDamage)
+        if (enableFlight)
         {
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 3f);
+            lookTowards = Quaternion.LookRotation(new Vector3(target.position.x, 0, target.position.z) - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookTowards, 1 * Time.deltaTime);
         }
     }
 
     IEnumerator WaitForce(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
-        enableFilght = true;
+        enableFlight = true;
     }
 }

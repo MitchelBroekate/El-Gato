@@ -92,8 +92,11 @@ public class PotatoTower : TowerManager
         }
         if (nearestTarget != null)
         {
-            rotateY.transform.LookAt(new Vector3(nearestTarget.position.x, rotateY.transform.position.y, nearestTarget.position.z));
-            rotateX.transform.LookAt(nearestTarget.position);
+            Quaternion lookTowardsY = Quaternion.LookRotation(new Vector3(nearestTarget.position.x, rotateY.transform.position.y, nearestTarget.position.z) - rotateY.transform.position);
+            Quaternion lookTowardsX = Quaternion.LookRotation(nearestTarget.position - rotateX.transform.position);
+
+            rotateY.transform.rotation = Quaternion.Slerp(rotateY.transform.rotation, lookTowardsY, 1 * Time.deltaTime);
+            rotateX.transform.rotation = Quaternion.Slerp(rotateX.transform.rotation, lookTowardsX, 1 * Time.deltaTime);
 
             if (Time.time >= whenToFire)
             {
@@ -110,5 +113,15 @@ public class PotatoTower : TowerManager
         bullet.SetActive(true);
 
         bullet.GetComponent<Rigidbody>().AddForce(rotateX.forward * bulletSpeed);
+    }
+
+    public void DoDamage(int damage)
+    {
+        health -= damage;
+
+        if (health < 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

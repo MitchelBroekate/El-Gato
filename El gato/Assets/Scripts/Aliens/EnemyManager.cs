@@ -52,7 +52,6 @@ public class EnemyManager : MonoBehaviour
         {
             if (waveReady)
             {
-                Debug.Log("Why no go");
                 currentWave++;
                 StartCoroutine(SpawnWave());
                 waveReady = false;
