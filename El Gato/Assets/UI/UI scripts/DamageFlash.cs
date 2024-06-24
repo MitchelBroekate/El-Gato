@@ -9,13 +9,32 @@ public class DamageFlash : MonoBehaviour
     public float flashTime = .15f;
 
 
+    public void Start()
+    {
+        meshRenderer = GetComponent<MeshRenderer>();
+        origColour = meshRenderer.material.color;
+    }
+
+    [System.Obsolete]
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            FlashStart();
+        }
+
+
+    }
     public void FlashStart()
     {
-        
+        meshRenderer.material.color = Color.red;
+        Invoke("FlashEnd", flashTime);
+
     }
 
     public void FlashEnd()
     {
-
+        meshRenderer.material.color = origColour;
     }
 }
