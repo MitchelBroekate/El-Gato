@@ -13,7 +13,7 @@ public class CherryGun : FpsState
     [SerializeField]
     GameObject bullet;
 
-    float bulletSpeed = 1000;
+    float bulletSpeed = 3000;
 
     float fireRate = 5;
 
@@ -35,7 +35,6 @@ public class CherryGun : FpsState
     {
         if (context.performed)
         {
-            print("Perform");
             if (gameObject.activeInHierarchy)
             {
                 animator.GetBool("Shoot");
@@ -47,7 +46,6 @@ public class CherryGun : FpsState
 
         if (context.canceled)
         {
-            print("Cancel");
             if (fireCoroutine != null)
             {
                 animator.GetBool("Shoot");
@@ -59,7 +57,7 @@ public class CherryGun : FpsState
     }
     void OnFire()
     {
-        GameObject currentBullet = Instantiate(bullet, bulletspawn.position, Quaternion.identity);
+        GameObject currentBullet = Instantiate(bullet, bulletspawn.position, transform.rotation);
         currentBullet.SetActive(true);
 
         currentBullet.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed * Time.deltaTime;

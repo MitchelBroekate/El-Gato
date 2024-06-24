@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class GunManager : MonoBehaviour
 {
+    [SerializeField]
     BuildingShop shop;
 
     [SerializeField]
@@ -12,29 +13,40 @@ public class GunManager : MonoBehaviour
 
     public void Cherry(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (!cherryGun.activeInHierarchy)
         {
-            if (!cherryGun.activeInHierarchy)
+            if (context.performed)
             {
                 pumpkinGun.SetActive(false);
                 cherryGun.SetActive(true);
             }
         }
+        else
+        {
+            print("Cherry Weapon Active Surr");
+        }
     }
 
     public void Pumpkin(InputAction.CallbackContext context)
     {
-
-        if (context.performed)
+        if (shop.weaponBought)
         {
-            if (shop.weaponBought)
+            if (!pumpkinGun.activeInHierarchy)
             {
-                if (!pumpkinGun.activeInHierarchy)
+                if (context.performed)
                 {
                     cherryGun.SetActive(false);
                     pumpkinGun.SetActive(true);
                 }
             }
+            else
+            {
+                print("Pumpkin Weapon Active Surr");
+            }
+        }
+        else
+        {
+            print("No Weapon Surr");
         }
     }
 }
