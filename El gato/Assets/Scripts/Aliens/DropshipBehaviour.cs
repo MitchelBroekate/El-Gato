@@ -26,6 +26,8 @@ public class DropshipBehaviour : MonoBehaviour
     Transform enemyParent;
 
     bool doRoutine = true;
+
+    GameObject particleParent;
     #endregion
 
     /// <summary>
@@ -54,6 +56,8 @@ public class DropshipBehaviour : MonoBehaviour
 
         towerParent = GameObject.Find("TowersParent").transform;
         enemyParent = GameObject.Find("EnemyParent").transform;
+
+        particleParent = GameObject.Find("Ufo Coils");
 
     }
 
@@ -179,6 +183,8 @@ public class DropshipBehaviour : MonoBehaviour
 
         if (towerParent.childCount > 0)
         {
+            particleParent.SetActive(true);
+
             for (int i = 0; i < towerParent.childCount; i++)
             {
                 int randomSpawn = UnityEngine.Random.Range(0, 3);
@@ -189,9 +195,13 @@ public class DropshipBehaviour : MonoBehaviour
                 currentAlien.SetActive(true);
 
                 yield return new WaitForSeconds(4);
+
+
             }
 
             currentState = shipStates.SHIPEXIT;
+
+            particleParent.SetActive(false);
 
             StopCoroutine(AlienSpawn());
         }
