@@ -10537,6 +10537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyParent: {fileID: 629982775}
+  cowParent: {fileID: 2011620798}
   waves:
   - toSpawn:
     - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
@@ -10774,6 +10775,7 @@ MonoBehaviour:
     enemyWaitTime: 1
     enemiesAlive: 0
   currentWave: -1
+  alienEvent: 0
   uFOCheck: {fileID: 0}
 --- !u!114 &969238387
 MonoBehaviour:
