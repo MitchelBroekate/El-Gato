@@ -33,6 +33,11 @@ public class AlienBehaviour : MonoBehaviour
     bool allowAttack;
     bool allowDamage;
 
+    EnemyManager enemyManager;
+    BuildingShop buildingShop;
+
+    int giveMoneyAmount;
+
     enum AlienStates
     {
         DECEND,
@@ -44,6 +49,8 @@ public class AlienBehaviour : MonoBehaviour
 
     private void Start()
     {
+        giveMoneyAmount = 50;
+
         Physics.IgnoreLayerCollision(9, 8);
 
         currentState = AlienStates.DECEND;
@@ -53,6 +60,15 @@ public class AlienBehaviour : MonoBehaviour
         collisionCheck = true;
 
         checkpointParent = GameObject.Find("AlienCheckpoint").transform;
+        enemyManager = GameObject.Find("Scripts/PlayerInput").GetComponent<EnemyManager>();
+        buildingShop = GameObject.Find("Scripts/PlayerInput").GetComponent<BuildingShop>();
+
+        if (enemyManager.alienEvent)
+        {
+            giveMoneyAmount = 100;
+            health = health / 2;
+            damage = damage * 2;
+        }
 
         for (int i = 0; i < checkpointParent.childCount; i++)
         {
@@ -138,6 +154,7 @@ public class AlienBehaviour : MonoBehaviour
 
             case AlienStates.DYING:
 
+                buildingShop.money += giveMoneyAmount;
                 rb.constraints = RigidbodyConstraints.FreezeAll;
                 animator.GetBool("Dying");
                 animator.GetBool("Attacking");

@@ -10,6 +10,11 @@ public class EnemyManager : MonoBehaviour
     [SerializeField]
     Transform enemyParent;
 
+    [SerializeField]
+    Transform cowParent;
+
+    int cowAmount;
+
     List<Transform> spawnpoints = new();
 
     public Wave[] waves;
@@ -18,6 +23,8 @@ public class EnemyManager : MonoBehaviour
 
     bool waveReady;
 
+    public bool alienEvent;
+
     [SerializeField]
     GameObject uFOCheck;
     #endregion
@@ -25,6 +32,8 @@ public class EnemyManager : MonoBehaviour
 
     private void Start()
     {
+        cowAmount = cowParent.childCount;
+
         currentWave = -1;
 
         waveReady = true;
@@ -60,6 +69,23 @@ public class EnemyManager : MonoBehaviour
                 waveReady = false;
             }
 
+        }
+    }
+
+    public void WaveEvent()
+    {
+        if (currentWave == 2)
+        {
+            if (cowParent.childCount == cowAmount)
+            {
+                alienEvent = true;
+
+                //activate TEXT
+            }
+        }
+        else
+        {
+            alienEvent = false;
         }
     }
 

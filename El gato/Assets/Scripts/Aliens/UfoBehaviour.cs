@@ -66,6 +66,14 @@ public class UfoBehaviour : MonoBehaviour
 
         enemyManager = GameObject.Find("Scripts/PlayerInput").GetComponent<EnemyManager>();
 
+        if (enemyManager.alienEvent)
+        {
+            moneyAmount = 100;
+            health = health / 2;
+            levitationSpeed = levitationSpeed * 10;
+
+        }
+
         hover = transform.FindChild("Hover").gameObject;
         hover.SetActive(false);
 
@@ -206,11 +214,6 @@ public class UfoBehaviour : MonoBehaviour
     public void SetHealthHerfst(int healthplus)
     {
         health += healthplus;
-    }
-
-    public void SetMoney(int extraMoney)
-    {
-        moneyAmount += extraMoney;
     }
 
     IEnumerator KillWaitTime()
