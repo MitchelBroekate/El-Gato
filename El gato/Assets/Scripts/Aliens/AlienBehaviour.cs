@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class AlienBehaviour : MonoBehaviour
 {
@@ -298,5 +299,10 @@ public class AlienBehaviour : MonoBehaviour
             nearestTower.GetComponent<Health>().DoDamage(damage);
         }
 
+    }
+
+    public void SetHealthHerfst(int healthplus)
+    {
+        health += healthplus;
     }
 }

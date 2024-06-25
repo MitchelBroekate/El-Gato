@@ -71,6 +71,12 @@ public class EnemyManager : MonoBehaviour
                 GameObject g = waves[currentWave].toSpawn[i].Spawn();
                 g.transform.parent = enemyParent;
 
+                if (waves[currentWave].toSpawn[i].herfst)
+                {
+                    g.GetComponent<UfoBehaviour>().SetHealthHerfst(150);
+                }
+                
+
                 yield return new WaitForSeconds(waves[currentWave].enemyWaitTime);
             }
         }

@@ -15,8 +15,6 @@ public class PumpkinLauncher : FpsState
 
     float bulletSpeed = 4000;
 
-    float fireRate = 4;
-
     GameObject currentBullet;
 
     bool canFire = true;

@@ -198,6 +198,11 @@ public class UfoBehaviour : MonoBehaviour
         }
     }
 
+    public void SetHealthHerfst(int healthplus)
+    {
+        health += healthplus;
+    }
+
     IEnumerator KillWaitTime()
     {
         yield return new WaitForSeconds(4);
