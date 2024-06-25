@@ -27,6 +27,8 @@ public class DropshipBehaviour : MonoBehaviour
 
     bool doRoutine = true;
 
+    int plusHealth = 0;
+
     GameObject particleParent;
     #endregion
 
@@ -173,6 +175,11 @@ public class DropshipBehaviour : MonoBehaviour
         }
     }
 
+    public void SetPlusHealth(int health)
+    {
+        plusHealth += health;
+    }
+
     /// <summary>
     /// Spawns aliens at random spawnpoints
     /// </summary>
@@ -192,6 +199,7 @@ public class DropshipBehaviour : MonoBehaviour
                 currentAlien = Instantiate(alien, spawnpoints[randomSpawn].position, Quaternion.identity);
                 currentAlien.transform.parent = enemyParent;
                 currentAlien.GetComponent<AlienBehaviour>().towerParent = towerParent;
+                currentAlien.GetComponent<AlienBehaviour>().SetHealthHerfst(plusHealth);
                 currentAlien.SetActive(true);
 
                 yield return new WaitForSeconds(4);

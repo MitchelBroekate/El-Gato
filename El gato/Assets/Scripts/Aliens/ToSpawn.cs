@@ -9,6 +9,7 @@ public class ToSpawn : ScriptableObject
     public Transform[] spawnPoints;
     public GameObject toSpawn;
     public bool herfst = false;
+    public bool uFO = false;
 
     
 

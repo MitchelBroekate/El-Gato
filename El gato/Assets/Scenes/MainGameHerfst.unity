@@ -7184,7 +7184,7 @@ PrefabInstance:
     - target: {fileID: 9050248955360294059, guid: 6c1d23ef6ae092543a5a919a3cf8e15e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10807,6 +10807,7 @@ MonoBehaviour:
     enemyWaitTime: 1
     enemiesAlive: 0
   currentWave: -1
+  uFOCheck: {fileID: 0}
 --- !u!114 &969238387
 MonoBehaviour:
   m_ObjectHideFlags: 0

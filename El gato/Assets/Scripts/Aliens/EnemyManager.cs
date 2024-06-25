@@ -18,8 +18,8 @@ public class EnemyManager : MonoBehaviour
 
     bool waveReady;
 
-    Transform animalParent;
-    int herfstCheck;
+    [SerializeField]
+    GameObject uFOCheck;
     #endregion
 
 
@@ -70,14 +70,20 @@ public class EnemyManager : MonoBehaviour
         {
             for (int i = 0; i < waves[currentWave].toSpawn.Length; i++)
             {
-                herfstCheck = i;
                 int spawn = UnityEngine.Random.Range(0, spawnpoints.Count);
                 GameObject g = waves[currentWave].toSpawn[i].Spawn();
                 g.transform.parent = enemyParent;
 
                 if (waves[currentWave].toSpawn[i].herfst)
                 {
-                    g.GetComponent<UfoBehaviour>().SetHealthHerfst(150);
+                    if (waves[currentWave].toSpawn[i].uFO)
+                    {
+                        g.GetComponent<UfoBehaviour>().SetHealthHerfst(200);
+                    }
+                    else
+                    {
+                        g.GetComponent<DropshipBehaviour>().SetPlusHealth(200);
+                    }
                 }
                 
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class UfoBehaviour : MonoBehaviour
 {
     #region Variables
+    [SerializeField]
     private int health = 100;
 
     public Transform target;
