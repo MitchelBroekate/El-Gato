@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,8 +10,9 @@ public class UiManager : MonoBehaviour
     public GameObject settings;
     public GameObject mainMenu;
     public GameObject credits;
-    public GameObject levelSelect; 
-
+    public GameObject levelSelect;
+    public GameObject shop;
+    public GameObject upgrades;
    
     public void ShowGameOverScreen()
     {
@@ -27,7 +29,7 @@ public class UiManager : MonoBehaviour
         winScreen.SetActive(true);
         Time.timeScale = 0;
     }
-    [System.Obsolete]
+   
     public void GoToMainMenu()
     {
         Time.timeScale = 1;
@@ -38,6 +40,7 @@ public class UiManager : MonoBehaviour
     {
         Application.Quit();
     }
+
     [System.Obsolete]
     public void GoToGame()
     {
@@ -80,6 +83,24 @@ public class UiManager : MonoBehaviour
     {
         mainMenu.SetActive(true);
         levelSelect.SetActive(false);
+    }
+
+    
+    public void GoToLevelTwo()
+    {
+        Application.LoadLevel(2);
+    }
+
+    public void ShowUpgrades()
+    {
+        upgrades.SetActive(true);
+        shop.SetActive(false);
+    }
+
+    public void HideUpgrades()
+    {
+        upgrades.SetActive(false);
+        shop.SetActive(true);
     }
 }
 
