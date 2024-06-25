@@ -11,10 +11,10 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -7508778176194471555}
-    m_Position: {x: 300, y: 120, z: 0}
+    m_Position: {x: 300, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2539300506485648807}
-    m_Position: {x: 500, y: 200, z: 0}
+    m_Position: {x: 500, y: 210, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 9187305169417391755}
     m_Position: {x: 700, y: 120, z: 0}
@@ -73,7 +73,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: AlienCap
+    m_ConditionEvent: AlienCapturing
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6357118083652854982}
@@ -201,7 +201,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: AlienCap
+    m_ConditionEvent: AlienCapturing
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6357118083652854982}
@@ -232,7 +232,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: AlienCap
+  - m_Name: AlienCapturing
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -514,7 +514,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: AlienCap
+    m_ConditionEvent: AlienCapturing
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6357118083652854982}
@@ -539,7 +539,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: AlienCap
+    m_ConditionEvent: AlienCapturing
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6357118083652854982}

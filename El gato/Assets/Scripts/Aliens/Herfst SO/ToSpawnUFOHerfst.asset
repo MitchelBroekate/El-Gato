@@ -20,4 +20,4 @@ MonoBehaviour:
   - {fileID: 7685342672627789070, guid: 20b0caed1daa1174e8acfa66079ed277, type: 3}
   - {fileID: 5759740866902808024, guid: 6d91113ebc780654ea83b6ab51f56dac, type: 3}
   toSpawn: {fileID: 8461445473164850596, guid: 29f7560648b964e44b00d478621712f3, type: 3}
-  Herfst: 1
+  herfst: 1

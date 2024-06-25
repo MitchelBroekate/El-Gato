@@ -38,6 +38,8 @@ public class UfoBehaviour : MonoBehaviour
 
     bool shipExit = false;
 
+    int moneyAmount;
+
     #endregion
 
     public enum UFOState
@@ -53,6 +55,8 @@ public class UfoBehaviour : MonoBehaviour
     [System.Obsolete]
     private void Start()
     {
+        moneyAmount = 50;
+
         rb = GetComponent<Rigidbody>();
 
         rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
@@ -189,7 +193,7 @@ public class UfoBehaviour : MonoBehaviour
             }
             if (uFOState != UFOState.MOVINGOUT)
             {
-                GameObject.Find("Scripts/PlayerInput").GetComponent<BuildingShop>().money += 50;
+                GameObject.Find("Scripts/PlayerInput").GetComponent<BuildingShop>().money += moneyAmount;
             }
 
             Destroy(gameObject);
@@ -201,6 +205,11 @@ public class UfoBehaviour : MonoBehaviour
     public void SetHealthHerfst(int healthplus)
     {
         health += healthplus;
+    }
+
+    public void SetMoney(int extraMoney)
+    {
+        moneyAmount += extraMoney;
     }
 
     IEnumerator KillWaitTime()

@@ -17,6 +17,9 @@ public class EnemyManager : MonoBehaviour
     public int currentWave;
 
     bool waveReady;
+
+    Transform animalParent;
+    int herfstCheck;
     #endregion
 
 
@@ -67,6 +70,7 @@ public class EnemyManager : MonoBehaviour
         {
             for (int i = 0; i < waves[currentWave].toSpawn.Length; i++)
             {
+                herfstCheck = i;
                 int spawn = UnityEngine.Random.Range(0, spawnpoints.Count);
                 GameObject g = waves[currentWave].toSpawn[i].Spawn();
                 g.transform.parent = enemyParent;
