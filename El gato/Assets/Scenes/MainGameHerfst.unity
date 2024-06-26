@@ -2960,10 +2960,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2512355680138682315, guid: d0a7c537229c2dd468c19f8799e5c128,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 969238389}
+    - target: {fileID: 2512355680138682315, guid: d0a7c537229c2dd468c19f8799e5c128,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EggUpgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 2512355680138682315, guid: d0a7c537229c2dd468c19f8799e5c128,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TowerUpgrade, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 2908493141523314988, guid: d0a7c537229c2dd468c19f8799e5c128,
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3520537826811393021, guid: d0a7c537229c2dd468c19f8799e5c128,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 969238389}
+    - target: {fileID: 3520537826811393021, guid: d0a7c537229c2dd468c19f8799e5c128,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PotatoUpgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 3520537826811393021, guid: d0a7c537229c2dd468c19f8799e5c128,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TowerUpgrade, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3770001370993630685, guid: d0a7c537229c2dd468c19f8799e5c128,
         type: 3}
@@ -3000,6 +3030,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 969238383}
+    - target: {fileID: 5928854930132043514, guid: d0a7c537229c2dd468c19f8799e5c128,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 969238389}
+    - target: {fileID: 5928854930132043514, guid: d0a7c537229c2dd468c19f8799e5c128,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CornUpgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 5928854930132043514, guid: d0a7c537229c2dd468c19f8799e5c128,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TowerUpgrade, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7542416073458169067, guid: d0a7c537229c2dd468c19f8799e5c128,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -10462,6 +10507,7 @@ GameObject:
   - component: {fileID: 969238383}
   - component: {fileID: 969238385}
   - component: {fileID: 969238384}
+  - component: {fileID: 969238389}
   m_Layer: 0
   m_Name: Scripts/PlayerInput
   m_TagString: Untagged
@@ -10973,6 +11019,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &969238389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969238382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18417513666aa524d8356acbf9703f9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potato: {fileID: 1421635619471346231, guid: 0776a84b3c8055947935a8016a742892, type: 3}
+  egg: {fileID: 0}
+  corn: {fileID: 0}
+  eggShow: {fileID: 0}
+  cornShow: {fileID: 0}
+  pU: 0
+  eU: 0
+  cU: 0
+  buildingShop: {fileID: 969238383}
 --- !u!4 &983463445 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7925748858302991871, guid: 236d6c5914513d845a0e6f079e38b9fc,
@@ -15367,6 +15434,7 @@ MonoBehaviour:
   maskLayer:
     serializedVersion: 2
     m_Bits: 128
+  towerUpgrade: {fileID: 969238389}
 --- !u!4 &1386453457
 Transform:
   m_ObjectHideFlags: 0

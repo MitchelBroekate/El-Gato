@@ -57,6 +57,8 @@ public class BuildState : PlayerState
     [SerializeField]
     LayerMask maskLayer;
 
+    [SerializeField]
+    TowerUpgrade towerUpgrade;
     #endregion
 
     //Updates the corresponding functions and sets the var ray to the mouse position
@@ -176,6 +178,19 @@ public class BuildState : PlayerState
 
             tower = Instantiate(CurrentTowerToPlace, placementLocation, Quaternion.identity);
             tower.transform.parent = towerParent.transform;
+
+            if (towerUpgrade.pU)
+            {
+                tower.GetComponent<PotatoTower>().AddDamage(2);
+            }
+            if (towerUpgrade.cU)
+            {
+                tower.GetComponent<PotatoTower>().AddDamage(2);
+            }
+            if (towerUpgrade.eU)
+            {
+                tower.GetComponent<PotatoTower>().AddDamage(2);
+            }
 
             CurrentTowerToPlace = null;
 

@@ -27,6 +27,7 @@ public class CornTower : TowerManager
 
     bool bulletNumerator = true;
 
+    int damage = 1;
     #endregion
 
     //Assigns children and vars
@@ -45,6 +46,8 @@ public class CornTower : TowerManager
         animator = GetComponent<Animator>();
 
         Physics.IgnoreLayerCollision(7, 3);
+
+        missileCorn.GetComponent<EggBulletBehavior>().bulletDamage  = missileCorn.GetComponent<EggBulletBehavior>().bulletDamage * damage;
     }
 
     //Updates the tower/missile Targeting
@@ -181,5 +184,10 @@ public class CornTower : TowerManager
 
         missileSpeedIncrease = true;
 
+    }
+
+    public void AddDamage(int addedDamage)
+    {
+        damage = addedDamage;
     }
 }

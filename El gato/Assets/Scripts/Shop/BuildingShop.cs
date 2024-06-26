@@ -8,8 +8,7 @@ public class BuildingShop : MonoBehaviour
     [SerializeField]
     BuildState buildState;
 
-    [SerializeField]
-    GameObject potatoT, cornT, eggT;
+    public GameObject potatoT, cornT, eggT;
 
     public bool weaponBought = false;
 
@@ -254,7 +253,7 @@ public class BuildingShop : MonoBehaviour
     /// </summary>
     /// <param name="waitTime"></param>
     /// <returns></returns>
-    IEnumerator NoMannee(float waitTime)
+    public IEnumerator NoMannee(float waitTime)
     {
         moneyWarning.SetActive(true);
         yield return new WaitForSeconds(waitTime);

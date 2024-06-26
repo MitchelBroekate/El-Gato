@@ -20,6 +20,8 @@ public class EggTower : TowerManager
     [Header("Current Targeted Target")]
     [SerializeField]
     Transform nearestTarget;
+
+    int damage = 1;
     #endregion
 
     //Assigns children and vars
@@ -37,6 +39,8 @@ public class EggTower : TowerManager
         fireRate = 15;
 
         GetComponent<SphereCollider>().radius = rangeScale;
+
+        bulletEgg.GetComponent<EggBulletBehavior>().bulletDamage = bulletEgg.GetComponent<EggBulletBehavior>().bulletDamage * damage;
     }
 
     //Updates the targeting
@@ -147,5 +151,10 @@ public class EggTower : TowerManager
         {
             Destroy(gameObject);
         }
+    }
+
+    public void AddDamage(int addedDamage)
+    {
+        damage = addedDamage;
     }
 }

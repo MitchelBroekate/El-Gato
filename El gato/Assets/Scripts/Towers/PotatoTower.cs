@@ -20,6 +20,8 @@ public class PotatoTower : TowerManager
     [Header("Current Targeted Target")]
     [SerializeField]
     Transform nearestTarget;
+
+    int damage = 1;
     #endregion
 
     //Assigns children and vars
@@ -37,6 +39,8 @@ public class PotatoTower : TowerManager
         fireRate = 1;
 
         GetComponent<SphereCollider>().radius = rangeScale;
+
+        bulletPotato.GetComponent<PotatoBulletBehavior>().bulletDamage = bulletPotato.GetComponent<PotatoBulletBehavior>().bulletDamage * damage;
     }
 
     //Updates the targeting
@@ -143,5 +147,10 @@ public class PotatoTower : TowerManager
         {
             Destroy(gameObject);
         }
+    }
+
+    public void AddDamage(int addedDamage)
+    {
+        damage = addedDamage;
     }
 }
