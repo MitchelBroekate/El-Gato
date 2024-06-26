@@ -54,7 +54,7 @@ public class PotatoTower : TowerManager
     {
         if (other.transform.gameObject.tag == "enemyship")
         {
-            if (other.GetComponent<UfoBehaviour>().uFOState != UfoBehaviour.UFOState.MOVINGOUT || other.GetComponent<UfoBehaviour>().uFOState != UfoBehaviour.UFOState.QUEUE)
+            if (other.GetComponent<UfoBehaviour>().uFOState != UfoBehaviour.UFOState.MOVINGOUT || other.GetComponent<UfoBehaviour>().uFOState != UfoBehaviour.UFOState.QUEUE || other.GetComponent<UfoBehaviour>().uFOState == UfoBehaviour.UFOState.DYING)
             {
                 if (!allTargets.Contains(other.transform))
                 {
@@ -108,19 +108,24 @@ public class PotatoTower : TowerManager
             if (nearestTarget.GetComponent<UfoBehaviour>().uFOState == UfoBehaviour.UFOState.MOVINGOUT || nearestTarget.GetComponent<UfoBehaviour>().uFOState == UfoBehaviour.UFOState.DYING)
             {
                 allTargets.Remove(nearestTarget);
+                nearestTarget = null;
             }
-
-            Quaternion lookTowardsY = Quaternion.LookRotation(new Vector3(nearestTarget.position.x, rotateY.transform.position.y, nearestTarget.position.z) - rotateY.transform.position);
-            Quaternion lookTowardsX = Quaternion.LookRotation(nearestTarget.position - rotateX.transform.position);
-
-            rotateY.transform.rotation = Quaternion.Slerp(rotateY.transform.rotation, lookTowardsY, 10f * Time.deltaTime);
-            rotateX.transform.rotation = Quaternion.Slerp(rotateX.transform.rotation, lookTowardsX, 10f * Time.deltaTime);
-
-            if (Time.time >= whenToFire)
+            if (nearestTarget != null)
             {
-                whenToFire = Time.time + 1 / fireRate;
-                Shooting();
+                Quaternion lookTowardsY = Quaternion.LookRotation(new Vector3(nearestTarget.position.x, rotateY.transform.position.y, nearestTarget.position.z) - rotateY.transform.position);
+                Quaternion lookTowardsX = Quaternion.LookRotation(nearestTarget.position - rotateX.transform.position);
+
+                rotateY.transform.rotation = Quaternion.Slerp(rotateY.transform.rotation, lookTowardsY, 10f * Time.deltaTime);
+                rotateX.transform.rotation = Quaternion.Slerp(rotateX.transform.rotation, lookTowardsX, 10f * Time.deltaTime);
+
+                if (Time.time >= whenToFire)
+                {
+                    whenToFire = Time.time + 1 / fireRate;
+                    Shooting();
+                }
             }
+
+
         }
     }
 

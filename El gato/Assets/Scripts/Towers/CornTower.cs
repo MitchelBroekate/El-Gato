@@ -80,9 +80,12 @@ public class CornTower : TowerManager
     {
         if (other.transform.gameObject.tag == "enemyship")
         {
-            if (!allTargets.Contains(other.transform))
+            if (other.GetComponent<UfoBehaviour>().uFOState != UfoBehaviour.UFOState.MOVINGOUT || other.GetComponent<UfoBehaviour>().uFOState != UfoBehaviour.UFOState.QUEUE || other.GetComponent<UfoBehaviour>().uFOState == UfoBehaviour.UFOState.DYING)
             {
-                allTargets.Add(other.transform);
+                if (!allTargets.Contains(other.transform))
+                {
+                    allTargets.Add(other.transform);
+                }
             }
         }
     }

@@ -80,6 +80,8 @@ public class BuildState : PlayerState
 
         Cursor.lockState = CursorLockMode.None;
 
+        Cursor.visible = true;
+
         shop.SetActive(true);
     }
 

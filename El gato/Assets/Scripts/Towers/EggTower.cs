@@ -54,11 +54,11 @@ public class EggTower : TowerManager
     {
         if (other.transform.gameObject.tag == "enemyship")
         {
-            if (other.GetComponent<UfoBehaviour>().uFOState != UfoBehaviour.UFOState.MOVINGOUT || other.GetComponent<UfoBehaviour>().uFOState != UfoBehaviour.UFOState.QUEUE)
+            if (other.GetComponent<UfoBehaviour>().uFOState != UfoBehaviour.UFOState.MOVINGOUT || other.GetComponent<UfoBehaviour>().uFOState != UfoBehaviour.UFOState.QUEUE || other.GetComponent<UfoBehaviour>().uFOState == UfoBehaviour.UFOState.DYING)
             {
                 if (!allTargets.Contains(other.transform))
                 {
-                    allTargets.Add(other.transform);
+                     allTargets.Add(other.transform);
                 }
             }
         }
