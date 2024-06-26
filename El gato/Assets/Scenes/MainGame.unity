@@ -465,6 +465,12 @@ Transform:
   - {fileID: 177098046}
   m_Father: {fileID: 480376253}
   m_LocalEulerAnglesHint: {x: 45, y: 90, z: 0}
+--- !u!1 &254420471 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 188110521743894874, guid: 27898d24fe28d8d4bb8297fa72c9ed83,
+    type: 3}
+  m_PrefabInstance: {fileID: 8036873527432410891}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &304287779
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4609,7 +4615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shop: {fileID: 1604760525}
   cherryGun: {fileID: 1359157274}
-  pumpkinGun: {fileID: 0}
+  pumpkinGun: {fileID: 254420471}
 --- !u!114 &1604760531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5862,6 +5868,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PumpkinLauncerLowPoly2
+      objectReference: {fileID: 0}
+    - target: {fileID: 188110521743894874, guid: 27898d24fe28d8d4bb8297fa72c9ed83,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 709208266856379360, guid: 27898d24fe28d8d4bb8297fa72c9ed83,
         type: 3}

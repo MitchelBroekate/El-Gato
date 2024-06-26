@@ -1,5 +1,6 @@
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BuildingShop : MonoBehaviour
@@ -132,15 +133,19 @@ public class BuildingShop : MonoBehaviour
     {
         if (!sellModeSwitch)
         {
-            if (money >= 800)
+            if (!weaponBought)
             {
-                weaponBought = true;
-                money -= 800;
+                if (money >= 800)
+                {
+                    weaponBought = true;
+                    money -= 800;
+                }
+                else
+                {
+                    StartCoroutine(NoMannee(2));
+                }
             }
-            else
-            {
-                StartCoroutine(NoMannee(2));
-            }
+
         }
         
     }
