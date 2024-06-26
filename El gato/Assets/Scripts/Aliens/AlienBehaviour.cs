@@ -135,7 +135,7 @@ public class AlienBehaviour : MonoBehaviour
             case AlienStates.DECEND:
                 animator.GetBool("Idle");
                 animator.SetBool("Idle", true);
-                rb.velocity = -transform.up * 100 * Time.deltaTime;
+                rb.velocity = -transform.up * 1000 * Time.deltaTime;
                 break;
 
             case AlienStates.GOTOCHECKPOINT:
@@ -374,9 +374,13 @@ public class AlienBehaviour : MonoBehaviour
     {
         while (allowDamage)
         {
-            yield return new WaitForSeconds(2f);
+            if (currentState != AlienStates.DYING)
+            {
+                yield return new WaitForSeconds(2f);
 
-            nearestTower.GetComponent<Health>().DoDamage(damage);
+                nearestTower.GetComponent<Health>().DoDamage(damage);
+            }
+
         }
 
     }

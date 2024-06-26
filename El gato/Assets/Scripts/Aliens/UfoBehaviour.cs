@@ -55,7 +55,8 @@ public class UfoBehaviour : MonoBehaviour
         QUEUE,
         GOTOCOW,
         GETTINGCOW,
-        MOVINGOUT
+        MOVINGOUT,
+        DYING
     }
 
     public UFOState uFOState;
@@ -261,6 +262,10 @@ public class UfoBehaviour : MonoBehaviour
             }
 
             particle.SetActive(true);
+
+            uFOState = UFOState.DYING;
+
+            rb.velocity = Vector3.zero;
 
             Destroy(gameObject, 1);
 

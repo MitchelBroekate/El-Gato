@@ -60,7 +60,7 @@ public class DropshipBehaviour : MonoBehaviour
         towerParent = GameObject.Find("TowersParent").transform;
         enemyParent = GameObject.Find("EnemyParent").transform;
 
-        particleParent = GameObject.Find("Ufo Coils");
+        particleParent = transform.FindChild("Ufo Coils").gameObject;
 
     }
 
@@ -200,7 +200,7 @@ public class DropshipBehaviour : MonoBehaviour
         {
             
 
-            for (int i = 0; i < towerParent.childCount; i++)
+            for (int i = 0; i < towerParent.childCount && i <= 5; i++)
             {
                 int randomSpawn = UnityEngine.Random.Range(0, 3);
 
