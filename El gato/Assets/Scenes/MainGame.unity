@@ -490,6 +490,11 @@ PrefabInstance:
       propertyPath: m_EnableTreeColliders
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 667920046784560669, guid: cc5d8c391eeac2e44a631b7375f3d4f9,
+        type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1014230478160879533, guid: cc5d8c391eeac2e44a631b7375f3d4f9,
         type: 3}
       propertyPath: m_Name
@@ -3526,6 +3531,11 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1040779127}
+    - target: {fileID: 1153479108847051283, guid: 9f6991bfdca01a34fb39668a50a315aa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3617890253937782676, guid: 9f6991bfdca01a34fb39668a50a315aa,
         type: 3}
       propertyPath: m_LocalPosition.x
