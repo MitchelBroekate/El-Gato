@@ -62,6 +62,8 @@ public class UfoBehaviour : MonoBehaviour
     [System.Obsolete]
     private void Start()
     {
+        claimedCowDistance = 6;
+
         moneyAmount = 50;
 
         rb = GetComponent<Rigidbody>();
@@ -179,10 +181,12 @@ public class UfoBehaviour : MonoBehaviour
         if(Vector3.Distance(target.position,transform.position) < claimedCowDistance)
         {
             GameObject.Find("CowManager").GetComponent<CowManager>().RemoveCow(target);
+            rb.constraints = RigidbodyConstraints.None;
             uFOState = UFOState.MOVINGOUT;
         }
         else
         {
+            rb.constraints = RigidbodyConstraints.FreezeAll;
             hover.SetActive(true);
             target.GetComponent<Rigidbody>().velocity = transform.up * levitationSpeed * Time.deltaTime;
         }

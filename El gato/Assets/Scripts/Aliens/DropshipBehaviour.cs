@@ -206,10 +206,10 @@ public class DropshipBehaviour : MonoBehaviour
 
 
             }
+            particleParent.SetActive(false);
 
             currentState = shipStates.SHIPEXIT;
 
-            particleParent.SetActive(false);
 
             StopCoroutine(AlienSpawn());
         }

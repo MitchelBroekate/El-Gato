@@ -48,9 +48,12 @@ public class PotatoTower : TowerManager
     {
         if (other.transform.gameObject.tag == "enemyship")
         {
-            if (!allTargets.Contains(other.transform))
+            if (other.GetComponent<UfoBehaviour>().uFOState != UfoBehaviour.UFOState.MOVINGOUT || other.GetComponent<UfoBehaviour>().uFOState != UfoBehaviour.UFOState.QUEUE)
             {
-                allTargets.Add(other.transform);
+                if (!allTargets.Contains(other.transform))
+                {
+                    allTargets.Add(other.transform);
+                }
             }
         }
     }
@@ -59,15 +62,15 @@ public class PotatoTower : TowerManager
     {
         if (other.transform.gameObject.tag == "enemyship")
         {
-            if (allTargets.Contains(other.transform))
-            {
-                allTargets.Remove(other.transform);
-
-                if (other.transform == nearestTarget)
+                if (allTargets.Contains(other.transform))
                 {
-                    nearestTarget = null;
+                    allTargets.Remove(other.transform);
+
+                    if (other.transform == nearestTarget)
+                    {
+                        nearestTarget = null;
+                    }
                 }
-            }
         }
     }
 
@@ -92,11 +95,15 @@ public class PotatoTower : TowerManager
         }
         if (nearestTarget != null)
         {
+            if (nearestTarget.GetComponent<UfoBehaviour>().uFOState == UfoBehaviour.UFOState.MOVINGOUT)
+            {
+                allTargets.Remove(nearestTarget);
+            }
             Quaternion lookTowardsY = Quaternion.LookRotation(new Vector3(nearestTarget.position.x, rotateY.transform.position.y, nearestTarget.position.z) - rotateY.transform.position);
             Quaternion lookTowardsX = Quaternion.LookRotation(nearestTarget.position - rotateX.transform.position);
 
-            rotateY.transform.rotation = Quaternion.Slerp(rotateY.transform.rotation, lookTowardsY, 1 * Time.deltaTime);
-            rotateX.transform.rotation = Quaternion.Slerp(rotateX.transform.rotation, lookTowardsX, 1 * Time.deltaTime);
+            rotateY.transform.rotation = Quaternion.Slerp(rotateY.transform.rotation, lookTowardsY, 2f * Time.deltaTime);
+            rotateX.transform.rotation = Quaternion.Slerp(rotateX.transform.rotation, lookTowardsX, 2f * Time.deltaTime);
 
             if (Time.time >= whenToFire)
             {

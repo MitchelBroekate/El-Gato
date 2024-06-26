@@ -104,11 +104,11 @@ public class EnemyManager : MonoBehaviour
                 {
                     if (waves[currentWave].toSpawn[i].uFO)
                     {
-                        g.GetComponent<UfoBehaviour>().SetHealthHerfst(200);
+                        g.GetComponent<UfoBehaviour>().SetHealthHerfst(75);
                     }
                     else
                     {
-                        g.GetComponent<DropshipBehaviour>().SetPlusHealth(200);
+                        g.GetComponent<DropshipBehaviour>().SetPlusHealth(75);
                     }
                 }
                 
