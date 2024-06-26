@@ -41,6 +41,12 @@ public class UfoBehaviour : MonoBehaviour
 
     int moneyAmount;
 
+    public SkinnedMeshRenderer meshRenderer;
+    public Color origColour;
+    public float flashTime = .15f;
+
+    GameObject particle;
+
     #endregion
 
     public enum UFOState
@@ -84,6 +90,11 @@ public class UfoBehaviour : MonoBehaviour
         GameObject.Find("Queue").GetComponent<Queue>().AddUfoToQueue(this);
 
         uFOState = UFOState.QUEUE;
+
+        meshRenderer = transform.FindChild("ufo").GetComponent<SkinnedMeshRenderer>();
+        origColour = meshRenderer.material.color;
+
+        particle = transform.FindChild("UfoExplosion").gameObject;
     }
 
     private void Update()
@@ -190,11 +201,24 @@ public class UfoBehaviour : MonoBehaviour
         }
     }
 
+    void FlashStart()
+    {
+        meshRenderer.material.color = Color.red;
+        Invoke("FlashEnd", flashTime);
+
+    }
+    void FlashEnd()
+    {
+        meshRenderer.material.color = origColour;
+    }
+
     public void DoDamage(int damage)
     {
         health -= damage;
+        FlashStart();
         if (health <= 0 && uFOState != UFOState.QUEUE)
         {
+
 
             if(uFOState == UFOState.GETTINGCOW || uFOState == UFOState.GOTOCOW)
             { 
@@ -205,7 +229,9 @@ public class UfoBehaviour : MonoBehaviour
                 GameObject.Find("Scripts/PlayerInput").GetComponent<BuildingShop>().money += moneyAmount;
             }
 
-            Destroy(gameObject);
+            particle.SetActive(true);
+
+            Destroy(gameObject, 1);
 
             enemyManager.waves[enemyManager.currentWave].enemiesAlive--;
         }

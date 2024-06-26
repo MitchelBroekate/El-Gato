@@ -26,14 +26,14 @@ public class DamageFlash : MonoBehaviour
 
 
     }
-    public void FlashStart()
+     void FlashStart()
     {
         meshRenderer.material.color = Color.red;
         Invoke("FlashEnd", flashTime);
 
     }
 
-    public void FlashEnd()
+    void FlashEnd()
     {
         meshRenderer.material.color = origColour;
     }

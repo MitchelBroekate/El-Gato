@@ -7,6 +7,10 @@ public class AlienBehaviour : MonoBehaviour
 {
     Rigidbody rb;
 
+    public SkinnedMeshRenderer meshRenderer;
+    public Color origColour;
+    public float flashTime = .15f;
+
     [SerializeField]
     List<Transform> checkpoints;
 
@@ -47,6 +51,7 @@ public class AlienBehaviour : MonoBehaviour
         DYING   
     }
 
+    [System.Obsolete]
     private void Start()
     {
         giveMoneyAmount = 50;
@@ -78,6 +83,10 @@ public class AlienBehaviour : MonoBehaviour
         walkSpeed = 150;
 
         rb = GetComponent<Rigidbody>();
+
+        meshRenderer = transform.FindChild("Alien").GetComponent<SkinnedMeshRenderer>();
+
+        origColour = meshRenderer.material.color;
     }
 
     private void Update()
@@ -296,9 +305,22 @@ public class AlienBehaviour : MonoBehaviour
 
     }
 
+    void FlashStart()
+    {
+        meshRenderer.material.color = Color.red;
+        Invoke("FlashEnd", flashTime);
+
+    }
+    void FlashEnd()
+    {
+        meshRenderer.material.color = origColour;
+    }
+
     public void DoDamage(int damage)
     {
         health -= damage;
+        FlashStart();
+
 
         if (health <= 0)
         {
