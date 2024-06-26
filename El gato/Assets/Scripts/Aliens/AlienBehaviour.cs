@@ -274,7 +274,7 @@ public class AlienBehaviour : MonoBehaviour
         if (nearestTower != null)
         {
             Quaternion lookTowards = Quaternion.LookRotation(new Vector3(nearestTower.position.x, transform.position.y, nearestTower.position.z) - transform.position);
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookTowards, 2 * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookTowards, 10 * Time.deltaTime);
         }
         else
         {

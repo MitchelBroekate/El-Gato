@@ -128,6 +128,11 @@ public class CornTower : TowerManager
         }
         if (nearestTarget != null)
         {
+            if (nearestTarget.GetComponent<UfoBehaviour>().uFOState == UfoBehaviour.UFOState.MOVINGOUT || nearestTarget.GetComponent<UfoBehaviour>().uFOState == UfoBehaviour.UFOState.DYING)
+            {
+                allTargets.Remove(nearestTarget);
+            }
+
             if (Time.time >= whenToFire)
             {
                 whenToFire = Time.time + 1 * fireRate;

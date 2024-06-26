@@ -105,10 +105,11 @@ public class PotatoTower : TowerManager
         }
         if (nearestTarget != null)
         {
-            if (nearestTarget.GetComponent<UfoBehaviour>().uFOState == UfoBehaviour.UFOState.MOVINGOUT)
+            if (nearestTarget.GetComponent<UfoBehaviour>().uFOState == UfoBehaviour.UFOState.MOVINGOUT || nearestTarget.GetComponent<UfoBehaviour>().uFOState == UfoBehaviour.UFOState.DYING)
             {
                 allTargets.Remove(nearestTarget);
             }
+
             Quaternion lookTowardsY = Quaternion.LookRotation(new Vector3(nearestTarget.position.x, rotateY.transform.position.y, nearestTarget.position.z) - rotateY.transform.position);
             Quaternion lookTowardsX = Quaternion.LookRotation(nearestTarget.position - rotateX.transform.position);
 

@@ -26,7 +26,12 @@ public class CornBulletBehavior : BulletManager
         {
             if (enableDamage)
             {
-                other.gameObject.GetComponent<UfoBehaviour>().DoDamage(bulletDamage);
+
+                if (other.gameObject.GetComponent<UfoBehaviour>().uFOState != UfoBehaviour.UFOState.MOVINGOUT || other.gameObject.GetComponent<UfoBehaviour>().uFOState != UfoBehaviour.UFOState.DYING)
+                {
+                    other.gameObject.GetComponent<UfoBehaviour>().DoDamage(bulletDamage);
+                }
+                
 
             }
         }

@@ -107,7 +107,7 @@ public class EggTower : TowerManager
         if (nearestTarget != null)
         {
 
-            if (nearestTarget.GetComponent<UfoBehaviour>().uFOState == UfoBehaviour.UFOState.MOVINGOUT)
+            if (nearestTarget.GetComponent<UfoBehaviour>().uFOState == UfoBehaviour.UFOState.MOVINGOUT || nearestTarget.GetComponent<UfoBehaviour>().uFOState == UfoBehaviour.UFOState.DYING)
             {
                 allTargets.Remove(nearestTarget);
             }
