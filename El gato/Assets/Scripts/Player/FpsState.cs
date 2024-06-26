@@ -38,7 +38,6 @@ public class FpsState : PlayerState
         base.EnableState();
 
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
     }
 
     //Stops the velocity for when you switch back to this state
