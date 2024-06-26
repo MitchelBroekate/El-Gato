@@ -29,6 +29,7 @@ public class CornTower : TowerManager
 
     #endregion
 
+    //Assigns children and vars
     [System.Obsolete]
     private void Start()
     {
@@ -46,11 +47,13 @@ public class CornTower : TowerManager
         Physics.IgnoreLayerCollision(7, 3);
     }
 
+    //Updates the tower/missile Targeting
     private void Update()
     {
         Targeting();
     }
 
+    //Updates the missile launch
     private void FixedUpdate()
     {
         if (missile != null)
@@ -69,6 +72,7 @@ public class CornTower : TowerManager
    
     }
 
+    //Checks when an enemy UFO has entered the towers range and adds it to the list of enemies in range
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.gameObject.tag == "enemyship")
@@ -80,6 +84,7 @@ public class CornTower : TowerManager
         }
     }
 
+    //Checks when an enemy UFO has left the towers range, removes it from the list of enemies in range and sets the nearest to null
     private void OnTriggerExit(Collider other)
     {
         if (other.transform.gameObject.tag == "enemyship")
@@ -96,6 +101,9 @@ public class CornTower : TowerManager
         }
     }
 
+    /// <summary>
+    /// Sets the nearest enemy UFO and shoots a missile at its
+    /// </summary>
     void Targeting()
     {
         float distance;
@@ -127,6 +135,9 @@ public class CornTower : TowerManager
         }
     }
 
+    /// <summary>
+    /// Launches a missile with a wait time
+    /// </summary>
     void Shooting()
     {
         bulletNumerator = true;
@@ -144,6 +155,11 @@ public class CornTower : TowerManager
 
     }
 
+    /// <summary>
+    /// Checks for the launch time
+    /// </summary>
+    /// <param name="time"></param>
+    /// <returns></returns>
     IEnumerator BulletSpeedStop(float time)
     {
         animator.GetBool("RocketLift");
@@ -154,6 +170,10 @@ public class CornTower : TowerManager
         missileSpeedIncrease = false;
     }
 
+    /// <summary>
+    /// Cooldown for the missile launch
+    /// </summary>
+    /// <returns></returns>
     IEnumerator BulletWait()
     {
         bulletNumerator = false;

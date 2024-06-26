@@ -20,9 +20,9 @@ public class PotatoTower : TowerManager
     [Header("Current Targeted Target")]
     [SerializeField]
     Transform nearestTarget;
-
     #endregion
 
+    //Assigns children and vars
     [System.Obsolete]
     private void Start()
     {
@@ -39,11 +39,13 @@ public class PotatoTower : TowerManager
         GetComponent<SphereCollider>().radius = rangeScale;
     }
 
+    //Updates the targeting
     private void Update()
     {
         Targeting();
     }
 
+    //Checks when an enemy UFO has entered the towers range and adds it to the list of enemies in range
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.gameObject.tag == "enemyship")
@@ -58,6 +60,7 @@ public class PotatoTower : TowerManager
         }
     }
 
+    //Checks when an enemy UFO has left the towers range, removes it from the list of enemies in range and sets the nearest to null
     private void OnTriggerExit(Collider other)
     {
         if (other.transform.gameObject.tag == "enemyship")
@@ -74,6 +77,9 @@ public class PotatoTower : TowerManager
         }
     }
 
+    /// <summary>
+    /// Sets the nearest enemy UFO, traces- and shoots at its
+    /// </summary>
     void Targeting()
     {
         float distance;
@@ -102,8 +108,8 @@ public class PotatoTower : TowerManager
             Quaternion lookTowardsY = Quaternion.LookRotation(new Vector3(nearestTarget.position.x, rotateY.transform.position.y, nearestTarget.position.z) - rotateY.transform.position);
             Quaternion lookTowardsX = Quaternion.LookRotation(nearestTarget.position - rotateX.transform.position);
 
-            rotateY.transform.rotation = Quaternion.Slerp(rotateY.transform.rotation, lookTowardsY, 2f * Time.deltaTime);
-            rotateX.transform.rotation = Quaternion.Slerp(rotateX.transform.rotation, lookTowardsX, 2f * Time.deltaTime);
+            rotateY.transform.rotation = Quaternion.Slerp(rotateY.transform.rotation, lookTowardsY, 3f * Time.deltaTime);
+            rotateX.transform.rotation = Quaternion.Slerp(rotateX.transform.rotation, lookTowardsX, 3f * Time.deltaTime);
 
             if (Time.time >= whenToFire)
             {
@@ -113,6 +119,9 @@ public class PotatoTower : TowerManager
         }
     }
 
+    /// <summary>
+    /// Shoots/instantiates a bullet in the direction where the tower is looking at
+    /// </summary>
     void Shooting()
     {
         GameObject bullet = Instantiate(bulletPotato, bulletSpawn.position, rotateY.transform.rotation);
@@ -122,6 +131,10 @@ public class PotatoTower : TowerManager
         bullet.GetComponent<Rigidbody>().AddForce(rotateX.forward * bulletSpeed);
     }
 
+    /// <summary>
+    /// Applies the damage value for when an alien attacks the tower
+    /// </summary>
+    /// <param name="damage"></param>
     public void DoDamage(int damage)
     {
         health -= damage;
