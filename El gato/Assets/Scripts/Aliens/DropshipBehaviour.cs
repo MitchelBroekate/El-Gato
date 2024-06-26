@@ -41,9 +41,10 @@ public class DropshipBehaviour : MonoBehaviour
         DROPOFF,
         SHIPEXIT
     }
-    [System.Obsolete]
+
 
     //Sets default values, starting state and gets children/spawnpoints
+    [System.Obsolete]
     private void Start()
     {
         GetShipChildInfo();
@@ -175,6 +176,10 @@ public class DropshipBehaviour : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Applies health to the alien in the Herfst scene
+    /// </summary>
+    /// <param name="health"></param>
     public void SetPlusHealth(int health)
     {
         plusHealth += health;

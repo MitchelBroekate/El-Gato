@@ -5,6 +5,7 @@ using UnityEngine.Rendering;
 
 public class AlienBehaviour : MonoBehaviour
 {
+    #region Variables
     Rigidbody rb;
 
     public SkinnedMeshRenderer meshRenderer;
@@ -41,7 +42,9 @@ public class AlienBehaviour : MonoBehaviour
     BuildingShop buildingShop;
 
     int giveMoneyAmount;
+    #endregion
 
+    //Enum for Alien States
     enum AlienStates
     {
         DECEND,
@@ -51,6 +54,8 @@ public class AlienBehaviour : MonoBehaviour
         DYING   
     }
 
+
+    //Start for Var assigning and checks if the enemy event is active and applies the values
     [System.Obsolete]
     private void Start()
     {
@@ -89,6 +94,7 @@ public class AlienBehaviour : MonoBehaviour
         origColour = meshRenderer.material.color;
     }
 
+    //Updates the States and forces the alien to the ground
     private void Update()
     {
         DoStates();
@@ -99,6 +105,8 @@ public class AlienBehaviour : MonoBehaviour
         }
     }
 
+
+    //Checks when the alien hits the ground and sets a new state
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == "ground")
@@ -115,6 +123,7 @@ public class AlienBehaviour : MonoBehaviour
         }
     }
 
+    //Switch case for states and animations
     void DoStates()
     {
         switch (currentState)
@@ -305,17 +314,28 @@ public class AlienBehaviour : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Invokes damage falsh
+    /// </summary>
     void FlashStart()
     {
         meshRenderer.material.color = Color.red;
         Invoke("FlashEnd", flashTime);
 
     }
+
+    /// <summary>
+    /// Stops the damage flash
+    /// </summary>
     void FlashEnd()
     {
         meshRenderer.material.color = origColour;
     }
 
+    /// <summary>
+    /// Applies damage value that the gun gives
+    /// </summary>
+    /// <param name="damage"></param>
     public void DoDamage(int damage)
     {
         health -= damage;
@@ -329,6 +349,19 @@ public class AlienBehaviour : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Applies health for the Herfst scene
+    /// </summary>
+    /// <param name="healthplus"></param>
+    public void SetHealthHerfst(int healthplus)
+    {
+        health += healthplus;
+    }
+
+    /// <summary>
+    /// Gives an attack cooldown
+    /// </summary>
+    /// <returns></returns>
     IEnumerator AttackDamage()
     {
         while (allowDamage)
@@ -338,10 +371,5 @@ public class AlienBehaviour : MonoBehaviour
             nearestTower.GetComponent<Health>().DoDamage(damage);
         }
 
-    }
-
-    public void SetHealthHerfst(int healthplus)
-    {
-        health += healthplus;
     }
 }

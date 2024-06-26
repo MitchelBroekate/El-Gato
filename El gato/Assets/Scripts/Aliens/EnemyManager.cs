@@ -29,7 +29,7 @@ public class EnemyManager : MonoBehaviour
     GameObject uFOCheck;
     #endregion
 
-
+    //Sets wave and cow amount
     private void Start()
     {
         cowAmount = cowParent.childCount;
@@ -39,6 +39,7 @@ public class EnemyManager : MonoBehaviour
         waveReady = true;
     }
 
+    //Sets wave ready if enemies are dead and checks if you won
     private void Update()
     {
         if (currentWave >= waves.Length)
@@ -72,6 +73,7 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    //Starts an event when you have all of your lives and reach wave 3
     public void WaveEvent()
     {
         if (currentWave == 2)

@@ -49,6 +49,7 @@ public class UfoBehaviour : MonoBehaviour
 
     #endregion
 
+    //Enum for UFO statess
     public enum UFOState
     {
         QUEUE,
@@ -59,6 +60,7 @@ public class UfoBehaviour : MonoBehaviour
 
     public UFOState uFOState;
 
+    //Sets vars and checks if the enemy event is active and applies the values
     [System.Obsolete]
     private void Start()
     {
@@ -99,11 +101,13 @@ public class UfoBehaviour : MonoBehaviour
         particle = transform.FindChild("UfoExplosion").gameObject;
     }
 
+    //Updates states
     private void Update()
     {
         DoState();
     }
 
+    //Switch case for states
     void DoState()
     {
         switch (uFOState)
@@ -125,6 +129,9 @@ public class UfoBehaviour : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Sets the UFO in a queue if there is no cow available and assigns a cow to the UFO if its available
+    /// </summary>
     void Queue()
     {
         if (target != null)
@@ -147,6 +154,9 @@ public class UfoBehaviour : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Moves the UFO to a cow and stops the ufo if its above the cow
+    /// </summary>
     void GoToCow()
     {
         if (Physics.Raycast(transform.position, -Vector3.up, out hit, Mathf.Infinity, layerMask))
@@ -176,6 +186,9 @@ public class UfoBehaviour : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Levitates the cow and removes a life if a cow has been captured
+    /// </summary>
     void GettingCow()
     {
         if(Vector3.Distance(target.position,transform.position) < claimedCowDistance)
@@ -192,6 +205,9 @@ public class UfoBehaviour : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Moves the UFO towards the sky so it can despawn
+    /// </summary>
     void MovingOut()
     {
         rb.constraints = RigidbodyConstraints.None;
@@ -205,17 +221,28 @@ public class UfoBehaviour : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Invokes damage falsh
+    /// </summary>
     void FlashStart()
     {
         meshRenderer.material.color = Color.red;
         Invoke("FlashEnd", flashTime);
 
     }
+
+    /// <summary>
+    /// Stops the damage flash
+    /// </summary>
     void FlashEnd()
     {
         meshRenderer.material.color = origColour;
     }
 
+    /// <summary>
+    /// Applies the amount of damage a tower gives and checks if the UFO has died
+    /// </summary>
+    /// <param name="damage"></param>
     public void DoDamage(int damage)
     {
         health -= damage;
@@ -241,11 +268,19 @@ public class UfoBehaviour : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Adds health for the Herfst scene
+    /// </summary>
+    /// <param name="healthplus"></param>
     public void SetHealthHerfst(int healthplus)
     {
         health += healthplus;
     }
 
+    /// <summary>
+    /// Waits until the UFO has gone upwards for an amount of time
+    /// </summary>
+    /// <returns></returns>
     IEnumerator KillWaitTime()
     {
         yield return new WaitForSeconds(4);

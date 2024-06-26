@@ -45,7 +45,6 @@ public class BuildingShop : MonoBehaviour
         Tower3
     }
 
- 
     public TowerIndicators TowerToShow;
 
     //Sets the start money amount
@@ -250,7 +249,11 @@ public class BuildingShop : MonoBehaviour
         sellModeSwitch = !sellModeSwitch;
     }
 
-    //Indicator for when you dont have enough cash
+    /// <summary>
+    /// Indicator for when you dont have enough cash
+    /// </summary>
+    /// <param name="waitTime"></param>
+    /// <returns></returns>
     IEnumerator NoMannee(float waitTime)
     {
         moneyWarning.SetActive(true);
