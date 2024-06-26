@@ -211,6 +211,7 @@ public class UfoBehaviour : MonoBehaviour
     /// </summary>
     void MovingOut()
     {
+        rb.mass = 1;
         rb.constraints = RigidbodyConstraints.None;
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         hover.SetActive(false);
