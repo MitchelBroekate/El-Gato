@@ -271,18 +271,31 @@ public class AlienBehaviour : MonoBehaviour
                 }
             }
         }
-
-        Quaternion lookTowards = Quaternion.LookRotation(new Vector3(nearestTower.position.x, transform.position.y, nearestTower.position.z) - transform.position);
-
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookTowards, 2 * Time.deltaTime);
+        if (nearestTower != null)
+        {
+            Quaternion lookTowards = Quaternion.LookRotation(new Vector3(nearestTower.position.x, transform.position.y, nearestTower.position.z) - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookTowards, 2 * Time.deltaTime);
+        }
+        else
+        {
+            currentState = AlienStates.GOTOCHECKPOINT;
+        }
 
         rb.velocity = transform.forward * walkSpeed * Time.deltaTime;
 
-        if (Vector3.Distance(transform.position, nearestTower.position) < 3.5f)
+        if (nearestTower != null)
         {
-            rb.velocity = Vector3.zero;
-            currentState = AlienStates.ATTACKTOWER;
+            if (Vector3.Distance(transform.position, nearestTower.position) < 3.5f)
+            {
+                rb.velocity = Vector3.zero;
+                currentState = AlienStates.ATTACKTOWER;
+            }
         }
+        else
+        {
+            currentState = AlienStates.GOTOCHECKPOINT;
+        }
+
 
     }
 

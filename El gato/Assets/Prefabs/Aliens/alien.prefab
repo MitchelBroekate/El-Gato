@@ -683,7 +683,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8757228853137575682}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 11000
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -737,6 +737,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6262ac20e51f843b0794c340e6f8a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
+  origColour: {r: 0, g: 0, b: 0, a: 0}
+  flashTime: 0.15
   checkpoints: []
   towerParent: {fileID: 0}
   nearestCheckpoint: {fileID: 0}

@@ -79,7 +79,6 @@ public class BuildState : PlayerState
         gridPlane.SetActive(true);
 
         Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
 
         shop.SetActive(true);
     }

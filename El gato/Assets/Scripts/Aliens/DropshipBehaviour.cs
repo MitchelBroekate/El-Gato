@@ -200,7 +200,7 @@ public class DropshipBehaviour : MonoBehaviour
         {
             
 
-            for (int i = 0; i < towerParent.childCount && i <= 5; i++)
+            for (int i = 0; i < towerParent.childCount && i <= 3; i++)
             {
                 int randomSpawn = UnityEngine.Random.Range(0, 3);
 

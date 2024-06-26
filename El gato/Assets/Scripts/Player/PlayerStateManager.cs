@@ -11,7 +11,6 @@ public class PlayerStateManager : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
     }
 
     //this update runs the updates from one of the camera scripts at a time
