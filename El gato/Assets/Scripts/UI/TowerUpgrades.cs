@@ -7,45 +7,73 @@ public class TowerUpgrade : MonoBehaviour
 
     public bool pU = false, eU = false, cU = false;
 
+    bool canBuyP = true, canBuyE = true, canBuyC = true;
+
     [SerializeField]
     BuildingShop buildingShop;
 
     public void PotatoUpgrade()
     {
-        if (buildingShop.money >= 800)
+        if (canBuyP)
         {
-            pU = true;
-            buildingShop.potatoT = potato;
+            if (buildingShop.money >= 800)
+            {
+                pU = true;
+                buildingShop.potatoT = potato;
+
+                buildingShop.money -= 800;
+
+                canBuyP = false;
+            }
+            else
+            {
+                buildingShop.NoMannee(2);
+            }
         }
-        else
-        {
-            buildingShop.NoMannee(2);
-        }
+
     }
 
     public void EggUpgrade()
     {
-        if (buildingShop.money >= 1400)
+        if (canBuyE)
         {
-            eU = true;
-            buildingShop.eggT = egg;
+            if (buildingShop.money >= 1400)
+            {
+                eU = true;
+                buildingShop.eggT = egg;
+                buildingShop.showE = eggShow;
+
+                buildingShop.money -= 1400;
+
+                canBuyE = false;
+            }
+            else
+            {
+                buildingShop.NoMannee(2);
+            }
         }
-        else
-        {
-            buildingShop.NoMannee(2);
-        }
+
     }
 
     public void CornUpgrade()
     {
-        if (buildingShop.money >= 2500)
+        if (canBuyC)
         {
-            cU = true;
-            buildingShop.cornT = corn;
+            if (buildingShop.money >= 2500)
+            {
+                cU = true;
+                buildingShop.cornT = corn;
+                buildingShop.showC = cornShow;
+
+                buildingShop.money -= 2500;
+
+                canBuyC = false;
+            }
+            else
+            {
+                buildingShop.NoMannee(2);
+            }
         }
-        else
-        {
-            buildingShop.NoMannee(2);  
-        }
+
     }
 }

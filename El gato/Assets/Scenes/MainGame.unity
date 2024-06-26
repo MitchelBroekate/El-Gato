@@ -792,15 +792,7 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 666553498}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3994608761507566934, guid: cc5d8c391eeac2e44a631b7375f3d4f9,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 304287783}
-    - targetCorrespondingSourceObject: {fileID: 3994608761507566934, guid: cc5d8c391eeac2e44a631b7375f3d4f9,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 304287782}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc5d8c391eeac2e44a631b7375f3d4f9, type: 3}
 --- !u!4 &304287780 stripped
 Transform:
@@ -808,55 +800,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 304287779}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &304287781 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3994608761507566934, guid: cc5d8c391eeac2e44a631b7375f3d4f9,
-    type: 3}
-  m_PrefabInstance: {fileID: 304287779}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &304287782
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 304287781}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 9.632076, y: 8.238241, z: 9.9342375}
-  m_Center: {x: 0.07803075, y: 4.117512, z: -0.15785778}
---- !u!64 &304287783
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 304287781}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2393899376274470799, guid: df98554955bd93845884b5956a13adce, type: 3}
 --- !u!1001 &421783626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4430,14 +4373,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildState: {fileID: 480376252}
   potatoT: {fileID: 2123381139471594779, guid: e67851d9062430c4b8196e0bb6620a51, type: 3}
-  cornT: {fileID: 7638158992492955743, guid: 530b1b6c6b988d846bbdb59dc23df060, type: 3}
+  cornT: {fileID: 5386544502161754511, guid: 329d21339e845eb4bab86ba0749e0d68, type: 3}
   eggT: {fileID: 3115984736802041753, guid: 453ecd7bc10ebb448afdbe2f94e5b699, type: 3}
   weaponBought: 0
   sellModeSwitch: 0
   towerHidePlace: {fileID: 0}
   towershowP: {fileID: 1807286458633377488, guid: 62e1f25e12cc1c24994f54a7b0c62a9e,
     type: 3}
-  towershowC: {fileID: 7638158992492955743, guid: 2848a8a68bbbf1c4384a35039a1ebdbe,
+  towershowC: {fileID: 5386544502161754511, guid: c1de225af5e43894fb27225546b141e8,
     type: 3}
   towershowE: {fileID: 3115984736802041753, guid: 88c68da642f197f43919e04125047f33,
     type: 3}
@@ -4933,10 +4876,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   potato: {fileID: 1421635619471346231, guid: 0776a84b3c8055947935a8016a742892, type: 3}
-  egg: {fileID: 0}
-  corn: {fileID: 0}
-  eggShow: {fileID: 0}
-  cornShow: {fileID: 0}
+  egg: {fileID: 6264712798825594767, guid: 62eb291f22680644897bf31c1664d51e, type: 3}
+  corn: {fileID: 7638158992492955743, guid: 530b1b6c6b988d846bbdb59dc23df060, type: 3}
+  eggShow: {fileID: 6264712798825594767, guid: 05b5d935c4963544e9aed776555c8103, type: 3}
+  cornShow: {fileID: 7638158992492955743, guid: 2848a8a68bbbf1c4384a35039a1ebdbe,
+    type: 3}
   pU: 0
   eU: 0
   cU: 0

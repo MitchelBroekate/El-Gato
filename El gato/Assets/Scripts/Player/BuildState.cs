@@ -148,6 +148,7 @@ public class BuildState : PlayerState
     /// When the corresponding button is pressed this function will try to instantiate a tower or in sell mode, deletes the tower
     /// </summary>
     /// <param name="context"></param>
+    [System.Obsolete]
     public void OnFire(InputAction.CallbackContext context)
     {
         //places the chosen tower on a chosen grid location if there isn't already a tower in that grid
@@ -169,27 +170,51 @@ public class BuildState : PlayerState
             }
 
 
-            if (BuildingShop.showObject != null)
-            {
-                BuildingShop.showP = false;
-                BuildingShop.showC = false;
-                BuildingShop.showE = false;
-            }
+
 
             tower = Instantiate(CurrentTowerToPlace, placementLocation, Quaternion.identity);
             tower.transform.parent = towerParent.transform;
 
             if (towerUpgrade.pU)
             {
-                tower.GetComponent<PotatoTower>().AddDamage(2);
+                if (tower != null)
+                {
+                    if (BuildingShop.showP)
+                    {
+                        tower.transform.FindChild("Base").GetComponent<PotatoTower>().AddDamage(2);
+                    }
+                    
+                }
             }
             if (towerUpgrade.cU)
             {
-                tower.GetComponent<PotatoTower>().AddDamage(2);
+                if (BuildingShop.showC)
+                {
+                    if (tower != null)
+                    {
+                        tower.transform.FindChild("Base").GetComponent<CornTower>().AddDamage(2);
+                    }
+                }
+
             }
             if (towerUpgrade.eU)
             {
-                tower.GetComponent<PotatoTower>().AddDamage(2);
+                if (BuildingShop.showE)
+                {
+                    if (tower != null)
+                    {
+                        Transform towerChild = tower.transform.FindChild("GatllingGun");
+                        towerChild.FindChild("Base").GetComponent<EggTower>().AddDamage(2);
+                    }
+                }
+
+            }
+
+            if (BuildingShop.showObject != null)
+            {
+                BuildingShop.showP = false;
+                BuildingShop.showC = false;
+                BuildingShop.showE = false;
             }
 
             CurrentTowerToPlace = null;
