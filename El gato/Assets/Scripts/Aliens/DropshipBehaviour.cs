@@ -142,6 +142,7 @@ public class DropshipBehaviour : MonoBehaviour
     {
         if (doRoutine)
         {
+            particleParent.SetActive(true);
             StartCoroutine(AlienSpawn());
         }
     }
@@ -151,7 +152,9 @@ public class DropshipBehaviour : MonoBehaviour
     /// </summary>
     void ShipExit()
     {
+        
         doRoutine = true;
+        particleParent.SetActive(false);
 
         GetComponent<Rigidbody>().velocity = transform.up * ascendSpeedShip * Time.deltaTime;
 
@@ -195,7 +198,7 @@ public class DropshipBehaviour : MonoBehaviour
 
         if (towerParent.childCount > 0)
         {
-            particleParent.SetActive(true);
+            
 
             for (int i = 0; i < towerParent.childCount; i++)
             {
@@ -211,7 +214,7 @@ public class DropshipBehaviour : MonoBehaviour
 
 
             }
-            particleParent.SetActive(false);
+            
 
             currentState = shipStates.SHIPEXIT;
 

@@ -80,7 +80,7 @@ public class UfoBehaviour : MonoBehaviour
         {
             moneyAmount = 100;
             health = health / 2;
-            levitationSpeed = levitationSpeed * 10;
+            levitationSpeed = levitationSpeed * 2;
 
         }
 

@@ -66,6 +66,7 @@ public class EnemyManager : MonoBehaviour
             if (waveReady)
             {
                 currentWave++;
+                WaveEvent();
                 StartCoroutine(SpawnWave());
                 waveReady = false;
             }
@@ -80,6 +81,8 @@ public class EnemyManager : MonoBehaviour
         {
             if (cowParent.childCount == cowAmount)
             {
+                print("Wave Event");
+
                 alienEvent = true;
 
                 //activate TEXT

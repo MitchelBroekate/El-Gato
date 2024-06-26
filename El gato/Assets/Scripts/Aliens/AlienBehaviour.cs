@@ -42,6 +42,8 @@ public class AlienBehaviour : MonoBehaviour
     BuildingShop buildingShop;
 
     int giveMoneyAmount;
+
+    bool addMoney;
     #endregion
 
     //Enum for Alien States
@@ -92,6 +94,8 @@ public class AlienBehaviour : MonoBehaviour
         meshRenderer = transform.FindChild("Alien").GetComponent<SkinnedMeshRenderer>();
 
         origColour = meshRenderer.material.color;
+
+        addMoney = true;
     }
 
     //Updates the States and forces the alien to the ground
@@ -171,8 +175,12 @@ public class AlienBehaviour : MonoBehaviour
                 break;
 
             case AlienStates.DYING:
-
-                buildingShop.money += giveMoneyAmount;
+                if (addMoney)
+                {
+                    buildingShop.money += giveMoneyAmount;
+                    addMoney = false;
+                }
+                
                 rb.constraints = RigidbodyConstraints.FreezeAll;
                 animator.GetBool("Dying");
                 animator.GetBool("Attacking");
