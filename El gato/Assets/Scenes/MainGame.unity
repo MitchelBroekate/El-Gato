@@ -5244,6 +5244,8 @@ MonoBehaviour:
   moo1: {fileID: 8300000, guid: 2985ac7debd12b54da61d8b2ac1fd1db, type: 3}
   moo2: {fileID: 8300000, guid: 8e5ba1b83875b414a9257ff9996d3414, type: 3}
   moo3: {fileID: 8300000, guid: a903f88cd51a424479885d011c681a89, type: 3}
+  bleat1: {fileID: 8300000, guid: 4006880398b9a5d48ac040b523eb9252, type: 3}
+  bleat2: {fileID: 8300000, guid: f3e1b01cc5ceff2489c7075f3cecd430, type: 3}
   source: {fileID: 1454603186}
   mooWaitCheck: 1
 --- !u!1 &1857096972

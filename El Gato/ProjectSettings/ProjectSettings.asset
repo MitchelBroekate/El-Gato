@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: DefaultCompany
   productName: Farmers VS Aliens
-  defaultCursor: {fileID: 2800000, guid: 74dc2ca05ff31a042ba9aa835cfaa87f, type: 3}
+  defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0, g: 0.7443454, b: 1, a: 1}
   m_ShowUnitySplashScreen: 1
