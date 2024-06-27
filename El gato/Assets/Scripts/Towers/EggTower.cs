@@ -40,7 +40,7 @@ public class EggTower : TowerManager
 
         GetComponent<SphereCollider>().radius = rangeScale;
 
-        bulletEgg.GetComponent<EggBulletBehavior>().bulletDamage = bulletEgg.GetComponent<EggBulletBehavior>().bulletDamage * damage;
+        
     }
 
     //Updates the targeting
@@ -156,5 +156,6 @@ public class EggTower : TowerManager
     public void AddDamage(int addedDamage)
     {
         damage = addedDamage;
+        bulletEgg.GetComponent<EggBulletBehavior>().bulletDamage = bulletEgg.GetComponent<EggBulletBehavior>().bulletDamage * damage;
     }
 }

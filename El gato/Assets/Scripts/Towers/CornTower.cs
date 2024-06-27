@@ -47,7 +47,7 @@ public class CornTower : TowerManager
 
         Physics.IgnoreLayerCollision(7, 3);
 
-        missileCorn.GetComponent<CornBulletBehavior>().bulletDamage  = missileCorn.GetComponent<CornBulletBehavior>().bulletDamage * damage;
+        
     }
 
     //Updates the tower/missile Targeting
@@ -197,5 +197,6 @@ public class CornTower : TowerManager
     public void AddDamage(int addedDamage)
     {
         damage = addedDamage;
+        missileCorn.GetComponent<CornBulletBehavior>().bulletDamage = missileCorn.GetComponent<CornBulletBehavior>().bulletDamage * damage;
     }
 }

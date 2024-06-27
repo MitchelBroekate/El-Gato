@@ -39,8 +39,6 @@ public class PotatoTower : TowerManager
         fireRate = 1;
 
         GetComponent<SphereCollider>().radius = rangeScale;
-
-        bulletPotato.GetComponent<PotatoBulletBehavior>().bulletDamage = bulletPotato.GetComponent<PotatoBulletBehavior>().bulletDamage * damage;
     }
 
     //Updates the targeting
@@ -158,5 +156,7 @@ public class PotatoTower : TowerManager
     public void AddDamage(int addedDamage)
     {
         damage = addedDamage;
+        bulletPotato.GetComponent<PotatoBulletBehavior>().bulletDamage = bulletPotato.GetComponent<PotatoBulletBehavior>().bulletDamage * damage;
+
     }
 }
