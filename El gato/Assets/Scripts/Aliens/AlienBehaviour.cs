@@ -214,6 +214,7 @@ public class AlienBehaviour : MonoBehaviour
                     addMoney = false;
                 }
 
+                alienChild.clip = null;
                 source.clip = audioClips[3];
                 source.Play();
 
@@ -435,6 +436,7 @@ public class AlienBehaviour : MonoBehaviour
                 yield return new WaitForSeconds(2f);
 
                 source.clip = audioClips[4];
+                source.Play();
 
                 nearestTower.GetComponent<Health>().DoDamage(damage);
             }
