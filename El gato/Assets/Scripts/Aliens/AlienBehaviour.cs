@@ -215,8 +215,7 @@ public class AlienBehaviour : MonoBehaviour
                 }
 
                 alienChild.clip = null;
-                source.clip = audioClips[3];
-                source.Play();
+
 
                 rb.constraints = RigidbodyConstraints.FreezeAll;
                 animator.GetBool("Dying");
@@ -228,6 +227,8 @@ public class AlienBehaviour : MonoBehaviour
                 animator.SetBool("Attacking", false);
                 animator.SetBool("Walking", false);
                 animator.SetBool("Idle", false);
+                source.clip = audioClips[3];
+                source.Play();
 
                 Destroy(gameObject, 2.5f);
                 break;
