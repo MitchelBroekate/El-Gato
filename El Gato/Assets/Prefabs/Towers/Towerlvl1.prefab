@@ -119,7 +119,6 @@ GameObject:
   - component: {fileID: 3485621403027991952}
   - component: {fileID: 7749650051421595537}
   - component: {fileID: 6617900339995074636}
-  - component: {fileID: 5016791657848397987}
   m_Layer: 10
   m_Name: Missile
   m_TagString: Untagged
@@ -204,27 +203,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.9559833, y: 0.88735175, z: 3.3259184}
   m_Center: {x: 0.020789683, y: -0.062674165, z: 2.0710354}
---- !u!135 &5016791657848397987
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1105979152245442912}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 16
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1861138837229648251
 GameObject:
   m_ObjectHideFlags: 0

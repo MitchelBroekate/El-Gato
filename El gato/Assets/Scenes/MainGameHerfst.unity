@@ -12019,14 +12019,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildState: {fileID: 1386453456}
   potatoT: {fileID: 2123381139471594779, guid: e67851d9062430c4b8196e0bb6620a51, type: 3}
-  cornT: {fileID: 7638158992492955743, guid: 530b1b6c6b988d846bbdb59dc23df060, type: 3}
+  cornT: {fileID: 5386544502161754511, guid: 329d21339e845eb4bab86ba0749e0d68, type: 3}
   eggT: {fileID: 3115984736802041753, guid: 453ecd7bc10ebb448afdbe2f94e5b699, type: 3}
   weaponBought: 0
   sellModeSwitch: 0
   towerHidePlace: {fileID: 0}
   towershowP: {fileID: 1807286458633377488, guid: 62e1f25e12cc1c24994f54a7b0c62a9e,
     type: 3}
-  towershowC: {fileID: 7638158992492955743, guid: 2848a8a68bbbf1c4384a35039a1ebdbe,
+  towershowC: {fileID: 5386544502161754511, guid: c1de225af5e43894fb27225546b141e8,
     type: 3}
   towershowE: {fileID: 3115984736802041753, guid: 88c68da642f197f43919e04125047f33,
     type: 3}

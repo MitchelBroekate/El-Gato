@@ -19,7 +19,7 @@ public class CornBulletBehavior : BulletManager
         target = transform.parent.GetComponent<CornTower>().nearestTarget;
         targetpos = target.position;
         bulletDamage = 300;
-        StartCoroutine(WaitForce(4.5f));
+        StartCoroutine(WaitForce(4f));
 
         Destroy(gameObject, 8);
     }
@@ -27,13 +27,10 @@ public class CornBulletBehavior : BulletManager
     private void OnCollisionEnter(Collision collision)
     {
 
-        if(collision.transform.tag == "enemyship")
+        if (collision.transform.tag == "ground")
         {
-            enableDamage = true;
-            collision.gameObject.GetComponent<UfoBehaviour>().DoDamage(bulletDamage);
             Destroy(gameObject);
         }
-
 
     }
 
@@ -53,6 +50,12 @@ public class CornBulletBehavior : BulletManager
             {
                 lookTowards = Quaternion.LookRotation(target.position - transform.position);
                 transform.rotation = Quaternion.Lerp(transform.rotation, lookTowards, 10 * Time.deltaTime);
+
+                if (Vector3.Distance(transform.position, target.position) < 6)
+                {
+                    target.GetComponent<UfoBehaviour>().DoDamage(bulletDamage);
+                    Destroy(gameObject);
+                }
             }
             else
             {

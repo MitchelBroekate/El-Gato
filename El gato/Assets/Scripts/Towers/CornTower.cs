@@ -198,7 +198,7 @@ public class CornTower : TowerManager
     {
         health -= damage;
 
-        if (health < 0)
+        if (health <= 0)
         {
             Destroy(gameObject);
         }

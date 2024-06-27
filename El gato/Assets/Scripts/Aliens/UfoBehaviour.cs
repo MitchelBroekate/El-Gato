@@ -52,6 +52,8 @@ public class UfoBehaviour : MonoBehaviour
     [SerializeField]
     List<AudioClip> audioClips = new();
 
+    bool addMoney = true;
+
     #endregion
 
     //Enum for UFO statess
@@ -133,7 +135,8 @@ public class UfoBehaviour : MonoBehaviour
             case UFOState.MOVINGOUT:
                 MovingOut();
                 break;
-            default:
+            case UFOState.DYING:
+                addMoney = false;
                 break;
         }
     }
@@ -271,7 +274,11 @@ public class UfoBehaviour : MonoBehaviour
             }
             if (uFOState != UFOState.MOVINGOUT)
             {
+                if (addMoney)
+                {
                 GameObject.Find("Scripts/PlayerInput").GetComponent<BuildingShop>().money += moneyAmount;
+
+                }
             }
 
             particle.SetActive(true);
