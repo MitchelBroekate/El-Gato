@@ -68,7 +68,7 @@ public class CornTower : TowerManager
                     StartCoroutine(BulletSpeedStop(4.5f));
                     speedstop = false;
                 }
-                bulletSpeed += 0.1f;
+                bulletSpeed += 0.2f;
                 missile.GetComponent<Rigidbody>().AddForce(transform.up * bulletSpeed);
             }
         }
@@ -153,7 +153,7 @@ public class CornTower : TowerManager
     {
         bulletNumerator = true;
         bulletSpeed = 10;
-        missile = Instantiate(missileCorn, missileSpawn.position, quaternion.identity);
+        missile = Instantiate(missileCorn, missileSpawn.position, missileCorn.transform.rotation);
         missile.transform.parent = transform;
         missile.SetActive(true);
         speedstop = true;

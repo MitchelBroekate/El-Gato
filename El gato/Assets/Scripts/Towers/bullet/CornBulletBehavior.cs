@@ -11,10 +11,13 @@ public class CornBulletBehavior : BulletManager
     bool enableFlight = false;
 
     Quaternion lookTowards;
+
+    Vector3 targetpos;
     private void Start()
     {
-        Physics.IgnoreLayerCollision(7, 3);
+        Physics.IgnoreLayerCollision(7, 10);
         target = transform.parent.GetComponent<CornTower>().nearestTarget;
+        targetpos = target.position;
         bulletDamage = 300;
         StartCoroutine(WaitForce(4.5f));
 
@@ -65,6 +68,11 @@ public class CornBulletBehavior : BulletManager
             if (target != null)
             {
                 lookTowards = Quaternion.LookRotation(target.position - transform.position);
+                transform.rotation = Quaternion.Lerp(transform.rotation, lookTowards, 5 * Time.deltaTime);
+            }
+            else
+            {
+                lookTowards = Quaternion.LookRotation(new Vector3(targetpos.x, 0, targetpos.z) - transform.position);
                 transform.rotation = Quaternion.Lerp(transform.rotation, lookTowards, 5 * Time.deltaTime);
             }
         }
