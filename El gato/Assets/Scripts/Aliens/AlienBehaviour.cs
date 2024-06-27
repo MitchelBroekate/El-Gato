@@ -44,6 +44,14 @@ public class AlienBehaviour : MonoBehaviour
     int giveMoneyAmount;
 
     bool addMoney;
+
+    AudioSource source;
+
+    [SerializeField]
+    List<AudioClip> audioClips = new();
+
+    AudioSource alienChild;
+
     #endregion
 
     //Enum for Alien States
@@ -62,6 +70,9 @@ public class AlienBehaviour : MonoBehaviour
     private void Start()
     {
         giveMoneyAmount = 50;
+
+        alienChild = GameObject.Find("Alien").GetComponent<AudioSource>();
+        source = GetComponent<AudioSource>();
 
         Physics.IgnoreLayerCollision(9, 8);
 
@@ -96,6 +107,28 @@ public class AlienBehaviour : MonoBehaviour
         origColour = meshRenderer.material.color;
 
         addMoney = true;
+
+        int randomAudio = Random.Range(0, 3);
+
+        if (randomAudio == 0)
+        {
+
+            alienChild.clip = audioClips[0];
+            alienChild.Play();
+        }
+
+
+        if (randomAudio == 1)
+        {
+            alienChild.clip = audioClips[1];
+            alienChild.Play();
+        }
+
+        if (randomAudio == 2)
+        {
+            alienChild.clip = audioClips[2];
+            alienChild.Play();
+        }
     }
 
     //Updates the States and forces the alien to the ground
@@ -180,7 +213,10 @@ public class AlienBehaviour : MonoBehaviour
                     buildingShop.money += giveMoneyAmount;
                     addMoney = false;
                 }
-                
+
+                source.clip = audioClips[3];
+                source.Play();
+
                 rb.constraints = RigidbodyConstraints.FreezeAll;
                 animator.GetBool("Dying");
                 animator.GetBool("Attacking");
@@ -314,6 +350,8 @@ public class AlienBehaviour : MonoBehaviour
             {
                 StartCoroutine(AttackDamage());
 
+
+
                 allowAttack = false;
             }
            
@@ -389,10 +427,19 @@ public class AlienBehaviour : MonoBehaviour
         {
             if (currentState != AlienStates.DYING)
             {
+                if (source.clip != null)
+                {
+                    source.clip = null;
+                }
+
                 yield return new WaitForSeconds(2f);
+
+                source.clip = audioClips[4];
 
                 nearestTower.GetComponent<Health>().DoDamage(damage);
             }
+
+
 
         }
 
