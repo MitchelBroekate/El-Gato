@@ -11,7 +11,7 @@ public class PumpkinRocket : MonoBehaviour
         Physics.IgnoreLayerCollision(10, 8);
         Physics.IgnoreLayerCollision(10, 2);
 
-        Destroy(gameObject, 10);
+        Destroy(gameObject, 4);
     }
 
     private void OnCollisionEnter(Collision collision)

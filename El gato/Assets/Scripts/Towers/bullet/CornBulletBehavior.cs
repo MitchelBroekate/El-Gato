@@ -6,18 +6,19 @@ public class CornBulletBehavior : BulletManager
 
     float moveSpeed = 40;
     Transform target;
-    Quaternion targetRotation;
+
     bool enableDamage = false;
     bool enableFlight = false;
 
     Quaternion lookTowards;
     private void Start()
     {
+        Physics.IgnoreLayerCollision(7, 3);
         target = transform.parent.GetComponent<CornTower>().nearestTarget;
         bulletDamage = 300;
         StartCoroutine(WaitForce(4.5f));
 
-        Physics.IgnoreLayerCollision(7, 3);
+        Destroy(gameObject, 8);
     }
 
     private void OnTriggerStay(Collider other)
@@ -39,15 +40,10 @@ public class CornBulletBehavior : BulletManager
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.tag == "ground")
-        {
-            enableDamage = true;
-            Destroy(gameObject);
-        }
 
         if(collision.transform.tag == "enemyship")
         {
-            enabled = true;
+            enableDamage = true;
             Destroy(gameObject);
         }
 
@@ -58,8 +54,7 @@ public class CornBulletBehavior : BulletManager
     {
         if (enableFlight)
         {
-            transform.GetComponent<Rigidbody>().velocity = transform.up * moveSpeed;
-
+            transform.GetComponent<Rigidbody>().velocity = transform.forward * moveSpeed;
         }
 
     }
@@ -67,8 +62,11 @@ public class CornBulletBehavior : BulletManager
     {
         if (enableFlight)
         {
-            lookTowards = Quaternion.LookRotation(new Vector3(target.position.x, 0, target.position.z) - transform.position);
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookTowards, 1 * Time.deltaTime);
+            if (target != null)
+            {
+                lookTowards = Quaternion.LookRotation(target.position - transform.position);
+                transform.rotation = Quaternion.Lerp(transform.rotation, lookTowards, 5 * Time.deltaTime);
+            }
         }
     }
 
