@@ -44,7 +44,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (currentWave >= waves.Length)
         {
-            GameObject.Find("UIManager").GetComponent<UiManager>().ShowWinScreen();
+            GameObject.Find("UI/UXManager").GetComponent<UiManager>().ShowWinScreen();
             print("Game Won");
 
             return;

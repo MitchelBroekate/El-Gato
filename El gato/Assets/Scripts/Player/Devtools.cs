@@ -5,6 +5,11 @@ using UnityEngine.InputSystem;
 
 public class Devtools : MonoBehaviour
 {
+
+    public Transform enemyParent;
+    public Transform cowParent;
+
+    public CowManager cowManager;
     public void AddMoney(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -21,5 +26,28 @@ public class Devtools : MonoBehaviour
             GetComponent<EnemyManager>().currentWave++;
         }
 
+    }
+
+    public void KillSelf(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            for (int i = 0; i < cowParent.childCount; i++)
+            {
+                cowManager.RemoveCow(cowParent.GetChild(i));
+                Destroy(cowParent.GetChild(i).gameObject);
+            }
+        }
+    }
+
+    public void KillEnemies(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            for (int i = 0; i < enemyParent.childCount; i++)
+            {
+                Destroy(enemyParent.GetChild(i).gameObject);
+            }
+        }
     }
 }

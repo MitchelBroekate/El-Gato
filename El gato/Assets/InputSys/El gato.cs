@@ -107,6 +107,24 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DevKillSelf"",
+                    ""type"": ""Button"",
+                    ""id"": ""38254762-b648-4f64-8d9c-c3e20c519e98"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DevKillEnemy"",
+                    ""type"": ""Button"",
+                    ""id"": ""552f37ef-1a2c-4d52-9ba7-6d3e13c23e82"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -252,6 +270,28 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
                     ""action"": ""PumpkinActive"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6d01333d-1be9-4176-814a-060177a2e69a"",
+                    ""path"": ""<Keyboard>/6"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DevKillSelf"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""efb1e2f4-9bb6-4fcf-b0cb-d34e168179b2"",
+                    ""path"": ""<Keyboard>/7"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DevKillEnemy"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -269,6 +309,8 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
         m_Player_FireFPS = m_Player.FindAction("FireFPS", throwIfNotFound: true);
         m_Player_CherryActive = m_Player.FindAction("CherryActive", throwIfNotFound: true);
         m_Player_PumpkinActive = m_Player.FindAction("PumpkinActive", throwIfNotFound: true);
+        m_Player_DevKillSelf = m_Player.FindAction("DevKillSelf", throwIfNotFound: true);
+        m_Player_DevKillEnemy = m_Player.FindAction("DevKillEnemy", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -339,6 +381,8 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_FireFPS;
     private readonly InputAction m_Player_CherryActive;
     private readonly InputAction m_Player_PumpkinActive;
+    private readonly InputAction m_Player_DevKillSelf;
+    private readonly InputAction m_Player_DevKillEnemy;
     public struct PlayerActions
     {
         private @Elgato m_Wrapper;
@@ -352,6 +396,8 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
         public InputAction @FireFPS => m_Wrapper.m_Player_FireFPS;
         public InputAction @CherryActive => m_Wrapper.m_Player_CherryActive;
         public InputAction @PumpkinActive => m_Wrapper.m_Player_PumpkinActive;
+        public InputAction @DevKillSelf => m_Wrapper.m_Player_DevKillSelf;
+        public InputAction @DevKillEnemy => m_Wrapper.m_Player_DevKillEnemy;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -388,6 +434,12 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
             @PumpkinActive.started += instance.OnPumpkinActive;
             @PumpkinActive.performed += instance.OnPumpkinActive;
             @PumpkinActive.canceled += instance.OnPumpkinActive;
+            @DevKillSelf.started += instance.OnDevKillSelf;
+            @DevKillSelf.performed += instance.OnDevKillSelf;
+            @DevKillSelf.canceled += instance.OnDevKillSelf;
+            @DevKillEnemy.started += instance.OnDevKillEnemy;
+            @DevKillEnemy.performed += instance.OnDevKillEnemy;
+            @DevKillEnemy.canceled += instance.OnDevKillEnemy;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -419,6 +471,12 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
             @PumpkinActive.started -= instance.OnPumpkinActive;
             @PumpkinActive.performed -= instance.OnPumpkinActive;
             @PumpkinActive.canceled -= instance.OnPumpkinActive;
+            @DevKillSelf.started -= instance.OnDevKillSelf;
+            @DevKillSelf.performed -= instance.OnDevKillSelf;
+            @DevKillSelf.canceled -= instance.OnDevKillSelf;
+            @DevKillEnemy.started -= instance.OnDevKillEnemy;
+            @DevKillEnemy.performed -= instance.OnDevKillEnemy;
+            @DevKillEnemy.canceled -= instance.OnDevKillEnemy;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -447,5 +505,7 @@ public partial class @Elgato: IInputActionCollection2, IDisposable
         void OnFireFPS(InputAction.CallbackContext context);
         void OnCherryActive(InputAction.CallbackContext context);
         void OnPumpkinActive(InputAction.CallbackContext context);
+        void OnDevKillSelf(InputAction.CallbackContext context);
+        void OnDevKillEnemy(InputAction.CallbackContext context);
     }
 }

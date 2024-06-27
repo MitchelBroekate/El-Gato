@@ -12066,6 +12066,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44c233e16822fcf4a949466fee0eaa42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyParent: {fileID: 629982775}
+  cowParent: {fileID: 2011620798}
+  cowManager: {fileID: 2011620797}
 --- !u!114 &969238386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12489,6 +12492,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 54189342-679e-4b64-81b9-914183d645af
     m_ActionName: Player/PumpkinActive[/Keyboard/2]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 969238385}
+        m_TargetAssemblyTypeName: Devtools, Assembly-CSharp
+        m_MethodName: KillSelf
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 38254762-b648-4f64-8d9c-c3e20c519e98
+    m_ActionName: Player/DevKillSelf[/Keyboard/6]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 969238385}
+        m_TargetAssemblyTypeName: Devtools, Assembly-CSharp
+        m_MethodName: KillEnemies
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 552f37ef-1a2c-4d52-9ba7-6d3e13c23e82
+    m_ActionName: Player/DevKillEnemy[/Keyboard/7]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

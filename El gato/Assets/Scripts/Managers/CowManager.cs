@@ -47,7 +47,7 @@ public class CowManager : MonoBehaviour
         Destroy(cow.gameObject);
         if (totalCows.Count == 0)
         {
-            GameObject.Find("UIManager").GetComponent<UiManager>().ShowGameOverScreen();
+            GameObject.Find("UI/UXManager").GetComponent<UiManager>().ShowGameOverScreen();
             print("Game Over!");
         }
     }
