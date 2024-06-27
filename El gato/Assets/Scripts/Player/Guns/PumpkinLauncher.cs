@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class PumpkinLauncher : FpsState
 {
+
 
     RaycastHit hit;
 
@@ -27,11 +29,13 @@ public class PumpkinLauncher : FpsState
 
     float shrinkDuration = 3.5f;
 
+    
+
     [System.Obsolete]
     private void Start()
     {
         rocketShow = transform.FindChild("BulletShow").gameObject;
-
+        
     }
 
     private void Update()
@@ -70,6 +74,8 @@ public class PumpkinLauncher : FpsState
         rocketShow.SetActive(false);
         currentBullet = Instantiate(bullet, bulletspawn.position, transform.rotation);
         currentBullet.SetActive(true);
+        source.clip = clip;
+        source.Play();
 
         rocketShow.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         rocketShow.SetActive(true);

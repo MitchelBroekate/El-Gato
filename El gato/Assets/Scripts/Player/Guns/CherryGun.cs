@@ -22,6 +22,8 @@ public class CherryGun : FpsState
 
     Coroutine fireCoroutine;
 
+    
+
     private void Update()
     {
         if (Physics.Raycast(cam.position, transform.forward, out hit, Mathf.Infinity))
@@ -57,6 +59,8 @@ public class CherryGun : FpsState
     }
     void OnFire()
     {
+        source.clip = clip;
+        source.Play();
         GameObject currentBullet = Instantiate(bullet, bulletspawn.position, transform.rotation);
         currentBullet.SetActive(true);
 

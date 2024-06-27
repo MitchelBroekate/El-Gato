@@ -47,6 +47,11 @@ public class UfoBehaviour : MonoBehaviour
 
     GameObject particle;
 
+    AudioSource ufoAttack;
+
+    [SerializeField]
+    List<AudioClip> audioClips = new();
+
     #endregion
 
     //Enum for UFO statess
@@ -65,6 +70,9 @@ public class UfoBehaviour : MonoBehaviour
     [System.Obsolete]
     private void Start()
     {
+
+        ufoAttack = GetComponent<AudioSource>();
+
         claimedCowDistance = 6;
 
         moneyAmount = 50;
@@ -196,10 +204,14 @@ public class UfoBehaviour : MonoBehaviour
         {
             GameObject.Find("CowManager").GetComponent<CowManager>().RemoveCow(target);
             rb.constraints = RigidbodyConstraints.None;
-            uFOState = UFOState.MOVINGOUT;
+            ufoAttack.clip = null;
+            uFOState = UFOState.MOVINGOUT;          
         }
-        else
+        else 
         {
+            ufoAttack.loop = true;
+            ufoAttack.clip = audioClips[0];
+            ufoAttack.Play();
             rb.constraints = RigidbodyConstraints.FreezeAll;
             hover.SetActive(true);
             target.GetComponent<Rigidbody>().velocity = transform.up * levitationSpeed * Time.deltaTime;
@@ -263,6 +275,10 @@ public class UfoBehaviour : MonoBehaviour
             }
 
             particle.SetActive(true);
+
+            ufoAttack.loop = false;
+            ufoAttack.clip = audioClips[1];
+            ufoAttack.Play();
 
             uFOState = UFOState.DYING;
 
