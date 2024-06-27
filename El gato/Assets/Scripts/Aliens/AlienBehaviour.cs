@@ -71,7 +71,7 @@ public class AlienBehaviour : MonoBehaviour
     {
         giveMoneyAmount = 50;
 
-        alienChild = GameObject.Find("Alien").GetComponent<AudioSource>();
+        alienChild = transform.FindChild("Alien").GetComponent<AudioSource>();
         source = GetComponent<AudioSource>();
 
         Physics.IgnoreLayerCollision(9, 8);
@@ -214,9 +214,6 @@ public class AlienBehaviour : MonoBehaviour
                     addMoney = false;
                 }
 
-                alienChild.clip = null;
-
-
                 rb.constraints = RigidbodyConstraints.FreezeAll;
                 animator.GetBool("Dying");
                 animator.GetBool("Attacking");
@@ -227,9 +224,6 @@ public class AlienBehaviour : MonoBehaviour
                 animator.SetBool("Attacking", false);
                 animator.SetBool("Walking", false);
                 animator.SetBool("Idle", false);
-                source.clip = audioClips[3];
-                source.Play();
-
                 Destroy(gameObject, 2.5f);
                 break;
 
@@ -351,9 +345,6 @@ public class AlienBehaviour : MonoBehaviour
             if (allowAttack)
             {
                 StartCoroutine(AttackDamage());
-
-
-
                 allowAttack = false;
             }
            
@@ -405,8 +396,8 @@ public class AlienBehaviour : MonoBehaviour
 
         if (health <= 0)
         {
+            alienChild.clip = null;
             currentState = AlienStates.DYING;
-
         }
     }
 

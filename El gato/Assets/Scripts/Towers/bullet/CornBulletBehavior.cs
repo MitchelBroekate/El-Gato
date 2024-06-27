@@ -24,29 +24,13 @@ public class CornBulletBehavior : BulletManager
         Destroy(gameObject, 8);
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.transform.tag == "enemyship")
-        {
-            if (enableDamage)
-            {
-
-                if (other.gameObject.GetComponent<UfoBehaviour>().uFOState != UfoBehaviour.UFOState.MOVINGOUT || other.gameObject.GetComponent<UfoBehaviour>().uFOState != UfoBehaviour.UFOState.DYING)
-                {
-                    other.gameObject.GetComponent<UfoBehaviour>().DoDamage(bulletDamage);
-                }
-                
-
-            }
-        }
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
 
         if(collision.transform.tag == "enemyship")
         {
             enableDamage = true;
+            collision.gameObject.GetComponent<UfoBehaviour>().DoDamage(bulletDamage);
             Destroy(gameObject);
         }
 
@@ -68,12 +52,12 @@ public class CornBulletBehavior : BulletManager
             if (target != null)
             {
                 lookTowards = Quaternion.LookRotation(target.position - transform.position);
-                transform.rotation = Quaternion.Lerp(transform.rotation, lookTowards, 5 * Time.deltaTime);
+                transform.rotation = Quaternion.Lerp(transform.rotation, lookTowards, 10 * Time.deltaTime);
             }
             else
             {
                 lookTowards = Quaternion.LookRotation(new Vector3(targetpos.x, 0, targetpos.z) - transform.position);
-                transform.rotation = Quaternion.Lerp(transform.rotation, lookTowards, 5 * Time.deltaTime);
+                transform.rotation = Quaternion.Lerp(transform.rotation, lookTowards, 10 * Time.deltaTime);
             }
         }
     }

@@ -34,8 +34,6 @@ public class FpsState : PlayerState
         cam.localRotation = Quaternion.Euler(xRotation, 0, 0);
         transform.Rotate(Vector3.up * mouseX);
 
-        WalkAudio();
-
         Walk();
     }
 
@@ -73,20 +71,5 @@ public class FpsState : PlayerState
     void OnMove(InputValue value)
     {
         walkDir = value.Get<Vector2>();
-    }
-
-    void WalkAudio()
-    {
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
-        {
-            source.clip = clip;
-            source.Play();
-        }
-
-        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D))
-        {
-            source.clip = null;
-            source.Play();
-        }
     }
 }
