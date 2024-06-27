@@ -196,10 +196,6 @@ public class DropshipBehaviour : MonoBehaviour
     {
         doRoutine = false;
 
-        if (towerParent.childCount > 0)
-        {
-            
-
             for (int i = 0; i <= 3; i++)
             {
                 int randomSpawn = UnityEngine.Random.Range(0, 3);
@@ -211,17 +207,12 @@ public class DropshipBehaviour : MonoBehaviour
                 currentAlien.SetActive(true);
 
                 yield return new WaitForSeconds(4);
-
-
             }
             
-
             currentState = shipStates.SHIPEXIT;
 
 
             StopCoroutine(AlienSpawn());
-        }
-
     }
 
     /// <summary>
