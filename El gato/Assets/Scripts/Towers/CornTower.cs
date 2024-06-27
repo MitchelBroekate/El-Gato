@@ -37,7 +37,7 @@ public class CornTower : TowerManager
         missileSpawn = transform.FindChild("MissileSpawn");
         missileCorn = transform.FindChild("Missile").gameObject;
         rangeScale = 30;
-        health = 150;
+        health = 300;
         bulletSpeed = 10;
 
         fireRate = 12;
@@ -192,6 +192,16 @@ public class CornTower : TowerManager
 
         missileSpeedIncrease = true;
 
+    }
+
+    public void DoDamage(int damage)
+    {
+        health -= damage;
+
+        if (health < 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void AddDamage(int addedDamage)
