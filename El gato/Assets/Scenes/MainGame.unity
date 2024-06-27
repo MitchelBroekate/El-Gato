@@ -5311,6 +5311,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SummerTerrain
       objectReference: {fileID: 0}
+    - target: {fileID: 9128843078072079920, guid: cc5d8c391eeac2e44a631b7375f3d4f9,
+        type: 3}
+      propertyPath: m_TagString
+      value: ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1303697370788190107, guid: cc5d8c391eeac2e44a631b7375f3d4f9, type: 3}
