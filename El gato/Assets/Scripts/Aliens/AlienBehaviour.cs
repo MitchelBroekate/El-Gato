@@ -224,7 +224,7 @@ public class AlienBehaviour : MonoBehaviour
                 animator.SetBool("Attacking", false);
                 animator.SetBool("Walking", false);
                 animator.SetBool("Idle", false);
-                Destroy(gameObject, 3f);
+                StartCoroutine(DeathWait());
                 break;
 
             default:
@@ -336,33 +336,37 @@ public class AlienBehaviour : MonoBehaviour
     /// </summary>
     void AttackTower()
     {
-        if (nearestTower != null)
+        if (currentState == AlienStates.ATTACKTOWER)
         {
-            allowDamage = true;
-            Quaternion lookTowards = Quaternion.LookRotation(new Vector3(nearestTower.position.x, transform.position.y, nearestTower.position.z) - transform.position);
-
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookTowards, 2 * Time.deltaTime);
-            if (allowAttack)
+            if (nearestTower != null)
             {
-                StartCoroutine(AttackDamage());
-                allowAttack = false;
+                allowDamage = true;
+                Quaternion lookTowards = Quaternion.LookRotation(new Vector3(nearestTower.position.x, transform.position.y, nearestTower.position.z) - transform.position);
+
+                transform.rotation = Quaternion.Slerp(transform.rotation, lookTowards, 2 * Time.deltaTime);
+                if (allowAttack)
+                {
+                    StartCoroutine(AttackDamage());
+                    allowAttack = false;
+                }
+
             }
-           
-        }
 
-        if (nearestTower == null && towerParent.childCount <= 0)
-        {
-            allowDamage = false;
-            StopAllCoroutines();
-            currentState = AlienStates.GOTOCHECKPOINT;
-        }
-        else if (nearestTower == null && towerParent.childCount > 0)
-        {
-            allowDamage = false;
-            StopAllCoroutines();
-            currentState = AlienStates.GOTOTOWER;
-        }
+            if (nearestTower == null && towerParent.childCount <= 0)
+            {
+                allowDamage = false;
+                StopAllCoroutines();
+                currentState = AlienStates.GOTOCHECKPOINT;
+            }
+            else if (nearestTower == null && towerParent.childCount > 0)
+            {
+                allowDamage = false;
+                StopAllCoroutines();
+                currentState = AlienStates.GOTOTOWER;
+            }
 
+
+        }
 
     }
 
@@ -371,6 +375,7 @@ public class AlienBehaviour : MonoBehaviour
     /// </summary>
     void FlashStart()
     {
+
         meshRenderer.material.color = Color.red;
         Invoke("FlashEnd", flashTime);
 
@@ -390,14 +395,17 @@ public class AlienBehaviour : MonoBehaviour
     /// <param name="damage"></param>
     public void DoDamage(int damage)
     {
-        health -= damage;
-        FlashStart();
-
-
-        if (health <= 0)
+        if (currentState != AlienStates.DYING)
         {
-            currentState = AlienStates.DYING;
+            health -= damage;
+            FlashStart();
+
+            if (health <= 0)
+            {
+                currentState = AlienStates.DYING;
+            }
         }
+
     }
 
     /// <summary>
@@ -436,5 +444,11 @@ public class AlienBehaviour : MonoBehaviour
 
         }
 
+    }
+
+    IEnumerator DeathWait()
+    {
+        yield return new WaitForSeconds(4);
+        Destroy(gameObject);
     }
 }
