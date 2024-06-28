@@ -6,8 +6,6 @@ public class CornBulletBehavior : BulletManager
 
     float moveSpeed = 40;
     Transform target;
-
-    bool enableDamage = false;
     bool enableFlight = false;
 
     Quaternion lookTowards;
