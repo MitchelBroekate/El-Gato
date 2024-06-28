@@ -50,6 +50,12 @@ public class UiManager : MonoBehaviour
         Application.LoadLevel(1);
     }
 
+    public void NextLevel()
+    {
+        Application.LoadLevel(2);
+        Time.timeScale = 1;
+    }
+
     public void ShowSettings()
     {
         settings.SetActive(true);
