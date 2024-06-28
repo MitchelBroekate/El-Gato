@@ -61,7 +61,8 @@ public class AlienBehaviour : MonoBehaviour
         GOTOCHECKPOINT,
         GOTOTOWER,
         ATTACKTOWER,
-        DYING   
+        DYING,
+        DEAD
     }
 
 
@@ -225,6 +226,7 @@ public class AlienBehaviour : MonoBehaviour
                 animator.SetBool("Walking", false);
                 animator.SetBool("Idle", false);
                 StartCoroutine(DeathWait());
+                currentState = AlienStates.DEAD;
                 break;
 
             default:
@@ -425,7 +427,7 @@ public class AlienBehaviour : MonoBehaviour
     {
         while (allowDamage)
         {
-            if (currentState != AlienStates.DYING)
+            if (currentState == AlienStates.ATTACKTOWER)
             {
                 if (source.clip != null)
                 {
@@ -439,6 +441,10 @@ public class AlienBehaviour : MonoBehaviour
 
                 nearestTower.GetComponent<Health>().DoDamage(damage);
             }
+            else
+            {
+                StopCoroutine(AttackDamage());
+            }
 
 
 
@@ -448,6 +454,7 @@ public class AlienBehaviour : MonoBehaviour
 
     IEnumerator DeathWait()
     {
+        print("Waiting for death.");
         yield return new WaitForSeconds(4);
         Destroy(gameObject);
     }
