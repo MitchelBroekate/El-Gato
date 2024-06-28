@@ -26,7 +26,11 @@ public class PumpkinRocket : MonoBehaviour
         {
             if (other.transform.tag == "Alien")
             {
+                if (other.gameObject.GetComponent<AlienBehaviour>().currentState != AlienBehaviour.AlienStates.DYING )
+                {
                 other.gameObject.GetComponent<AlienBehaviour>().DoDamage(500);
+
+                }
             }
 
             Destroy(gameObject);

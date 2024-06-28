@@ -23,8 +23,7 @@ public class AlienBehaviour : MonoBehaviour
 
     float walkSpeed;
 
-    [SerializeField]
-    AlienStates currentState;
+    public AlienStates currentState;
 
     bool collisionCheck;
 
@@ -55,7 +54,7 @@ public class AlienBehaviour : MonoBehaviour
     #endregion
 
     //Enum for Alien States
-    enum AlienStates
+    public enum AlienStates
     {
         DECEND,
         GOTOCHECKPOINT,
@@ -400,11 +399,12 @@ public class AlienBehaviour : MonoBehaviour
         if (currentState != AlienStates.DYING)
         {
             health -= damage;
-            FlashStart();
+            //FlashStart();
 
             if (health <= 0)
             {
-                currentState = AlienStates.DYING;
+                Destroy(gameObject);
+                //currentState = AlienStates.DYING;
             }
         }
 
