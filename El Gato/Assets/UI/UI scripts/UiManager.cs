@@ -117,9 +117,22 @@ public class UiManager : MonoBehaviour
     public void HidePause()
     {
         pause.SetActive(false);
+        Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         
+    }
+
+    public void ShowSettings2()
+    {
+        settings.SetActive(true);
+        pause.SetActive(false);
+    }
+
+    public void HideSettings2()
+    {
+        settings.SetActive(false);
+        pause.SetActive(true);
     }
 }
 
