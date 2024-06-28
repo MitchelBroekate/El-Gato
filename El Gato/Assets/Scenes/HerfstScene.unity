@@ -186,6 +186,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HerfstTerrain
       objectReference: {fileID: 0}
+    - target: {fileID: 3613447546370329460, guid: ab588043ad8af3c4c990635d81ed9aca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
