@@ -15,7 +15,12 @@ public class UiManager : MonoBehaviour
     public GameObject upgrades;
     public GameObject pause;
     public GameObject mainCanvas;
-   
+
+    private void Start()
+    {
+        Time.timeScale = 1;
+    }
+
     public void ShowGameOverScreen()
     {
         Cursor.lockState = CursorLockMode.None;
@@ -50,10 +55,11 @@ public class UiManager : MonoBehaviour
         Application.LoadLevel(1);
     }
 
+    [System.Obsolete]
     public void NextLevel()
     {
-        Application.LoadLevel(2);
         Time.timeScale = 1;
+        Application.LoadLevel(2);
     }
 
     public void ShowSettings()
@@ -96,6 +102,7 @@ public class UiManager : MonoBehaviour
     
     public void GoToLevelTwo()
     {
+        Time.timeScale = 1;
         Application.LoadLevel(2);
     }
 
@@ -124,8 +131,8 @@ public class UiManager : MonoBehaviour
     {
         pause.SetActive(false);
         Time.timeScale = 1f;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         
     }
 
