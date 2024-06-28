@@ -13,6 +13,8 @@ public class UiManager : MonoBehaviour
     public GameObject levelSelect;
     public GameObject shop;
     public GameObject upgrades;
+    public GameObject pause;
+    public GameObject mainCanvas;
    
     public void ShowGameOverScreen()
     {
@@ -101,6 +103,25 @@ public class UiManager : MonoBehaviour
     {
         upgrades.SetActive(false);
         shop.SetActive(true);
+    }
+
+    public void ShowPause()
+    {
+        mainCanvas.SetActive(false);
+        pause.SetActive(true);
+        Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+    }
+
+    public void HidePause()
+    {
+        mainCanvas.SetActive(true);
+        pause.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        
     }
 }
 
