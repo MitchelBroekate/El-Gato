@@ -154,7 +154,7 @@ public class CornTower : TowerManager
         bulletNumerator = true;
         bulletSpeed = 10;
         missile = Instantiate(missileCorn, missileSpawn.position, missileCorn.transform.rotation);
-        missile.transform.parent = transform;
+        missile.transform.parent = GameObject.Find("missileParent").transform;
         missile.SetActive(true);
         speedstop = true;
 

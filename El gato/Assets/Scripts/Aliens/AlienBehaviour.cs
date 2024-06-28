@@ -224,7 +224,7 @@ public class AlienBehaviour : MonoBehaviour
                 animator.SetBool("Attacking", false);
                 animator.SetBool("Walking", false);
                 animator.SetBool("Idle", false);
-                Destroy(gameObject, 2.5f);
+                Destroy(gameObject, 3f);
                 break;
 
             default:
@@ -396,7 +396,6 @@ public class AlienBehaviour : MonoBehaviour
 
         if (health <= 0)
         {
-            alienChild.clip = null;
             currentState = AlienStates.DYING;
         }
     }
