@@ -107,7 +107,6 @@ public class UiManager : MonoBehaviour
 
     public void ShowPause()
     {
-        mainCanvas.SetActive(false);
         pause.SetActive(true);
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
@@ -117,7 +116,6 @@ public class UiManager : MonoBehaviour
 
     public void HidePause()
     {
-        mainCanvas.SetActive(true);
         pause.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
