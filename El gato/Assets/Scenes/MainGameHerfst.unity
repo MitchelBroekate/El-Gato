@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.080346934, g: 0.09974045, b: 0.3011407, a: 1}
+  m_IndirectSpecularColor: {r: 0.08026754, g: 0.09965917, b: 0.30108246, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2519,6 +2519,18 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 8e6c151b181c30b47b55f34d218095f7, type: 2}
     - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
     - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
+    - {fileID: 11400000, guid: 8e6c151b181c30b47b55f34d218095f7, type: 2}
+    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
+    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
+    - {fileID: 11400000, guid: 8e6c151b181c30b47b55f34d218095f7, type: 2}
+    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
+    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
+    - {fileID: 11400000, guid: 8e6c151b181c30b47b55f34d218095f7, type: 2}
+    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
+    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
+    - {fileID: 11400000, guid: 8e6c151b181c30b47b55f34d218095f7, type: 2}
+    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
+    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
     - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
     enemyWaitTime: 4
     enemiesAlive: 0
@@ -2606,26 +2618,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
     - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
     - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 8e6c151b181c30b47b55f34d218095f7, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 8e6c151b181c30b47b55f34d218095f7, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 8e6c151b181c30b47b55f34d218095f7, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
     enemyWaitTime: 2
     enemiesAlive: 0
   - toSpawn:
@@ -2683,61 +2675,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
     - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
     - {fileID: 11400000, guid: 8e6c151b181c30b47b55f34d218095f7, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 8e6c151b181c30b47b55f34d218095f7, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 8e6c151b181c30b47b55f34d218095f7, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 8e6c151b181c30b47b55f34d218095f7, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 8e6c151b181c30b47b55f34d218095f7, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 8e6c151b181c30b47b55f34d218095f7, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 8e6c151b181c30b47b55f34d218095f7, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 8e6c151b181c30b47b55f34d218095f7, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 8e6c151b181c30b47b55f34d218095f7, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
-    - {fileID: 11400000, guid: 8e6c151b181c30b47b55f34d218095f7, type: 2}
-    - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
     - {fileID: 11400000, guid: 0f9fccd52e40dac418dd001b7dfca003, type: 2}
     enemyWaitTime: 1
     enemiesAlive: 0
@@ -4223,6 +4160,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HerfstTerrain (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3613447546370329460, guid: ab588043ad8af3c4c990635d81ed9aca,
+        type: 3}
+      propertyPath: m_TagString
+      value: ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
