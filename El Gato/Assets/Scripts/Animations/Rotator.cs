@@ -8,6 +8,11 @@ public class Rotator : MonoBehaviour
     public float rotateSpeed;
     public bool shoot = false;
 
+    private void Start()
+    {
+        shoot = true;
+    }
+
     void Update()
     {
         if (shoot)
