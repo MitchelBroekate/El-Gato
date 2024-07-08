@@ -56,8 +56,8 @@ MonoBehaviour:
   fireRate: 0
   whenToFire: 0
   bulletSpeed: 0
-  missileSpawn: {fileID: 0}
-  missileCorn: {fileID: 0}
+  missileSpawn: {fileID: 1302911757049936563}
+  missileCorn: {fileID: 2101713466516302278}
   allTargets: []
   nearestTarget: {fileID: 0}
 --- !u!135 &5534080073721660931

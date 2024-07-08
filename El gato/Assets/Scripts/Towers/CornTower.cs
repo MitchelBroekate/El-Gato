@@ -40,7 +40,7 @@ public class CornTower : TowerManager
         health = 300;
         bulletSpeed = 10;
 
-        fireRate = 5;
+        fireRate = 12;
 
         GetComponent<SphereCollider>().radius = rangeScale;
         animator = GetComponent<Animator>();
