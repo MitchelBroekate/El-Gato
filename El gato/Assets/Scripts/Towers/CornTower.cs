@@ -40,7 +40,7 @@ public class CornTower : TowerManager
         health = 300;
         bulletSpeed = 10;
 
-        fireRate = 12;
+        fireRate = 5;
 
         GetComponent<SphereCollider>().radius = rangeScale;
         animator = GetComponent<Animator>();
@@ -154,7 +154,7 @@ public class CornTower : TowerManager
         bulletNumerator = true;
         bulletSpeed = 10;
         missile = Instantiate(missileCorn, missileSpawn.position, missileCorn.transform.rotation);
-        missile.transform.parent = GameObject.Find("missileParent").transform;
+        missile.transform.parent = transform;
         missile.SetActive(true);
         speedstop = true;
 
