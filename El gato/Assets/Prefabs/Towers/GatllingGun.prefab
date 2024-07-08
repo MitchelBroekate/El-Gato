@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateDir: {x: 0, y: 0, z: 0}
   rotateSpeed: 10
-  shoot: 0
+  shoot: 1
 --- !u!1 &3115984736802041753
 GameObject:
   m_ObjectHideFlags: 0
