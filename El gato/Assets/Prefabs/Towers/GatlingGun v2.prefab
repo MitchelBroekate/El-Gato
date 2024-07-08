@@ -116,6 +116,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: GatllingGun
       objectReference: {fileID: 0}
+    - target: {fileID: 4929707346122796275, guid: 453ecd7bc10ebb448afdbe2f94e5b699,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929707346122796275, guid: 453ecd7bc10ebb448afdbe2f94e5b699,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929707346122796275, guid: 453ecd7bc10ebb448afdbe2f94e5b699,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929707346122796275, guid: 453ecd7bc10ebb448afdbe2f94e5b699,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929707346122796275, guid: 453ecd7bc10ebb448afdbe2f94e5b699,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387067087554081620, guid: 453ecd7bc10ebb448afdbe2f94e5b699,
+        type: 3}
+      propertyPath: rotateDir.z
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
