@@ -12,7 +12,7 @@ public class DropshipBehaviour : MonoBehaviour
 
     RaycastHit hit;
 
-    shipStates currentState;
+    [SerializeField] shipStates currentState;
 
     GameObject alien;
     GameObject currentAlien;
@@ -35,7 +35,7 @@ public class DropshipBehaviour : MonoBehaviour
     /// <summary>
     /// Enum for ship states
     /// </summary>
-    enum shipStates
+     enum shipStates
     {
         DECENDING,
         DROPOFF,
@@ -121,15 +121,15 @@ public class DropshipBehaviour : MonoBehaviour
             {
                 if (decendSpeedShip > 0)
                 {
-                    decendSpeedShip -= 200 * Time.deltaTime;
+                    decendSpeedShip = 500;
                 }
             }
 
             if (Vector3.Distance(transform.position, hit.point) <= 30)
             {
+                currentState = shipStates.DROPOFF;
                 GetComponent<Rigidbody>().velocity = Vector3.zero;
 
-                currentState = shipStates.DROPOFF;
             }
         }
 
