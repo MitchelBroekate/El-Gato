@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08026754, g: 0.09965917, b: 0.30108246, a: 1}
+  m_IndirectSpecularColor: {r: 0.08051002, g: 0.09990143, b: 0.30129844, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2916,10 +2916,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   potato: {fileID: 1421635619471346231, guid: 0776a84b3c8055947935a8016a742892, type: 3}
-  egg: {fileID: 0}
-  corn: {fileID: 0}
-  eggShow: {fileID: 0}
-  cornShow: {fileID: 0}
+  egg: {fileID: 6264712798825594767, guid: 62eb291f22680644897bf31c1664d51e, type: 3}
+  corn: {fileID: 7638158992492955743, guid: 530b1b6c6b988d846bbdb59dc23df060, type: 3}
+  eggShow: {fileID: 6264712798825594767, guid: 05b5d935c4963544e9aed776555c8103, type: 3}
+  cornShow: {fileID: 7638158992492955743, guid: 2848a8a68bbbf1c4384a35039a1ebdbe,
+    type: 3}
   pU: 0
   eU: 0
   cU: 0

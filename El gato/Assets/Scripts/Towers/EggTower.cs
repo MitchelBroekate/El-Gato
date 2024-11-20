@@ -34,7 +34,7 @@ public class EggTower : TowerManager
         bulletEgg = rotateX.FindChild("BulletEgg").gameObject;
         rangeScale = 30;
         health = 150;
-        bulletSpeed = 10000;
+        bulletSpeed = 5000;
 
         fireRate = 15;
 
