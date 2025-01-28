@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3953588255672014762
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 149161638525884428}
+  - component: {fileID: 1714559977896625059}
+  - component: {fileID: 3553363893222344892}
+  - component: {fileID: 2920612682015107883}
+  m_Layer: 0
+  m_Name: UI_UXManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &149161638525884428
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3953588255672014762}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 503.70554, y: 9.174814, z: 513.7488}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1714559977896625059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3953588255672014762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f763e0a4064dec419a5837121217ea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lossScreen: {fileID: 0}
+  winScreen: {fileID: 0}
+  settings: {fileID: 0}
+  mainMenu: {fileID: 0}
+  credits: {fileID: 0}
+  levelSelect: {fileID: 0}
+  shop: {fileID: 0}
+  upgrades: {fileID: 0}
+  pause: {fileID: 0}
+  mainCanvas: {fileID: 0}
+--- !u!114 &3553363893222344892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3953588255672014762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fc3ef2ea2635ae4cafc49fbb21202a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moo1: {fileID: 8300000, guid: 2985ac7debd12b54da61d8b2ac1fd1db, type: 3}
+  moo2: {fileID: 8300000, guid: 8e5ba1b83875b414a9257ff9996d3414, type: 3}
+  moo3: {fileID: 8300000, guid: a903f88cd51a424479885d011c681a89, type: 3}
+  bleat1: {fileID: 8300000, guid: 4006880398b9a5d48ac040b523eb9252, type: 3}
+  bleat2: {fileID: 8300000, guid: f3e1b01cc5ceff2489c7075f3cecd430, type: 3}
+  source: {fileID: 0}
+  mooWaitCheck: 1
+--- !u!114 &2920612682015107883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3953588255672014762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15e0912748815644fb1e5bb9d36227e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 979cb93c2468de84f8b95a04d3808d1e, type: 2}
+  musicSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}
+  resolutionDropdown: {fileID: 0}

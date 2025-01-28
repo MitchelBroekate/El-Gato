@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08051002, g: 0.09990143, b: 0.30129844, a: 1}
+  m_IndirectSpecularColor: {r: 0.12075232, g: 0.10919841, b: 0.3088894, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4614,33 +4614,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3062368822979746523, guid: 120b9dcf16ad5d14e9b6c685f2468254,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3062368822979746523, guid: 120b9dcf16ad5d14e9b6c685f2468254,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3062368822979746523, guid: 120b9dcf16ad5d14e9b6c685f2468254,
-        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 44883790}
-    - target: {fileID: 3062368822979746523, guid: 120b9dcf16ad5d14e9b6c685f2468254,
+    - target: {fileID: 3905446515314086247, guid: 120b9dcf16ad5d14e9b6c685f2468254,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: HideSettings2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3062368822979746523, guid: 120b9dcf16ad5d14e9b6c685f2468254,
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 44883793}
+    - target: {fileID: 3905446515314086247, guid: 120b9dcf16ad5d14e9b6c685f2468254,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UiManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3062368822979746523, guid: 120b9dcf16ad5d14e9b6c685f2468254,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 1
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetResolution
       objectReference: {fileID: 0}
     - target: {fileID: 5712313232091251976, guid: 120b9dcf16ad5d14e9b6c685f2468254,
         type: 3}
@@ -4749,38 +4734,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6535657656933294042, guid: 120b9dcf16ad5d14e9b6c685f2468254,
         type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6535657656933294042, guid: 120b9dcf16ad5d14e9b6c685f2468254,
-        type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6535657656933294042, guid: 120b9dcf16ad5d14e9b6c685f2468254,
-        type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 44883793}
-    - target: {fileID: 6535657656933294042, guid: 120b9dcf16ad5d14e9b6c685f2468254,
+    - target: {fileID: 7163260308098151300, guid: 120b9dcf16ad5d14e9b6c685f2468254,
         type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 44883793}
+    - target: {fileID: 7163260308098151300, guid: 120b9dcf16ad5d14e9b6c685f2468254,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetMusic
       objectReference: {fileID: 0}
-    - target: {fileID: 6535657656933294042, guid: 120b9dcf16ad5d14e9b6c685f2468254,
+    - target: {fileID: 8760025904611210901, guid: 120b9dcf16ad5d14e9b6c685f2468254,
         type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetFullScreen
-      objectReference: {fileID: 0}
-    - target: {fileID: 6535657656933294042, guid: 120b9dcf16ad5d14e9b6c685f2468254,
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 44883793}
+    - target: {fileID: 8760025904611210901, guid: 120b9dcf16ad5d14e9b6c685f2468254,
         type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Settings, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6535657656933294042, guid: 120b9dcf16ad5d14e9b6c685f2468254,
-        type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetSFX
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
