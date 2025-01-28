@@ -15,10 +15,25 @@ public class UiManager : MonoBehaviour
     public GameObject upgrades;
     public GameObject pause;
     public GameObject mainCanvas;
+    public GameObject indicator;
 
-    private void Start()
+    public void Start()
     {
         Time.timeScale = 1;
+
+    }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+
+            pause.SetActive(true);
+            Time.timeScale = 0f;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
+        }
     }
 
     public void ShowGameOverScreen()
@@ -132,7 +147,12 @@ public class UiManager : MonoBehaviour
         pause.SetActive(false);
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        Cursor.visible = false;
+        
+        if (indicator.activeInHierarchy == true)
+        {
+            Cursor.visible = true;
+        }
         
     }
 

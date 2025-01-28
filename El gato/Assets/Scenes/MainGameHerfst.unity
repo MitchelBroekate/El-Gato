@@ -293,6 +293,7 @@ MonoBehaviour:
   upgrades: {fileID: 230417907}
   pause: {fileID: 1643871440}
   mainCanvas: {fileID: 0}
+  indicator: {fileID: 2092162842}
 --- !u!4 &44883791
 Transform:
   m_ObjectHideFlags: 0
@@ -749,6 +750,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: TowerUpgrade, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602713157226169721, guid: d0a7c537229c2dd468c19f8799e5c128,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 64.77313
       objectReference: {fileID: 0}
     - target: {fileID: 3770001370993630685, guid: d0a7c537229c2dd468c19f8799e5c128,
         type: 3}
@@ -1869,7 +1875,7 @@ PrefabInstance:
     - target: {fileID: 7125928654981201851, guid: c27c454f6318a6540b69231a4b0048d9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GoToGame
+      value: GoToLevelTwo
       objectReference: {fileID: 0}
     - target: {fileID: 7125928654981201851, guid: c27c454f6318a6540b69231a4b0048d9,
         type: 3}

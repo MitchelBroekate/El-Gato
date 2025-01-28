@@ -6862,6 +6862,11 @@ PrefabInstance:
       objectReference: {fileID: 1647295812}
     - target: {fileID: 1714559977896625059, guid: b14017c9733350c479fb9030a485e044,
         type: 3}
+      propertyPath: indicator
+      value: 
+      objectReference: {fileID: 6491896724633814946}
+    - target: {fileID: 1714559977896625059, guid: b14017c9733350c479fb9030a485e044,
+        type: 3}
       propertyPath: winScreen
       value: 
       objectReference: {fileID: 1222465670}
